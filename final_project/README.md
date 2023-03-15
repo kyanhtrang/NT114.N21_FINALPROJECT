@@ -1,6 +1,6 @@
 # final_project
 
-Đồ án chuyên nganh
+Đồ án chuyên ngành
 
 ## Getting Started
 
