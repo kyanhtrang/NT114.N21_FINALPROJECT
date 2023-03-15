@@ -1,5 +1,5 @@
 name: final_project
-description: Đồ án chuyên nganh
+
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.3
+  get: ^4.6.5
   flutter_native_splash: ^2.2.19
 
 dev_dependencies:

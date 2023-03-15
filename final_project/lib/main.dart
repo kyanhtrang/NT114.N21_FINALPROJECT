@@ -1,3 +1,4 @@
+import 'package:final_project/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:final_project/src/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -13,19 +14,7 @@ class App extends StatelessWidget {
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super (key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Renting App"),),
-      body: const Center(child: Text("Home Page"),)
+      home: SplashScreen(),
     );
   }
 }
