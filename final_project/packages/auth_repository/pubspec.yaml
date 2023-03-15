@@ -25,13 +25,13 @@ dev_dependencies:
 flutter_native_splash:
   color: "#f7f6f1"
   dark_color: "#272727"
-  image: assets/images/FirstBackground.png
-  image_dark: assets/images/FirstBackground.png
+  image: assets/images/ic_launcher.png
+  image_dark: assets/images/ic_launcher.png
 
   android_12:
-    image: assets/images/FirstBackground.png
+    image: assets/images/ic_launcher.png
     icon_background_color: "#f7f6f1"
-    image_dark: assets/images/FirstBackground.png
+    image_dark: assets/images/ic_launcher.png
     icon_background_color_dark: "#272727"
 
 flutter:
