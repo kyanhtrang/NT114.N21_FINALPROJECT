@@ -17,6 +17,7 @@ INJECTED from D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src
 INJECTED from D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\main\AndroidManifest.xml:1:1-34:12
 INJECTED from D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\main\AndroidManifest.xml:1:1-34:12
 MERGED from D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\main\AndroidManifest.xml:1:1-34:12
+MERGED from [:path_provider_android] D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\kyanh\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\kyanh\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\kyanh\.gradle\caches\transforms-3\9354257804af8250f2ffb7c22e2892d5\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -55,6 +56,8 @@ uses-sdk
 INJECTED from D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\main\AndroidManifest.xml
 INJECTED from D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\main\AndroidManifest.xml
+MERGED from [:path_provider_android] D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\kyanh\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\kyanh\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\kyanh\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41

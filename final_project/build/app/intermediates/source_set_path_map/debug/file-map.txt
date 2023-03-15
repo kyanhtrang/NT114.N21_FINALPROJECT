@@ -10,3 +10,4 @@ com.example.final_project.app-rs-8 D:\GIT Source\NT114.N21_FINALPROJECT\final_pr
 com.example.final_project.app-mergeDebugResources-9 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
 com.example.final_project.app-mergeDebugResources-10 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
 com.example.final_project.app-merged_res-11 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\intermediates\merged_res\debug
+com.example.final_project.app-packaged_res-12 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\path_provider_android\intermediates\packaged_res\debug
