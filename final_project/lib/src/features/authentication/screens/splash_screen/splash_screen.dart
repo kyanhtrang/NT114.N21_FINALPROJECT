@@ -1,5 +1,5 @@
 
-import 'package:final_project/src/constants/images.dart';
+import 'package:final_project/src/constants/images_strings.dart';
 import 'package:final_project/src/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
