@@ -1,3 +1,4 @@
+import 'package:final_project/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
@@ -15,7 +16,7 @@ class FadeInAnimationController extends GetxController {
     animate.value = false;
     await Future.delayed(const Duration(milliseconds: 2000));
     Get.off( // Get.off Instead of Get.offAll()
-          () => const WelcomeScreen(),
+          () => const OnBoardingScreen(),
       duration: const Duration(milliseconds: 1000), //Transition Time
       transition: Transition.fadeIn, //Screen Switch Transition
     );
