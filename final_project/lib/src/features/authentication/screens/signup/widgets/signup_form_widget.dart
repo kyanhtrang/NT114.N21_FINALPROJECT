@@ -25,19 +25,29 @@ class SignUpFormWidget extends StatelessWidget {
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
               decoration: const InputDecoration(
-                  label: Text(tEmail), prefixIcon: Icon(Icons.email_outlined)),
+                  label: Text(tEmail),
+                  prefixIcon: Icon(Icons.email_outlined)),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
               decoration: const InputDecoration(
-                  label: Text(tPhoneNo), prefixIcon: Icon(Icons.numbers)),
+                  label: Text(tPhoneNo),
+                  prefixIcon: Icon(Icons.numbers)),
             ),
-            const SizedBox(height: tFormHeight - 20),
+            const SizedBox(
+                height: tFormHeight - 20),
             TextFormField(
               decoration: const InputDecoration(
-                  label: Text(tPassword), prefixIcon: Icon(Icons.fingerprint)),
+                  label: Text(tPassword),
+                  prefixIcon: Icon(Icons.fingerprint),
+                suffixIcon: IconButton(
+                  onPressed: null,
+                  icon: Icon(Icons.remove_red_eye_sharp),
+                ),
+              ),
             ),
-            const SizedBox(height: tFormHeight - 10),
+            const SizedBox(
+                height: tFormHeight - 10),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
