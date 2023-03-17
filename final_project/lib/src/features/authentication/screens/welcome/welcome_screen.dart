@@ -1,5 +1,9 @@
+import 'package:final_project/src/features/authentication/screens/login/login_screen.dart';
+import 'package:final_project/src/features/authentication/screens/signup/signup_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../constants/images_strings.dart';
@@ -37,14 +41,14 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const LoginScreen()),
                     child: Text(tLogin.toUpperCase()),
                   ),
                 ),
                 const SizedBox(width: 10.0),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const SignUpScreen()),
                     child: Text(tSignup.toUpperCase()),
                   ),
                 ),
