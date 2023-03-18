@@ -1,3 +1,4 @@
+import 'package:final_project/src/features/authentication/screens/forget_password/forget_password_options/forget_password_bottom_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,6 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../constants/sizes.dart';
 import '../../../../constants/text_strings.dart';
+import '../forget_password/forget_password_options/bottom_sheet_button_widget.dart';
 import '../signup/signup_screen.dart';
 
 class LoginForm extends StatelessWidget {
@@ -44,7 +46,9 @@ class LoginForm extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    ForgetPasswordScreen.buildShowModalBottomSheet(context);
+                  },
                   child: const Text(tForgetPassword)),
             ),
             SizedBox(
