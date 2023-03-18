@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-#Sat Mar 18 01:20:34 ICT 2023
-=======
-#Sat Mar 18 21:15:02 ICT 2023
->>>>>>> Stashed changes
+#Sat Mar 18 01:51:29 ICT 2023
+
 base.0=D\:\\GIT Source\\NT114.N21_FINALPROJECT\\final_project\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
