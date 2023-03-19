@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "344631204709",
+    "project_id": "vehicle-renting-app",
+    "storage_bucket": "vehicle-renting-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344631204709:android:be185d004462e1504f5f8c",
+        "android_client_info": {
+          "package_name": "com.example.final_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344631204709-ltua8cfjjjne4c9vbi48dbvqkud138lk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOhQ-vyGX_U5ip47kVrWsmmIqWI4HR02M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344631204709-ltua8cfjjjne4c9vbi48dbvqkud138lk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
