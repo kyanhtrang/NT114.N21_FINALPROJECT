@@ -74,6 +74,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_otp_text_field",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_otp_text_field-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///C:/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -290,7 +296,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-17T18:50:58.666173Z",
+  "generated": "2023-03-19T04:58:35.651663Z",
   "generator": "pub",
   "generatorVersion": "2.19.3"
 }
