@@ -6,6 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../constants/sizes.dart';
 import '../../../../constants/text_strings.dart';
+import '../../../core/home/home.dart';
 import '../forget_password/forget_password_options/bottom_sheet_button_widget.dart';
 import '../signup/signup_screen.dart';
 
@@ -54,7 +55,7 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.to(() => const Home()),
                 child: Text(tLogin.toUpperCase()),
               ),
             ),

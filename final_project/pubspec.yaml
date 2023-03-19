@@ -40,6 +40,7 @@ dependencies:
   liquid_swipe: #latest
   smooth_page_indicator: #latest
   flutter_otp_text_field: #latest
+  firebase_core: #latest
 
 dev_dependencies:
   flutter_test:
