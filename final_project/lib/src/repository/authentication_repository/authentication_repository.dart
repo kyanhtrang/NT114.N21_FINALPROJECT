@@ -5,7 +5,7 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_rx/src/rx_workers/rx_workers.dart';
 
 import '../../features/authentication/screens/welcome/welcome_screen.dart';
-import '../../features/core/home/home.dart';
+import '../../features/core/home/homepage.dart';
 import 'exceptions/signup_email_password_failure.dart';
 
 class AuthenticationRepository extends GetxController {
@@ -24,14 +24,14 @@ class AuthenticationRepository extends GetxController {
   }
 
   _setInitialScreen(User? user) {
-    user == null ? Get.offAll(() => const WelcomeScreen()) : Get.offAll(() => const Home());
+    user == null ? Get.offAll(() => const WelcomeScreen()) : Get.offAll(() => const HomePage());
   }
 
   //FUNC
   Future<String?> createUserWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const Home()) : Get.to(() => const WelcomeScreen());
+      firebaseUser.value != null ? Get.offAll(() => const HomePage()) : Get.to(() => const WelcomeScreen());
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       return ex.message;

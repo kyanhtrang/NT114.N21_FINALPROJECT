@@ -19,6 +19,7 @@ dependencies:
   flutter_otp_text_field: #latest
   firebase_core: #latest
   firebase_auth: #latest
+  google_nav_bar: #latest
 
 dev_dependencies:
   flutter_test:
