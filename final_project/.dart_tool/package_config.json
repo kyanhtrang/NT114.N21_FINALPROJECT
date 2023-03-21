@@ -146,6 +146,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "google_nav_bar",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/google_nav_bar-5.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "http",
       "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/http-0.13.5",
       "packageUri": "lib/",
@@ -350,7 +356,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-20T13:35:24.331884Z",
+  "generated": "2023-03-21T08:52:42.704144Z",
   "generator": "pub",
   "generatorVersion": "2.19.3"
 }
