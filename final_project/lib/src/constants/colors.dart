@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 /* -- LIST OF ALL COLORS -- */
 
-const tPrimaryColor = Color(0xFFFFE400);
-const tSecondaryColor = Color(0xFF272727);
+const tPrimaryColor = Color(0xFFeeaa74);
+const tSecondaryColor = Color(0xff2b304d);
 const tAccentColor = Color(0xFF001BFF);
 
 const tWhiteColor = Colors.white;
-const tDarkColor = Color(0xff000000);
-const tCardBgColor = Color(0xFFF7F6F1);
+const tDarkColor = Color(0xff2b304d);
+const tCardBgColor = Color(0xFFeeaa74);
 
 // -- ON-BOARDING COLORS
 const tOnBoardingPage1Color = Colors.white;
