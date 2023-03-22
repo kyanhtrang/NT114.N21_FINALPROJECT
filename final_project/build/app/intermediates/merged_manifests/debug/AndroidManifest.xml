@@ -5,7 +5,7 @@
     android:versionName="1.0.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="20"
         android:targetSdkVersion="33" />
     <!--
          The INTERNET permission is required for development. Specifically,
@@ -15,12 +15,26 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <queries>
+
+        <!-- Needs to be explicitly declared on Android R+ -->
+        <package android:name="com.google.android.apps.maps" />
+    </queries>
+
     <application
         android:name="android.app.Application"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="final_project" >
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="os.environ.get(&apos;API_KEY&apos;)" />
+
         <activity
             android:name="com.example.final_project.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -118,7 +132,10 @@
             android:authorities="com.example.final_project.firebaseinitprovider"
             android:directBootAware="true"
             android:exported="false"
-            android:initOrder="100" />
+            android:initOrder="100" /> <!-- Needs to be explicitly declared on P+ -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"

@@ -1,19 +1,22 @@
 com.example.final_project.app-jetified-window-java-1.0.0-beta04-0 C:\Users\kyanh\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\res
-com.example.final_project.app-browser-1.4.0-1 C:\Users\kyanh\.gradle\caches\transforms-3\392643a040d0a7ef9b2ed4537c4719d5\transformed\browser-1.4.0\res
-com.example.final_project.app-core-1.6.0-2 C:\Users\kyanh\.gradle\caches\transforms-3\4ca28c4a71705f8a687c69dda140a277\transformed\core-1.6.0\res
-com.example.final_project.app-jetified-annotation-experimental-1.1.0-3 C:\Users\kyanh\.gradle\caches\transforms-3\8965c941cf4bee4d72541b965c7c9d39\transformed\jetified-annotation-experimental-1.1.0\res
-com.example.final_project.app-jetified-firebase-common-20.3.0-4 C:\Users\kyanh\.gradle\caches\transforms-3\8d6c7e10f65750ef3948181416e437b1\transformed\jetified-firebase-common-20.3.0\res
-com.example.final_project.app-jetified-window-1.0.0-beta04-5 C:\Users\kyanh\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\res
-com.example.final_project.app-jetified-play-services-base-17.1.0-6 C:\Users\kyanh\.gradle\caches\transforms-3\ebecc565820f24b7a6d2a6a95a057479\transformed\jetified-play-services-base-17.1.0\res
-com.example.final_project.app-jetified-play-services-basement-18.1.0-7 C:\Users\kyanh\.gradle\caches\transforms-3\f46b9773282b7a3d38863a46e0e0b5d1\transformed\jetified-play-services-basement-18.1.0\res
-com.example.final_project.app-debug-8 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\debug\res
-com.example.final_project.app-main-9 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\main\res
-com.example.final_project.app-pngs-10 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\generated\res\pngs\debug
-com.example.final_project.app-resValues-11 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\generated\res\resValues\debug
-com.example.final_project.app-rs-12 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\generated\res\rs\debug
-com.example.final_project.app-mergeDebugResources-13 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
-com.example.final_project.app-mergeDebugResources-14 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
-com.example.final_project.app-merged_res-15 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\intermediates\merged_res\debug
-com.example.final_project.app-packaged_res-16 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\firebase_auth\intermediates\packaged_res\debug
-com.example.final_project.app-packaged_res-17 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\firebase_core\intermediates\packaged_res\debug
-com.example.final_project.app-packaged_res-18 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\path_provider_android\intermediates\packaged_res\debug
+com.example.final_project.app-jetified-play-services-base-18.0.1-1 C:\Users\kyanh\.gradle\caches\transforms-3\082fa8f1e076fd76c98f4d760b4e67b1\transformed\jetified-play-services-base-18.0.1\res
+com.example.final_project.app-browser-1.4.0-2 C:\Users\kyanh\.gradle\caches\transforms-3\392643a040d0a7ef9b2ed4537c4719d5\transformed\browser-1.4.0\res
+com.example.final_project.app-core-1.6.0-3 C:\Users\kyanh\.gradle\caches\transforms-3\4ca28c4a71705f8a687c69dda140a277\transformed\core-1.6.0\res
+com.example.final_project.app-jetified-annotation-experimental-1.1.0-4 C:\Users\kyanh\.gradle\caches\transforms-3\8965c941cf4bee4d72541b965c7c9d39\transformed\jetified-annotation-experimental-1.1.0\res
+com.example.final_project.app-jetified-firebase-common-20.3.0-5 C:\Users\kyanh\.gradle\caches\transforms-3\8d6c7e10f65750ef3948181416e437b1\transformed\jetified-firebase-common-20.3.0\res
+com.example.final_project.app-jetified-play-services-maps-18.1.0-6 C:\Users\kyanh\.gradle\caches\transforms-3\a0e34175b89fa528462076cc4208822f\transformed\jetified-play-services-maps-18.1.0\res
+com.example.final_project.app-jetified-window-1.0.0-beta04-7 C:\Users\kyanh\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\res
+com.example.final_project.app-jetified-play-services-basement-18.1.0-8 C:\Users\kyanh\.gradle\caches\transforms-3\f46b9773282b7a3d38863a46e0e0b5d1\transformed\jetified-play-services-basement-18.1.0\res
+com.example.final_project.app-debug-9 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\debug\res
+com.example.final_project.app-main-10 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\android\app\src\main\res
+com.example.final_project.app-pngs-11 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\generated\res\pngs\debug
+com.example.final_project.app-resValues-12 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\generated\res\resValues\debug
+com.example.final_project.app-rs-13 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\generated\res\rs\debug
+com.example.final_project.app-mergeDebugResources-14 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.final_project.app-mergeDebugResources-15 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.final_project.app-merged_res-16 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\app\intermediates\merged_res\debug
+com.example.final_project.app-packaged_res-17 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\firebase_auth\intermediates\packaged_res\debug
+com.example.final_project.app-packaged_res-18 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\firebase_core\intermediates\packaged_res\debug
+com.example.final_project.app-packaged_res-19 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\debug
+com.example.final_project.app-packaged_res-20 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\google_maps_flutter_android\intermediates\packaged_res\debug
+com.example.final_project.app-packaged_res-21 D:\GIT Source\NT114.N21_FINALPROJECT\final_project\build\path_provider_android\intermediates\packaged_res\debug
