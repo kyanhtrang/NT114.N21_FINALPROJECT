@@ -20,12 +20,13 @@ dependencies:
   firebase_core: #latest
   firebase_auth: #latest
   google_nav_bar: #latest
+  google_maps_flutter: #latest
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: #latest
 
 flutter:
   uses-material-design: true
