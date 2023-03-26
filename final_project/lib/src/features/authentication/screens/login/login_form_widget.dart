@@ -1,5 +1,7 @@
 import 'package:final_project/src/features/authentication/screens/forget_password/forget_password_options/forget_password_bottom_sheet.dart';
+import 'package:final_project/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:final_project/testmap.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,6 +20,10 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthenticationRepository authen = AuthenticationRepository();
+    TextEditingController _password = TextEditingController();
+    TextEditingController _email = TextEditingController();
+    final _formKey = GlobalKey<FormState>();
     return Form(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
@@ -25,6 +31,7 @@ class LoginForm extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
+              controller: _email,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.person_outline_outlined),
                   labelText: tEmail,
@@ -33,6 +40,8 @@ class LoginForm extends StatelessWidget {
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
+              controller: _password,
+              obscureText: true,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.fingerprint),
                 labelText: tPassword,
@@ -56,7 +65,7 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Get.to(() => const HomePage()),
+                onPressed: () => /*Get.to(() => const HomePage())*/  (AuthenticationRepository.instance.loginWithEmailAndPassword(_email.text,_password.text)),
                 child: Text(tLogin.toUpperCase()),
               ),
             ),
@@ -64,5 +73,12 @@ class LoginForm extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _showToast(BuildContext context, String text) {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(SnackBar(
+        content: Text(text),
+      ),);
   }
 }

@@ -21,6 +21,7 @@ dependencies:
   firebase_auth: #latest
   google_nav_bar: #latest
   google_maps_flutter: #latest
+  fluttertoast: #lastest
 
 dev_dependencies:
   flutter_test:

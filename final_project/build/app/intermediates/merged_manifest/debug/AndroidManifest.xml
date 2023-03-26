@@ -30,7 +30,8 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="final_project" >
+        android:label="final_project"
+        android:usesCleartextTraffic="true" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="os.environ.get(&apos;API_KEY&apos;)" />
