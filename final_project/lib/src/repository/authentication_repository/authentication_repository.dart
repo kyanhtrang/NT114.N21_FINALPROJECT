@@ -44,11 +44,16 @@ class AuthenticationRepository extends GetxController {
     }
     return null;
   }
-
+/*
   Future<String?> loginWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      firebaseUser.getIdToken() != null ? Get.to(() => const HomePage()) : const WelcomeScreen();
+      if (firebaseUser.getIdToken() != null) {
+        await Get.offAll(() => const HomePage());
+      } else {
+        await Get.offAll(const WelcomeScreen());
+        return 'Error: unable to sign in';
+      }
     } on FirebaseAuthException catch (e) {
       final ex = SignInWithEmailAndPasswordFailure.code(e.code);
       return ex.message;
@@ -57,7 +62,28 @@ class AuthenticationRepository extends GetxController {
       return ex.message;
     }
     return null;
+  }*/
+
+  Future<String?> loginWithEmailAndPassword(String email, String password) async {
+    try {
+      final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      if (userCredential.user != null) {
+        await Get.offAll(() => const HomePage());
+      } else {
+        await Get.offAll(const WelcomeScreen());
+        return 'Error: unable to sign in';
+      }
+    } on FirebaseAuthException catch (e) {
+      final ex = SignInWithEmailAndPasswordFailure.code(e.code);
+      return ex.message;
+    } catch (e, stackTrace) {
+      debugPrint('$e\n$stackTrace');
+      const ex = SignInWithEmailAndPasswordFailure();
+      return ex.message;
+    }
+    return null;
   }
+
 
   void _showToast(String text) {
     final scaffold = ScaffoldMessenger.of(Get.context!);

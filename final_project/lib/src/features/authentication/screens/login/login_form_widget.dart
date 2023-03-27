@@ -10,6 +10,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../../../constants/sizes.dart';
 import '../../../../constants/text_strings.dart';
 import '../../../core/home/homepage.dart';
+import '../../controllers/signup_controller.dart';
 import '../forget_password/forget_password_options/bottom_sheet_button_widget.dart';
 import '../signup/signup_screen.dart';
 
@@ -20,18 +21,23 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final controller = Get.put(SignUpController());
+/*
     TextEditingController _password = TextEditingController();
-    TextEditingController _email = TextEditingController();
+    TextEditingController _email = TextEditingController();*/
 
     final _formKey = GlobalKey<FormState>();
-    return Form(
-      child: Container(
+
+    return Container(
         padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
+        child: Form(
+          key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
-              controller: _email,
+              controller: controller.email,
               autofocus: false,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.person_outline_outlined),
@@ -41,7 +47,7 @@ class LoginForm extends StatelessWidget {
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
-              controller: _password,
+              controller: controller.password,
               autofocus: false,
               obscureText: true,
               decoration: const InputDecoration(
@@ -67,7 +73,12 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => /*Get.to(() => const HomePage())*/  (Login(context ,_email.text, _password.text)),
+                onPressed: () {
+                  if(_formKey.currentState!.validate()) {
+                    AuthenticationRepository.instance.loginWithEmailAndPassword(controller.email.text.trim(), controller.password.text.trim());
+                    }
+                  },
+                  // (Login(context ,_email.text.trim(), _password.text.trim())),
                 child: Text(tLogin.toUpperCase()),
               ),
             ),
