@@ -15,16 +15,13 @@ class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
   //Variables
-  final _auth = FirebaseAuth.instance;
-  late final Rx<User?>firebaseUser;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  late final User firebaseUser;
 
   //Will be load when app launches this func will be called and set the firebaseUser state
   @override
   void onReady() {
-
-    firebaseUser = Rx<User?>(_auth.currentUser);
-    firebaseUser.bindStream(_auth.userChanges());
-    ever(firebaseUser, _setInitialScreen);
+    _showToast(_auth.currentUser.isBlank.toString());
   }
 
   _setInitialScreen(User? user) {
@@ -35,7 +32,9 @@ class AuthenticationRepository extends GetxController {
   Future<String?> createUserWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const HomePage()) : const WelcomeScreen();
+
+      firebaseUser = _auth.currentUser!;
+      firebaseUser.uid != null ? Get.offAll(() => const HomePage()) : const WelcomeScreen();
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       return ex.message;
@@ -49,7 +48,7 @@ class AuthenticationRepository extends GetxController {
   Future<String?> loginWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const HomePage()) : const WelcomeScreen();
+      firebaseUser.getIdToken() != null ? Get.to(() => const HomePage()) : const WelcomeScreen();
     } on FirebaseAuthException catch (e) {
       final ex = SignInWithEmailAndPasswordFailure.code(e.code);
       return ex.message;
@@ -58,6 +57,13 @@ class AuthenticationRepository extends GetxController {
       return ex.message;
     }
     return null;
+  }
+
+  void _showToast(String text) {
+    final scaffold = ScaffoldMessenger.of(Get.context!);
+    scaffold.showSnackBar(SnackBar(
+      content: Text(text),
+    ),);
   }
 
   Future<void> logout() async => await _auth.signOut();

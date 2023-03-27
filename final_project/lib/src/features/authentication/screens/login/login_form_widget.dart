@@ -20,9 +20,9 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthenticationRepository authen = AuthenticationRepository();
     TextEditingController _password = TextEditingController();
     TextEditingController _email = TextEditingController();
+
     final _formKey = GlobalKey<FormState>();
     return Form(
       child: Container(
@@ -32,6 +32,7 @@ class LoginForm extends StatelessWidget {
           children: [
             TextFormField(
               controller: _email,
+              autofocus: false,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.person_outline_outlined),
                   labelText: tEmail,
@@ -41,6 +42,7 @@ class LoginForm extends StatelessWidget {
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
               controller: _password,
+              autofocus: false,
               obscureText: true,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.fingerprint),
@@ -65,7 +67,7 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => /*Get.to(() => const HomePage())*/  (AuthenticationRepository.instance.loginWithEmailAndPassword(_email.text,_password.text)),
+                onPressed: () => /*Get.to(() => const HomePage())*/  (Login(context ,_email.text, _password.text)),
                 child: Text(tLogin.toUpperCase()),
               ),
             ),
@@ -73,6 +75,29 @@ class LoginForm extends StatelessWidget {
         ),
       ),
     );
+  }
+
+
+  void Login(BuildContext context,String email, String password){
+    try {
+      FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        _showToast(context , 'No user found');
+        print('Cannot Login');
+      } else {
+        if (e.code == 'wrong-password') {
+          _showToast(context, 'Wrong password');
+          print('Wrong password');
+        }
+        else {
+          _showToast(context, 'Logging in');
+          Get.to(HomePage());
+        }
+      }
+    }
+    if (FirebaseAuth.instance.currentUser != null){ Get.to(HomePage());}
   }
 
   void _showToast(BuildContext context, String text) {
