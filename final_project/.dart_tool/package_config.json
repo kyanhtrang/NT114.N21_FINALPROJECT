@@ -110,12 +110,6 @@
       "languageVersion": "2.17"
     },
     {
-      "name": "flutter_lints",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-2.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
       "name": "flutter_otp_text_field",
       "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_otp_text_field-1.1.1",
       "packageUri": "lib/",
@@ -210,12 +204,6 @@
       "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.5",
       "packageUri": "lib/",
       "languageVersion": "2.16"
-    },
-    {
-      "name": "lints",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/lints-2.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
     },
     {
       "name": "liquid_swipe",
@@ -398,7 +386,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-27T17:31:05.622031Z",
+  "generated": "2023-03-28T01:10:16.478110Z",
   "generator": "pub",
-  "generatorVersion": "2.19.4"
+  "generatorVersion": "2.19.5"
 }
