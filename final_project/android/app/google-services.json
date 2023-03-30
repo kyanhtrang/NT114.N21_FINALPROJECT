@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "344631204709",
-    "project_id": "vehicle-renting-app",
-    "storage_bucket": "vehicle-renting-app.appspot.com"
+    "project_number": "804540985133",
+    "project_id": "rental-flutter-app-3c213",
+    "storage_bucket": "rental-flutter-app-3c213.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:344631204709:android:be185d004462e1504f5f8c",
+        "mobilesdk_app_id": "1:804540985133:android:d1495d1ba16b46bfd5ada4",
         "android_client_info": {
           "package_name": "com.example.final_project"
         }
       },
       "oauth_client": [
         {
-          "client_id": "344631204709-ot3sq96k7eeik8g9flkqigi04hbg3ugk.apps.googleusercontent.com",
+          "client_id": "804540985133-vsoi4fq7ncbjki1618398af1rjk97b1c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBOhQ-vyGX_U5ip47kVrWsmmIqWI4HR02M"
+          "current_key": "AIzaSyCEBJqldPUJ5i8_r1KAf0keB2rbv-On0BU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "344631204709-ltua8cfjjjne4c9vbi48dbvqkud138lk.apps.googleusercontent.com",
+              "client_id": "804540985133-vsoi4fq7ncbjki1618398af1rjk97b1c.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "344631204709-1lrprd4l18der94jm52jda7pgr06598e.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.finalProject"
-              }
             }
           ]
         }

@@ -44,39 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCu4wu2ihqLQApxalWMO9WJ0LQkiLlfPUk',
-    appId: '1:344631204709:web:00fbede5d49671a64f5f8c',
-    messagingSenderId: '344631204709',
-    projectId: 'vehicle-renting-app',
-    authDomain: 'vehicle-renting-app.firebaseapp.com',
-    storageBucket: 'vehicle-renting-app.appspot.com',
+    apiKey: 'AIzaSyC6_yT67lNRhN8orCNDflule2QBv67q-SQ',
+    appId: '1:804540985133:web:a378c457688f48ccd5ada4',
+    messagingSenderId: '804540985133',
+    projectId: 'rental-flutter-app-3c213',
+    authDomain: 'rental-flutter-app-3c213.firebaseapp.com',
+    storageBucket: 'rental-flutter-app-3c213.appspot.com',
+    measurementId: 'G-7D2N8XSWZX',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBOhQ-vyGX_U5ip47kVrWsmmIqWI4HR02M',
-    appId: '1:344631204709:android:be185d004462e1504f5f8c',
-    messagingSenderId: '344631204709',
-    projectId: 'vehicle-renting-app',
-    storageBucket: 'vehicle-renting-app.appspot.com',
+    apiKey: 'AIzaSyCEBJqldPUJ5i8_r1KAf0keB2rbv-On0BU',
+    appId: '1:804540985133:android:d1495d1ba16b46bfd5ada4',
+    messagingSenderId: '804540985133',
+    projectId: 'rental-flutter-app-3c213',
+    storageBucket: 'rental-flutter-app-3c213.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAD4X9SzktkBg5TK4QaKl9FoJ0excfRoPQ',
-    appId: '1:344631204709:ios:f5f90c17b35e74374f5f8c',
-    messagingSenderId: '344631204709',
-    projectId: 'vehicle-renting-app',
-    storageBucket: 'vehicle-renting-app.appspot.com',
-    iosClientId: '344631204709-1lrprd4l18der94jm52jda7pgr06598e.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDUIsZqyUb2_SfAwhAppeqYAdDt6PGjbWE',
+    appId: '1:804540985133:ios:52ab96067c6717f7d5ada4',
+    messagingSenderId: '804540985133',
+    projectId: 'rental-flutter-app-3c213',
+    storageBucket: 'rental-flutter-app-3c213.appspot.com',
+    iosClientId: '804540985133-k3aacfbidc69cqqlolvcfg57li0ao4ua.apps.googleusercontent.com',
     iosBundleId: 'com.example.finalProject',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAD4X9SzktkBg5TK4QaKl9FoJ0excfRoPQ',
-    appId: '1:344631204709:ios:f5f90c17b35e74374f5f8c',
-    messagingSenderId: '344631204709',
-    projectId: 'vehicle-renting-app',
-    storageBucket: 'vehicle-renting-app.appspot.com',
-    iosClientId: '344631204709-1lrprd4l18der94jm52jda7pgr06598e.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDUIsZqyUb2_SfAwhAppeqYAdDt6PGjbWE',
+    appId: '1:804540985133:ios:52ab96067c6717f7d5ada4',
+    messagingSenderId: '804540985133',
+    projectId: 'rental-flutter-app-3c213',
+    storageBucket: 'rental-flutter-app-3c213.appspot.com',
+    iosClientId: '804540985133-k3aacfbidc69cqqlolvcfg57li0ao4ua.apps.googleusercontent.com',
     iosBundleId: 'com.example.finalProject',
   );
 }
