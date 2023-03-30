@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "804540985133",
-    "project_id": "rental-flutter-app-3c213",
-    "storage_bucket": "rental-flutter-app-3c213.appspot.com"
+    "project_number": "${MESSAGING_SENDER_ID}",
+    "project_id": "$PROJECT_ID}",
+    "storage_bucket": "${STORAGE_BUCKET}"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:804540985133:android:d1495d1ba16b46bfd5ada4",
+        "mobilesdk_app_id": "${APP_ID}",
         "android_client_info": {
           "package_name": "com.example.final_project"
         }
       },
       "oauth_client": [
         {
-          "client_id": "804540985133-vsoi4fq7ncbjki1618398af1rjk97b1c.apps.googleusercontent.com",
+          "client_id": "${CLIENT_ID}",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCEBJqldPUJ5i8_r1KAf0keB2rbv-On0BU"
+          "current_key": "${API_KEY}"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "804540985133-vsoi4fq7ncbjki1618398af1rjk97b1c.apps.googleusercontent.com",
+              "client_id": "${CLIENT_ID}",
               "client_type": 3
             }
           ]
