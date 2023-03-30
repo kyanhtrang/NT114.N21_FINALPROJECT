@@ -31,10 +31,9 @@ class AuthenticationRepository extends GetxController {
   //FUNC
   Future<String?> createUserWithEmailAndPassword(String email, String password) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
-
-      firebaseUser = _auth.currentUser!;
-      firebaseUser.uid != null ? Get.offAll(() => const HomePage()) : const WelcomeScreen();
+      await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      await sendEmailVerificaton();
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       return ex.message;
@@ -43,6 +42,13 @@ class AuthenticationRepository extends GetxController {
       return ex.message;
     }
     return null;
+  }
+
+  Future<void> sendEmailVerificaton() async {
+    try {
+      _auth.currentUser!.sendEmailVerification();
+    } on FirebaseAuthException catch (err) {
+    }
   }
 /*
   Future<String?> loginWithEmailAndPassword(String email, String password) async {

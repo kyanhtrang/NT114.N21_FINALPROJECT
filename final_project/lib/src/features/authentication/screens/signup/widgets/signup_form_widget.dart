@@ -1,4 +1,5 @@
 import 'package:final_project/src/features/authentication/controllers/signup_controller.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,11 +7,34 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
+import '../../../../../service/firebase_auth_methods.dart';
 
-class SignUpFormWidget extends StatelessWidget {
-  const SignUpFormWidget({
-    Key? key,
-  }) : super(key: key);
+class SignUpFormWidget extends StatefulWidget {
+  const SignUpFormWidget({Key? key,}) : super(key: key);
+
+  @override
+  State<SignUpFormWidget> createState() => SignUpWithEmail();
+}
+
+class SignUpWithEmail extends State<SignUpFormWidget> {
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    email.dispose();
+    password.dispose();
+  }
+
+  void signUpUser() async {
+    FirebaseAuthMethods(FirebaseAuth.instance).signUpWithEmail(
+      email: email.text,
+      password: password.text,
+      context: context,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +54,7 @@ class SignUpFormWidget extends StatelessWidget {
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
-              controller: controller.email,
+              controller: email,
               decoration: const InputDecoration(label: Text(tEmail), prefixIcon: Icon(Icons.email_outlined)),
             ),
             const SizedBox(height: tFormHeight - 20),
@@ -40,7 +64,7 @@ class SignUpFormWidget extends StatelessWidget {
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
-              controller: controller.password,
+              controller: password,
               decoration: const InputDecoration(label: Text(tPassword), prefixIcon: Icon(Icons.fingerprint)),
             ),
             const SizedBox(height: tFormHeight - 10),
@@ -48,9 +72,7 @@ class SignUpFormWidget extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  if(_formKey.currentState!.validate()){
-                    SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
-                  }
+                  signUpUser();
                 },
                 child: Text(tSignup.toUpperCase()),
               ),
