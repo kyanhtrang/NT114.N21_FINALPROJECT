@@ -1,3 +1,49 @@
+plugins {
+    id 'com.github.triplet.play' version '3.3.0'
+    id 'com.google.android.gms.google-services'
+    id 'kotlin-android'
+    // ...
+}
+
+android {
+    // ...
+
+    buildTypes {
+        // ...
+    }
+
+    // ...
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${variant.name}-${variant.versionName}.apk"
+        }
+    }
+
+    // Import the plugin at the bottom of your Android module's build.gradle file
+    apply plugin: 'kotlin-android-extensions'
+    apply plugin: 'kotlin-kapt'
+    apply plugin: 'com.google.gms.google-services'
+    apply plugin: 'com.github.triplet.play'
+
+    // ...
+
+    // Load the .env file in gradle using the following code
+    properties {
+        def envFile = rootProject.file('.env')
+        if (envFile.exists()) {
+            def Properties props = new Properties()
+            envFile.withInputStream { inputStream ->
+                props.load(inputStream)
+            }
+
+            props.each { prop ->
+                project.setProperty(prop.key, prop.value.toString())
+            }
+        }
+    }
+}
+
 buildscript {
     ext.kotlin_version = '1.7.10'
     repositories {
