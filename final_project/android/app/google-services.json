@@ -14,7 +14,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "344631204709-ltua8cfjjjne4c9vbi48dbvqkud138lk.apps.googleusercontent.com",
+          "client_id": "344631204709-ot3sq96k7eeik8g9flkqigi04hbg3ugk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -29,6 +29,13 @@
             {
               "client_id": "344631204709-ltua8cfjjjne4c9vbi48dbvqkud138lk.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "344631204709-1lrprd4l18der94jm52jda7pgr06598e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.finalProject"
+              }
             }
           ]
         }

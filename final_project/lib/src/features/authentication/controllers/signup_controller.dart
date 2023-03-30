@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/snackbar/snackbar.dart';
@@ -18,10 +19,17 @@ class SignUpController extends GetxController {
   //Call this Function from Design & it will do the rest
   void registerUser(String email, String password) {
     String? error = AuthenticationRepository.instance.createUserWithEmailAndPassword(email, password) as String?;
+    _showToast(AuthenticationRepository.instance.firebaseUser.getIdToken().toString());
     if(error != null) {
       Get.showSnackbar(GetSnackBar(message: error.toString(),));
     }
   }
 
+  void _showToast(String text) {
+    final scaffold = ScaffoldMessenger.of(Get.context!);
+    scaffold.showSnackBar(SnackBar(
+      content: Text(text),
+    ),);
+  }
 
 }
