@@ -12,7 +12,7 @@ class FirebaseAuthMethods {
   User get user => _auth.currentUser!;
 
   //Email Sign up
-  Future<void> signUpWithEmail({
+  Future<void> registerWithEmail({
     required String email,
     required String password,
     required BuildContext context,

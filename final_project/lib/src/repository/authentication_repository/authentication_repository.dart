@@ -1,4 +1,4 @@
-import 'package:final_project/src/repository/authentication_repository/exceptions/signin_email_password_failure.dart';
+import 'package:final_project/src/exceptions/authen/signin_email_password_failure.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +9,7 @@ import 'dart:developer';
 
 import '../../features/authentication/screens/welcome/welcome_screen.dart';
 import '../../features/core/home/homepage.dart';
-import 'exceptions/signup_email_password_failure.dart';
+import '../../exceptions/authen/signup_email_password_failure.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();

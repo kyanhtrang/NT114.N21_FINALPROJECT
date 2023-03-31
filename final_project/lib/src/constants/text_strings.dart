@@ -4,10 +4,11 @@ const String tLogin = "Login";
 const String tEmail = "E-Mail";
 const String tSignup = "Signup";
 const String tPhoneNo = "Phone No";
-const String tPassword = "Password";
+const String tPassword = "Mật khẩu";
 const String tFullName = "Full Name";
 const String tForgetPassword = "Forget Password";
 const String tSignInWithGoogle = "Sign-In with Google";
+const String tConfirmPassword ="Nhập lại mật khẩu";
 
 // -- Splash Screen Text
 const String tAppName = "Vehicle Renting";

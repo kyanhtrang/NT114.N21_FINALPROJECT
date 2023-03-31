@@ -48,7 +48,7 @@ class OnBoardingController extends GetxController{
   ];
 
   skip() {
-    startAnimation();
+    Get.to(() => const WelcomeScreen());
   }
 
   Future startAnimation() async {

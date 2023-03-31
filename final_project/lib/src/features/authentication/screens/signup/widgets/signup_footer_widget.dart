@@ -8,9 +8,7 @@ import '../../../../../constants/images_strings.dart';
 import '../../../../../constants/text_strings.dart';
 
 class SignUpFooterWidget extends StatelessWidget {
-  const SignUpFooterWidget({
-    Key? key,
-  }) : super(key: key);
+  const SignUpFooterWidget({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
