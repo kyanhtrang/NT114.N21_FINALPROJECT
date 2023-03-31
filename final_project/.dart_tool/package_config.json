@@ -3,9 +3,9 @@
   "packages": [
     {
       "name": "_flutterfire_internals",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.0.18",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.18"
     },
     {
       "name": "args",
@@ -81,39 +81,39 @@
     },
     {
       "name": "firebase_auth",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth-4.3.0",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth-4.4.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.18"
     },
     {
       "name": "firebase_auth_platform_interface",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_platform_interface-6.12.0",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_platform_interface-6.13.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.18"
     },
     {
       "name": "firebase_auth_web",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_web-5.2.10",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_web-5.3.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.18"
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.8.0",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.9.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.18"
     },
     {
       "name": "firebase_core_platform_interface",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_platform_interface-4.5.3",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_platform_interface-4.6.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.18"
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_web-2.2.2",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_web-2.3.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.18"
     },
     {
       "name": "flutter",
@@ -225,7 +225,7 @@
     },
     {
       "name": "liquid_swipe",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/liquid_swipe-3.0.0",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/liquid_swipe-3.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -273,7 +273,7 @@
     },
     {
       "name": "path_provider_foundation",
-      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_foundation-2.2.0",
+      "rootUri": "file:///C:/Users/kyanh/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_foundation-2.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -404,7 +404,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-30T14:31:27.686469Z",
+  "generated": "2023-03-31T01:49:54.146593Z",
   "generator": "pub",
-  "generatorVersion": "2.19.5"
+  "generatorVersion": "2.19.6"
 }
