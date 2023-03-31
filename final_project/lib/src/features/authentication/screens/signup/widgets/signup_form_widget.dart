@@ -19,17 +19,18 @@ class SignUpFormWidget extends StatefulWidget {
 class SignUpWithEmail extends State<SignUpFormWidget> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+  final TextEditingController confirmPassword = TextEditingController();
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     email.dispose();
     password.dispose();
+    confirmPassword.dispose();
   }
 
-  void signUpUser() async {
-    FirebaseAuthMethods(FirebaseAuth.instance).signUpWithEmail(
+  void registerUser() async {
+    FirebaseAuthMethods(FirebaseAuth.instance).registerWithEmail(
       email: email.text,
       password: password.text,
       context: context,
@@ -49,30 +50,31 @@ class SignUpWithEmail extends State<SignUpFormWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
-              controller: controller.fullName,
-              decoration: const InputDecoration(label: Text(tFullName), prefixIcon: Icon(Icons.person_outline_rounded)),
-            ),
-            const SizedBox(height: tFormHeight - 20),
-            TextFormField(
               controller: email,
-              decoration: const InputDecoration(label: Text(tEmail), prefixIcon: Icon(Icons.email_outlined)),
-            ),
-            const SizedBox(height: tFormHeight - 20),
-            TextFormField(
-              controller: controller.phoneNo,
-              decoration: const InputDecoration(label: Text(tPhoneNo), prefixIcon: Icon(Icons.numbers)),
+              decoration: const InputDecoration(
+                  label: Text(tEmail),
+                  prefixIcon: Icon(Icons.email_outlined)),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
               controller: password,
-              decoration: const InputDecoration(label: Text(tPassword), prefixIcon: Icon(Icons.fingerprint)),
+              decoration: const InputDecoration(
+                  label: Text(tPassword),
+                  prefixIcon: Icon(Icons.password)),
+            ),
+            const SizedBox(height: tFormHeight - 20),
+            TextFormField(
+              controller: confirmPassword,
+              decoration: const InputDecoration(
+                  label: Text(tConfirmPassword),
+                  prefixIcon: Icon(Icons.password)),
             ),
             const SizedBox(height: tFormHeight - 10),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  signUpUser();
+                  registerUser();
                 },
                 child: Text(tSignup.toUpperCase()),
               ),

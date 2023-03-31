@@ -22,15 +22,11 @@ class FadeInAnimationController extends GetxController {
     );
   }
 
-
-
 //Can be used to animate In after calling the next screen.
   Future animationIn() async {
     await Future.delayed(const Duration(milliseconds: 500));
     animate.value = true;
   }
-
-
 
 //Can be used to animate Out before calling the next screen.
   Future animationOut() async {

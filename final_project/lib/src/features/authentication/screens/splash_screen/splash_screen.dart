@@ -51,12 +51,18 @@ class SplashScreen extends StatelessWidget {
           ),
           TFadeInAnimation(
             durationInMs: 2400,
-            animate: TAnimatePosition(bottomBefore: 0, bottomAfter: 100),
+            animate: TAnimatePosition(
+                bottomBefore: 0,
+                bottomAfter: 100),
             child: const Image(image: AssetImage(tSplashImage)),
           ),
           TFadeInAnimation(
             durationInMs: 2400,
-            animate: TAnimatePosition(bottomBefore: 0, bottomAfter: 60, rightBefore: tDefaultSize, rightAfter: tDefaultSize),
+            animate: TAnimatePosition(
+                bottomBefore: 0,
+                bottomAfter: 60,
+                rightBefore: tDefaultSize,
+                rightAfter: tDefaultSize),
             child: Container(
               width: tSplashContainerSize,
               height: tSplashContainerSize,
