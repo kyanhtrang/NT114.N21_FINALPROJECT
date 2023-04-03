@@ -8,6 +8,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 import '../../../../../service/firebase_auth_methods.dart';
+import '../../../../../utils/show_snack_bar.dart';
 
 class SignUpFormWidget extends StatefulWidget {
   const SignUpFormWidget({Key? key,}) : super(key: key);
@@ -29,17 +30,29 @@ class SignUpWithEmail extends State<SignUpFormWidget> {
     confirmPassword.dispose();
   }
 
+  bool checkPassword(String password, String confirmPassword) {
+    if (password == confirmPassword) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   void registerUser() async {
-    FirebaseAuthMethods(FirebaseAuth.instance).registerWithEmail(
-      email: email.text,
-      password: password.text,
-      context: context,
-    );
+    if (checkPassword(password.text, confirmPassword.text)){
+      FirebaseAuthMethods(FirebaseAuth.instance).registerWithEmail(
+        email: email.text,
+        password: password.text,
+        context: context,
+      );
+    }
+    else{
+      showSnackBar(context, "Mật khẩu không khớp\nVui lòng thử lại!");
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SignUpController());
     final _formKey = GlobalKey<FormState>();
 
     return Container(

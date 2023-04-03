@@ -1,7 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../features/core/home/homepage.dart';
 import '../utils/showOtpDialog.dart';
 import '../utils/show_snack_bar.dart';
 
@@ -42,12 +46,18 @@ class FirebaseAuthMethods {
         await sendEmailVerificaton(context);
         // restrict access to certain things using provider
         // transition to another page instead of home screen
+      } else {
+        // Chuyển hướng đến HomePage sau khi đăng nhập thành công
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
       }
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!); // Displaying the error message
+      showSnackBar(context, e.message!); // Hiển thị thông báo lỗi
     }
   }
-
+  
   //Email Verification
   Future<void> sendEmailVerificaton(BuildContext context) async {
     try {
