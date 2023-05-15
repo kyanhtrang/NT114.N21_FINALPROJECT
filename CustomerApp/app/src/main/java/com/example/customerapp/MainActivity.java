@@ -9,6 +9,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.customerapp.fragment.ActivityFragment;
+import com.example.customerapp.fragment.HomeFragment;
+import com.example.customerapp.fragment.MessageFragment;
+import com.example.customerapp.fragment.NoticeFragment;
+import com.example.customerapp.fragment.SettingFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout layoutHome, layoutActivity, layoutMessage, layoutNotice, layoutSetting;
@@ -23,11 +29,21 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
+        getSupportFragmentManager().beginTransaction()
+            .setReorderingAllowed(true)
+            .replace(R.id.fragment_container, HomeFragment.class, null)
+            .commit();
+
         layoutHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (selectedTab != 1)
                 {
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragment_container, HomeFragment.class, null)
+                            .commit();
+
                     textActivity.setVisibility(View.GONE);
                     textMessage.setVisibility(View.GONE);
                     textNotice.setVisibility(View.GONE);
@@ -62,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (selectedTab != 2)
                 {
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragment_container, ActivityFragment.class, null)
+                            .commit();
+
                     textHome.setVisibility(View.GONE);
                     textMessage.setVisibility(View.GONE);
                     textNotice.setVisibility(View.GONE);
@@ -96,6 +117,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (selectedTab != 3)
                 {
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragment_container, MessageFragment.class, null)
+                            .commit();
+
                     textHome.setVisibility(View.GONE);
                     textActivity.setVisibility(View.GONE);
                     textNotice.setVisibility(View.GONE);
@@ -130,6 +156,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (selectedTab != 4)
                 {
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragment_container, NoticeFragment.class, null)
+                            .commit();
+
                     textHome.setVisibility(View.GONE);
                     textActivity.setVisibility(View.GONE);
                     textMessage.setVisibility(View.GONE);
@@ -164,6 +195,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (selectedTab != 5)
                 {
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragment_container, SettingFragment.class, null)
+                            .commit();
+
                     textHome.setVisibility(View.GONE);
                     textActivity.setVisibility(View.GONE);
                     textMessage.setVisibility(View.GONE);
