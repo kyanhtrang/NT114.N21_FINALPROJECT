@@ -12,6 +12,9 @@
         android:theme="@style/Theme.CustomerApp"
         tools:targetApi="31">
         <activity
+            android:name=".Authentication.PhoneVerifyActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
