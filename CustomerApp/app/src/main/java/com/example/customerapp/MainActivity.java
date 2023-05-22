@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.customerapp.fragment.ActivityFragment;
-import com.example.customerapp.fragment.HomeFragment;
-import com.example.customerapp.fragment.MessageFragment;
-import com.example.customerapp.fragment.NoticeFragment;
-import com.example.customerapp.fragment.SettingFragment;
+import com.example.customerapp.Fragment.ActivityFragment;
+import com.example.customerapp.Fragment.HomeFragment;
+import com.example.customerapp.Fragment.MessageFragment;
+import com.example.customerapp.Fragment.NoticeFragment;
+import com.example.customerapp.Fragment.SettingFragment;
 
 public class MainActivity extends AppCompatActivity {
 
