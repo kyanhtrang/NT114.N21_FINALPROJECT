@@ -7,6 +7,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +37,20 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
+            }
+        });
+        txtView_password.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    if (keyCode == KeyEvent.KEYCODE_ENTER){
+                        login();
+                        Log.d("Login", "Login Success");
+                        return true;
+                    }
+                }
+                return false;
             }
         });
     }
@@ -85,13 +101,13 @@ public class LoginActivity extends AppCompatActivity {
                                                     String username = document.getString("username");
                                                     String phonenumber = document.getString("phoneNumber");
                                                     if (username != null && username.isEmpty()) {
-                                                        Intent intent = new Intent(LoginActivity.this, CredentialActivity.class);
+                                                        Intent intent = new Intent(LoginActivity.this, OTP.class);
                                                         intent.putExtra("phone", phonenumber);
                                                         startActivity(intent);
                                                     }
                                                     else
                                                     {
-                                                        Intent intent = new Intent(LoginActivity.this, CredentialActivity.class);
+                                                        Intent intent = new Intent(LoginActivity.this, OTP.class);
                                                         startActivity(intent);
                                                         onStop();
                                                     }

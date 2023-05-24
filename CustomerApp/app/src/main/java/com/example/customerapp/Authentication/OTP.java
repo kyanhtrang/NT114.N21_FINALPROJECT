@@ -7,7 +7,7 @@ import android.widget.ScrollView;
 
 import com.example.customerapp.R;
 
-public class CredentialActivity extends AppCompatActivity {
+public class OTP extends AppCompatActivity {
 
     private ScrollView scrollView;
     String _fullname, _email, _username, _password, _date, _gender;
@@ -15,6 +15,6 @@ public class CredentialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_credential);
+        setContentView(R.layout.activity_otp);
     }
 }

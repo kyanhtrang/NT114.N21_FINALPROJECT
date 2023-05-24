@@ -34,6 +34,28 @@
                     android:textColor="@color/brown"
                     android:textSize="@dimen/_24ssp"
                     android:textStyle="bold"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_layout_fullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    app:hintTextColor="@color/orange"      >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signup_fullname"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:background="@color/transparent"
+                        android:textSize="@dimen/_12ssp"
+                        android:drawableStart="@drawable/ic_mail"
+                        android:hint="Username"
+                        android:inputType="text"
+                        android:padding="@dimen/_5sdp"
+                        tools:ignore="HardcodedText" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/text_layout_email"
                     android:layout_width="match_parent"
@@ -52,7 +74,9 @@
                         android:inputType="text"
                         android:padding="@dimen/_5sdp"
                         tools:ignore="HardcodedText" />
+
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/edtText_passwordLayout"
                     android:layout_width="match_parent"
@@ -77,6 +101,8 @@
                         tools:ignore="HardcodedText">
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
             </LinearLayout>
