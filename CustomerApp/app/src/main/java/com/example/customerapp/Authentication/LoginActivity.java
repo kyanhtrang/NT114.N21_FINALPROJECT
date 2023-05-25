@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                .addOnFailureListener(new OnFailureListener() {
                    @Override
                    public void onFailure(@NonNull Exception e) {
-                        Log.d("Firebase Auth", "Login Fail");
+                        Log.d("Firebase Auth", "Login Fail! Exception " + e.toString());
                         progressDialog.cancel();
                    }
                });
