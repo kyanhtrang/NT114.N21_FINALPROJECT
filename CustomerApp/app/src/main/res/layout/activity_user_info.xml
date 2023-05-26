@@ -67,7 +67,7 @@
                     />
 
                 <RadioGroup
-                    android:id="@+id/text_layout_gender"
+                    android:id="@+id/signup_gender_select"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -113,6 +113,7 @@
         android:padding="0dp"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/user_info_nextbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_15sdp"
