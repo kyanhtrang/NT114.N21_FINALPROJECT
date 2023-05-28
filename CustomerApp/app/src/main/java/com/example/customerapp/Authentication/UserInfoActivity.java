@@ -24,7 +24,6 @@ public class UserInfoActivity extends AppCompatActivity {
     RadioGroup gender;
     DatePicker datePicker;
     FirebaseUser user;
-    FirebaseFirestore dtb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +35,6 @@ public class UserInfoActivity extends AppCompatActivity {
         fullname = findViewById(R.id.signup_fullname);
         gender = findViewById(R.id.signup_gender_select);
         datePicker = findViewById(R.id.datepicker);
-        dtb = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
     }
     public void confirminformation(){
