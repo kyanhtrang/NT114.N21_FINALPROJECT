@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (event.getAction() == KeyEvent.ACTION_DOWN)
                 {
                     if (keyCode == KeyEvent.KEYCODE_ENTER){
-                        login();
+                        login(v);
                         Log.d("Login", "Enter Pressed");
                         return true;
                     }
@@ -75,15 +75,15 @@ public class LoginActivity extends AppCompatActivity {
         }
         return valid;
     }
-    private void login() {
-        String email = txtView_email.getText().toString();
-        String password = txtView_password.getText().toString();
+    public void login(View signin) {
+        String email = txtView_email.getText().toString().trim();
+        String password = txtView_password.getText().toString().trim();
 
         if (!validateForm()){
             return;
         }
         progressDialog.show();
-       mAuth.signInWithEmailAndPassword(txtView_email.getText().toString().trim(), txtView_password.getText().toString().trim())
+       mAuth.signInWithEmailAndPassword(email, password)
                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                    @Override
                    public void onComplete(@NonNull Task<AuthResult> task) {

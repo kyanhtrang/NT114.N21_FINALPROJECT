@@ -39,16 +39,6 @@ public class SignUpActivity extends AppCompatActivity {
         password = findViewById(R.id.signup_password);
         repeatpassword = findViewById(R.id.signup_repeatpassword);
     }
-    /*private boolean validateFullName() {
-        String val = fullname.getText().toString().trim();
-        if (val.isEmpty()) {
-            fullname.setError("Họ tên không thể trống");
-            return false;
-        } else {
-            fullname.setError(null);
-            return true;
-        }
-    }*/
     private boolean validateEmail() {
         String val = email.getText().toString().trim();
         String checkEmail = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";

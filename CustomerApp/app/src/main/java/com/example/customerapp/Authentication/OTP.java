@@ -7,6 +7,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -35,7 +37,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class OTP extends AppCompatActivity {
-
+    Button sendbtn;
     EditText phonenumber_input;
     String CodeSent;
     String phonenumber, fullname, gender, birth;
@@ -82,7 +84,7 @@ public class OTP extends AppCompatActivity {
                             info.put("gender",gender);
                             info.put("uid",user.getUid().toString());
                             info.put("birth",birth);
-
+                            storedata(info);
                             // Update UI
                         } else {
                             // Sign in failed, display a message and update the UI
@@ -103,6 +105,12 @@ public class OTP extends AppCompatActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_otp);
         init();
+        sendbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendotp();
+            }
+        });
     }
 
     private void storedata(Map<String, Object> info){
@@ -125,6 +133,7 @@ public class OTP extends AppCompatActivity {
 
         phonenumber_input = findViewById(R.id.phonenumber);
         otp = findViewById(R.id.pin_view);
+        sendbtn = findViewById(R.id.btn_sendotp);
         fullname = getIntent().getStringExtra("fullname");
         gender = getIntent().getStringExtra("gender");
         birth = getIntent().getStringExtra("birth");
@@ -133,6 +142,7 @@ public class OTP extends AppCompatActivity {
         // [START start_phone_auth]
         phonenumber = phonenumber_input.getText().toString().trim();
         if (phonenumber.length() > 9) {
+            phonenumber = "+84" + phonenumber.substring(1);
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     phonenumber,
                     60L,
