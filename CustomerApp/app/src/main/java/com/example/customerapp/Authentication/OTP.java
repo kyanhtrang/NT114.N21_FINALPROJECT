@@ -40,7 +40,7 @@ public class OTP extends AppCompatActivity {
     Button sendbtn;
     EditText phonenumber_input;
     String CodeSent;
-    String phonenumber, fullname, gender, birth;
+    String phonenumber, fullname, gender, birth, email, password;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
@@ -68,7 +68,8 @@ public class OTP extends AppCompatActivity {
     FirebaseUser user;
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        mAuth.signInWithCredential(credential)
+        //mAuth.signInWithCredential(credential)
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -80,6 +81,7 @@ public class OTP extends AppCompatActivity {
                             dtb = FirebaseFirestore.getInstance();
 
                             Map<String, Object> info = new HashMap<>();
+                            info.put("email", email);
                             info.put("fullname",fullname);
                             info.put("gender",gender);
                             info.put("uid",user.getUid().toString());
@@ -137,6 +139,8 @@ public class OTP extends AppCompatActivity {
         fullname = getIntent().getStringExtra("fullname");
         gender = getIntent().getStringExtra("gender");
         birth = getIntent().getStringExtra("birth");
+        email = getIntent().getStringExtra("email");
+        password = getIntent().getStringExtra("password");
     }
     private void sendotp(){
         // [START start_phone_auth]
