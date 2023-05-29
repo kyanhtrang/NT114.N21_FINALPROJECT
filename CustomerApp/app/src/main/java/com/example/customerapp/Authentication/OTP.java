@@ -155,7 +155,7 @@ public class OTP extends AppCompatActivity {
         }
     }
 
-    private void callNextScreenFromOTP() {
+    public void callNextScreenFromOTP(View view) {
         String code = otp.getText().toString();
         if (!code.isEmpty()){
             verifyCode(code);
