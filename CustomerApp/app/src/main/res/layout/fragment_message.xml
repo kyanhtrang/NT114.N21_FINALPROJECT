@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/orange"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.MessageFragment">
 
@@ -11,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/white"
+        android:background="@color/orange"
         app:layout_constraintTop_toBottomOf="@id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -65,7 +66,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        tools:listitem="@layout/message_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 
