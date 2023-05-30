@@ -16,11 +16,11 @@
         android:orientation="vertical">
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_350sdp"
+            android:layout_height="@dimen/_400sdp"
             android:orientation="vertical">
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_325sdp"
+                android:layout_height="@dimen/_375sdp"
                 android:background="@drawable/white_cueve_bg"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,8 +90,17 @@
                     android:text="Quên mật khẩu?"
                     android:textAllCaps="false"
                     android:textColor="@color/brown"
-                    android:textSize="@dimen/_10ssp"
-                    />
+                    android:textSize="@dimen/_10ssp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:text="Đăng nhập"
+                    android:onClick="login"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_16ssp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/round_button"/>
             </LinearLayout>
 
             <LinearLayout
@@ -127,6 +136,7 @@
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/white"/>
         <TextView
+            android:id="@+id/btn_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

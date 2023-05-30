@@ -5,6 +5,7 @@
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,7 +13,13 @@
         android:theme="@style/Theme.CustomerApp"
         tools:targetApi="31">
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Authentication.UserInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Authentication.OTP"
+            android:exported="false" />
+        <activity
+            android:name=".Authentication.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".Authentication.LoginActivity"
