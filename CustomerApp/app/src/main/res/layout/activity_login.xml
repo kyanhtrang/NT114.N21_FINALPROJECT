@@ -96,6 +96,7 @@
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:text="Đăng nhập"
+                    android:onClick="login"
                     android:textStyle="bold"
                     android:textSize="@dimen/_16ssp"
                     android:textColor="@color/white"
