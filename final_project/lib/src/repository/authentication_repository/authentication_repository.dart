@@ -52,7 +52,7 @@ class AuthenticationRepository extends GetxController {
   }
 /*
   Future<String?> loginWithEmailAndPassword(String email, String password) async {
-    try {
+    try {a
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       if (firebaseUser.getIdToken() != null) {
         await Get.offAll(() => const HomePage());

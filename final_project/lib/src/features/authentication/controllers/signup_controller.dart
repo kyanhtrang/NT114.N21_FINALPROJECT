@@ -18,11 +18,12 @@ class SignUpController extends GetxController {
 
   //Call this Function from Design & it will do the rest
   void registerUser(String email, String password) {
-    String? error = AuthenticationRepository.instance.createUserWithEmailAndPassword(email, password) as String?;
+    /*String? error = AuthenticationRepository.instance.createUserWithEmailAndPassword(email, password) as String?;
     _showToast(AuthenticationRepository.instance.firebaseUser.getIdToken().toString());
     if(error != null) {
       Get.showSnackbar(GetSnackBar(message: error.toString(),));
-    }
+    }*/
+    AuthenticationRepository.instance.createUserWithEmailAndPassword(email, password);
   }
 
   void _showToast(String text) {
