@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String email = getIntent().getStringExtra("email"), password = getIntent().getStringExtra("password");
-        Log.d("User Credential", email + ":" + password);
         init();
 
         getSupportFragmentManager().beginTransaction()
