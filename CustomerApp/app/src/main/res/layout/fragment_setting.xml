@@ -4,126 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.SettingFragment"
-    android:background="#ececec">
+    tools:context=".Fragment.SettingFragment">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SETTING"
+        android:textSize="@dimen/_35sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <Button
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/top_background" />
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView"
-                    app:srcCompat="@drawable/profile" />
-
-                <TextView
-                    android:id="@+id/profile_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lion Fischer"
-                    android:layout_marginTop="16dp"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-
-                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                    app:layout_constraintStart_toStartOf="@+id/imageView2"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-                <TextView
-                    android:id="@+id/profile_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="abc@gmail.com"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/profile_name"
-                    app:layout_constraintStart_toStartOf="@+id/profile_name"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_name" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_email">
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_vehicle"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="32dp"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        style="@android:style/Widget.Button"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/btn_background_1"
-                        android:drawableStart="@drawable/ic_2"
-                        android:drawablePadding="20dp"
-                        android:paddingStart="20dp"
-                        android:text="Vehicle Setting"
-                        android:textAlignment="viewStart"
-                        />
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_profile"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="32dp"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        style="@android:style/Widget.Button"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/btn_background_1"
-                        android:drawableStart="@drawable/ic_3"
-                        android:drawablePadding="20dp"
-                        android:paddingStart="20dp"
-                        android:text="Profile"
-                        android:textAlignment="viewStart"
-                        android:onClick="Profile"/>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/logout_btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        style="@android:style/Widget.Button"
-                        android:background="@drawable/btn_background_2"
-                        android:layout_marginEnd="32dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="16dp"
-                        android:text="Logout"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:onClick="logout"/>
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-    </ScrollView>
+        android:id="@+id/logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:onClick="logout"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
