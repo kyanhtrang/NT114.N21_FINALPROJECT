@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
@@ -37,11 +39,13 @@ public class UserInfoActivity extends AppCompatActivity {
         datePicker = findViewById(R.id.datepicker);
         user = FirebaseAuth.getInstance().getCurrentUser();
     }
-    public void confirminformation(){
-        if (!validateFullName() | !validateFullName()| !validateAge() | !validateGender()) {
+    public void confirminformation(View view){
+        if (!validateFullName() | validateAge() | !validateGender()) {
             Intent intent = new Intent(UserInfoActivity.this, OTP.class);
+            intent.putExtra("email", getIntent().getStringExtra("email"));
+            intent.putExtra("password", getIntent().getStringExtra("password"));
             intent.putExtra("fullname", fullname.getText().toString());
-            intent.putExtra("gender", gender.getId());
+            intent.putExtra("gender", gender.getCheckedRadioButtonId());
             intent.putExtra("birth", datePicker.getDayOfMonth() + ":" + datePicker.getMonth() + ":" + datePicker.getYear());
             startActivity(intent);
         }
@@ -62,7 +66,7 @@ public class UserInfoActivity extends AppCompatActivity {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         int userAge = datePicker.getYear();
         int isAgeValid = currentYear - userAge;
-        if (isAgeValid > 0) {
+        if (isAgeValid < 0) {
             Toast.makeText(this, "Ngày sinh không hợp lệ", Toast.LENGTH_SHORT).show();
             return false;
         } else

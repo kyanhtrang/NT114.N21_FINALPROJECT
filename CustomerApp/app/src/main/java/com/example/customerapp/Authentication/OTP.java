@@ -38,6 +38,7 @@ import java.util.concurrent.TimeUnit;
 
 public class OTP extends AppCompatActivity {
     Button sendbtn;
+    PhoneAuthCredential credential;
     EditText phonenumber_input;
     String CodeSent;
     String phonenumber, fullname, gender, birth, email, password;
@@ -61,18 +62,18 @@ public class OTP extends AppCompatActivity {
         }
     };
     private void verifyCode(String code) {
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(CodeSent,code);
+        credential = PhoneAuthProvider.getCredential(CodeSent,code);
         signInWithPhoneAuthCredential(credential);
     }
     FirebaseFirestore dtb;
     FirebaseUser user;
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        //mAuth.signInWithCredential(credential)
-        mAuth.signInWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d("Firebase Listener", "onComplete Function Called");
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("Login", "Success");
@@ -84,8 +85,9 @@ public class OTP extends AppCompatActivity {
                             info.put("email", email);
                             info.put("fullname",fullname);
                             info.put("gender",gender);
-                            info.put("uid",user.getUid().toString());
+                            info.put("uid",user.getUid());
                             info.put("birth",birth);
+                            info.put("phonenum", phonenumber);
                             storedata(info);
                             // Update UI
                         } else {
@@ -96,6 +98,12 @@ public class OTP extends AppCompatActivity {
                                 Toast.makeText(OTP.this,"Mã OTP không đúng", Toast.LENGTH_LONG).show();
                             }
                         }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("FireBase Auth", "Failed to create user");
                     }
                 });
     }
@@ -116,7 +124,8 @@ public class OTP extends AppCompatActivity {
     }
 
     private void storedata(Map<String, Object> info){
-        dtb.collection("Users").document(user.getUid().toString())
+        dtb = FirebaseFirestore.getInstance();
+        dtb.collection("Users").document(user.getUid())
                 .set(info)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -132,7 +141,6 @@ public class OTP extends AppCompatActivity {
                 });
     }
     private void init(){
-
         phonenumber_input = findViewById(R.id.phonenumber);
         otp = findViewById(R.id.pin_view);
         sendbtn = findViewById(R.id.btn_sendotp);
@@ -163,8 +171,10 @@ public class OTP extends AppCompatActivity {
         String code = otp.getText().toString();
         if (!code.isEmpty()){
             verifyCode(code);
+            Intent intent = new Intent(OTP.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
-        Intent intent = new Intent(OTP.this, MainActivity.class);
-        startActivity(intent);
+
     }
 }

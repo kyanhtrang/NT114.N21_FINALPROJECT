@@ -22,12 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN){
                     if (keyCode == KeyEvent.KEYCODE_ENTER){
-                        if (!validateEmail() | !validatePassword(password.getText().toString().trim()) | !validatePassword(repeatpassword.getText().toString().trim()) | !validaterpeat()) {
-                            Intent intent = new Intent(SignUpActivity.this, OTP.class);
-                            intent.putExtra("email", email.getText().toString().trim());
-                            intent.putExtra("password", password.getText().toString().trim());
-                            startActivity(intent);
-                        }
+                            signup(v);
                     }
                 }
                 return false;
@@ -78,5 +73,14 @@ public class SignUpActivity extends AppCompatActivity {
         if (!(password.getText().toString().trim() == repeatpassword.getText().toString().trim()))
             return false;
         return true;
+    }
+
+    public void signup(View v){
+        if (!validateEmail() | !validatePassword(password.getText().toString().trim()) | !validatePassword(repeatpassword.getText().toString().trim()) | !validaterpeat()) {
+            Intent intent = new Intent(SignUpActivity.this, UserInfoActivity.class);
+            intent.putExtra("email", email.getText().toString().trim());
+            intent.putExtra("password", password.getText().toString().trim());
+            startActivity(intent);
+        }
     }
 }
