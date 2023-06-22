@@ -6,26 +6,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.SettingFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/user_profile_btn"
+        android:layout_width="@dimen/_200sdp"
         android:layout_height="wrap_content"
-        android:text="SETTING"
-        android:textSize="@dimen/_35sdp"
+        android:onClick="profile"
+        android:text="User Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-
         android:id="@+id/logout_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_200sdp"
         android:layout_height="wrap_content"
-        android:text="Button"
         android:onClick="logout"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.903" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
