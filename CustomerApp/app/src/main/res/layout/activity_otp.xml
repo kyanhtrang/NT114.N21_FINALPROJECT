@@ -19,6 +19,7 @@
             android:layout_gravity="center"
             android:includeFontPadding="false"
             android:text="CO\nDE"
+            android:fontFamily="@font/poppins_black"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/black"
