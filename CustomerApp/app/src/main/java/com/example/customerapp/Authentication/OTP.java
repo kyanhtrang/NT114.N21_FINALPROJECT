@@ -29,7 +29,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.ktx.Firebase;
 
 import java.util.HashMap;
@@ -125,9 +128,12 @@ public class OTP extends AppCompatActivity {
 
     private void storedata(Map<String, Object> info){
         dtb = FirebaseFirestore.getInstance();
-        dtb.collection("Users").document(user.getUid())
-                .set(info)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .build();
+        dtb.setFirestoreSettings(settings);
+        DocumentReference userRef = dtb.collection("Users").document(FirebaseAuth.getInstance().getUid());
+        userRef.set(info)
+               .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         Log.d("FireStore","User's Data Created succesfully");
