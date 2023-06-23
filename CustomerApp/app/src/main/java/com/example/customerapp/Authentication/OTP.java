@@ -42,7 +42,6 @@ import java.util.concurrent.TimeUnit;
 public class OTP extends AppCompatActivity {
     Button sendbtn;
     PhoneAuthCredential credential;
-    EditText phonenumber_input;
     String CodeSent;
     String phonenumber, fullname, gender, birth, email, password;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -147,18 +146,16 @@ public class OTP extends AppCompatActivity {
                 });
     }
     private void init(){
-        phonenumber_input = findViewById(R.id.phonenumber);
         otp = findViewById(R.id.pin_view);
-        sendbtn = findViewById(R.id.btn_sendotp);
         fullname = getIntent().getStringExtra("fullname");
         gender = getIntent().getStringExtra("gender");
         birth = getIntent().getStringExtra("birth");
         email = getIntent().getStringExtra("email");
         password = getIntent().getStringExtra("password");
+        phonenumber = getIntent().getStringExtra("phonenum");
     }
     private void sendotp(){
         // [START start_phone_auth]
-        phonenumber = phonenumber_input.getText().toString().trim();
         if (phonenumber.length() > 9) {
             phonenumber = "+84" + phonenumber.substring(1);
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -172,7 +169,6 @@ public class OTP extends AppCompatActivity {
             Toast.makeText(this,"Hãy nhập đúng số điện thoại!", Toast.LENGTH_LONG).show();
         }
     }
-
     public void callNextScreenFromOTP(View view) {
         String code = otp.getText().toString();
         if (!code.isEmpty()){
@@ -182,5 +178,16 @@ public class OTP extends AppCompatActivity {
             finish();
         }
 
+    }
+
+    public void returnToPreviousIntent(View view) {
+        Intent intent = new Intent(OTP.this, AddPhoneNumberActivity.class);
+        intent.putExtra("email", getIntent().getStringExtra("email"));
+        intent.putExtra("password", getIntent().getStringExtra("password"));
+        intent.putExtra("fullname", getIntent().getStringExtra("fullname"));
+        intent.putExtra("gender", getIntent().getStringExtra("gender"));
+        intent.putExtra("birth", getIntent().getStringExtra("birth"));
+        intent.putExtra("phonenum",getIntent().getStringExtra("phonenum"));
+        startActivity(intent);
     }
 }

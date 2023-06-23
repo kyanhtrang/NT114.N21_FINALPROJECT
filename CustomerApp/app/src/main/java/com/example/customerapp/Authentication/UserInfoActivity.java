@@ -37,7 +37,7 @@ public class UserInfoActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
     }
     public void confirminformation(View view){
-        if (!validateFullName() | validateAge() | !validateGender()) {
+        if (validateFullName() & validateAge() & validateGender()) {
             Intent intent = new Intent(UserInfoActivity.this, AddPhoneNumberActivity.class);
             intent.putExtra("email", getIntent().getStringExtra("email"));
             intent.putExtra("password", getIntent().getStringExtra("password"));
@@ -69,7 +69,6 @@ public class UserInfoActivity extends AppCompatActivity {
         } else
             return true;
     }
-
     private boolean validateFullName() {
         String val = fullname.getText().toString().trim();
         if (val.isEmpty()) {

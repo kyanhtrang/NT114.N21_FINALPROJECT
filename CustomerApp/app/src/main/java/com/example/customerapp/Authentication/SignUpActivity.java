@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -53,7 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
                 //"(?=.*[0-9])" +         //at least 1 digit
                 //"(?=.*[a-z])" +         //at least 1 lower case letter
                 //"(?=.*[A-Z])" +         //at least 1 upper case letter
-                "(?=.*[a-zA-Z])" +      //any letter
+                //"(?=.*[a-zA-Z])" +      //any letter
                 //"(?=.*[@#$%^&+=])" +    //at least 1 special character
                 "(?=S+$)" +           //no white spaces
                 ".{3,}" +               //at least 4 characters
@@ -61,10 +62,10 @@ public class SignUpActivity extends AppCompatActivity {
         if (val.isEmpty()) {
             password.setError("Mật khẩu bắt buộc phải có");
             return false;
-        } else if (!val.matches(checkPassword)) {
+        } /*else if (!val.matches(checkPassword)) {
             password.setError("Mật khẩu phải có ít nhất 6 ký tự!");
             return false;
-        } else {
+        }*/ else {
             password.setError(null);
             return true;
         }
@@ -72,15 +73,17 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean validaterpeat(){
         if (!(password.getText().toString().trim() == repeatpassword.getText().toString().trim()))
             return false;
+        repeatpassword.setError("Mật khẩu không khớp");
         return true;
     }
 
     public void signup(View v){
-        if (!validateEmail() | !validatePassword(password.getText().toString().trim()) | !validatePassword(repeatpassword.getText().toString().trim()) | !validaterpeat()) {
+        if (!validateEmail() == !validatePassword(password.getText().toString().trim()) == !validatePassword(repeatpassword.getText().toString().trim()) == !validaterpeat() == false) {
             Intent intent = new Intent(SignUpActivity.this, UserInfoActivity.class);
             intent.putExtra("email", email.getText().toString().trim());
             intent.putExtra("password", password.getText().toString().trim());
             startActivity(intent);
         }
+        else Log.d("SignUp", "Validation does not matches!");
     }
 }
