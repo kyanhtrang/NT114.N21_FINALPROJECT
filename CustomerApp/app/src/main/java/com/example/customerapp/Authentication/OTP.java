@@ -117,12 +117,12 @@ public class OTP extends AppCompatActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_otp);
         init();
-        sendbtn.setOnClickListener(new View.OnClickListener() {
+        /*sendbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendotp();
             }
-        });
+        });*/
     }
 
     private void storedata(Map<String, Object> info){
@@ -147,12 +147,14 @@ public class OTP extends AppCompatActivity {
     }
     private void init(){
         otp = findViewById(R.id.pin_view);
+        sendbtn = findViewById(R.id.btn_sendotp);
         fullname = getIntent().getStringExtra("fullname");
         gender = getIntent().getStringExtra("gender");
         birth = getIntent().getStringExtra("birth");
         email = getIntent().getStringExtra("email");
         password = getIntent().getStringExtra("password");
         phonenumber = getIntent().getStringExtra("phonenum");
+        sendotp();
     }
     private void sendotp(){
         // [START start_phone_auth]
