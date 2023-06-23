@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,7 +14,6 @@ import android.widget.Toast;
 import com.example.customerapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
 
@@ -29,7 +26,7 @@ public class UserInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_info);
+        setContentView(R.layout.activity_update_profile);
         init();
     }
     private void init(){
@@ -41,7 +38,7 @@ public class UserInfoActivity extends AppCompatActivity {
     }
     public void confirminformation(View view){
         if (!validateFullName() | validateAge() | !validateGender()) {
-            Intent intent = new Intent(UserInfoActivity.this, OTP.class);
+            Intent intent = new Intent(UserInfoActivity.this, AddPhoneNumberActivity.class);
             intent.putExtra("email", getIntent().getStringExtra("email"));
             intent.putExtra("password", getIntent().getStringExtra("password"));
             intent.putExtra("fullname", fullname.getText().toString());
