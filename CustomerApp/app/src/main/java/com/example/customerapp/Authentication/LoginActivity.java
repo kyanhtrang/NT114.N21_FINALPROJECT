@@ -105,8 +105,10 @@ public class LoginActivity extends AppCompatActivity {
                });
     }
     private void updateUI(FirebaseUser currentUser) {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
+        if (currentUser != null) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
     }
     void init (){
         txtView_register = findViewById(R.id.btn_register);

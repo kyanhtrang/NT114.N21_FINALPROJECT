@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:backgroundTint="@color/green"
     tools:context=".Authentication.OTP">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_20ssp"
-        >
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/white_round_corner"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/opensans_extrabold"
             android:includeFontPadding="false"
             android:text="CO\nDE"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="100sp" />
+            android:textSize="@dimen/_75ssp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:includeFontPadding="false"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/opensans_medium"
             android:text="Xác thực OTP"
             android:textAlignment="center"
             android:textAllCaps="true"
@@ -35,56 +44,55 @@
             android:textSize="@dimen/_30ssp" />
 
         <TextView
-            android:id="@+id/otp_description_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:includeFontPadding="false"
-            android:text="Nhập vào mã SĐT để gửi OTP"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/phonenumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btn_sendotp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gửi OTP"
-            android:onClick="sendotp"
-            android:layout_gravity="center"
-            />
-
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/opensans_regular"
+            android:gravity="center"
+            android:text="Mã xác thực đã gửi về số điện thoại\n0123456789"/>
         <com.chaos.view.PinView
             android:id="@+id/pin_view"
             style="@style/PinWidget.PinView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/opensans_bold"
             android:cursorVisible="true"
             android:inputType="number"
-            android:itemBackground="#65EAEAEA"
             app:cursorColor="@color/black"
             app:hideLineWhenFilled="true"
             app:itemCount="6"
-            app:itemHeight="50dp"
-            app:itemRadius="5dp"
-            app:itemWidth="50dp"
+            app:itemHeight="@dimen/_35sdp"
+            app:itemRadius="@dimen/_5sdp"
+            app:itemWidth="@dimen/_35sdp"
             app:lineColor="@color/black"
             app:lineWidth="@dimen/_2sdp" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@color/orange_20"
+            android:layout_margin="@dimen/_20sdp"
+            android:background="@color/purple"
             android:onClick="callNextScreenFromOTP"
             android:text="Xác nhận"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
+            android:transitionName="transition_OTP_screen" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@color/purple_20"
+            android:onClick="callNextScreenFromOTP"
+            android:text="Thay đổi số điện thoại"
+            android:fontFamily="@font/opensans_bold"
             android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
             android:transitionName="transition_OTP_screen" />
     </LinearLayout>
-</ScrollView>
+</RelativeLayout>

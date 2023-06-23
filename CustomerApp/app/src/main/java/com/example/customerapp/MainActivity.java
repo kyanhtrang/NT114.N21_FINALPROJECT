@@ -1,19 +1,30 @@
 package com.example.customerapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.customerapp.Fragment.ActivityFragment;
 import com.example.customerapp.Fragment.HomeFragment;
 import com.example.customerapp.Fragment.MessageFragment;
 import com.example.customerapp.Fragment.NoticeFragment;
 import com.example.customerapp.Fragment.SettingFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,11 +33,14 @@ public class MainActivity extends AppCompatActivity {
     TextView textHome, textActivity, textMessage, textNotice, textSetting;
     private int selectedTab = 1;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String email = getIntent().getStringExtra("email"), password = getIntent().getStringExtra("password");
+        Log.d("User Credential", email + ":" + password);
         init();
 
         getSupportFragmentManager().beginTransaction()
@@ -228,6 +242,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     public void init(){

@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.example.customerapp.Authentication.LoginActivity;
 import com.example.customerapp.MainActivity;
 import com.example.customerapp.R;
+import com.example.customerapp.User.UserProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingFragment extends Fragment {
@@ -35,6 +36,11 @@ public class SettingFragment extends Fragment {
     public void logout(){
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void profile(View view) {
+        Intent intent = new Intent(getActivity(), UserProfileActivity.class);
         startActivity(intent);
     }
 }
