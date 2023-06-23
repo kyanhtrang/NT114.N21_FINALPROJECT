@@ -13,12 +13,13 @@
     <color name="yellow">#FEC868</color>
     <color name="orange">#FDA769</color>
     <color name="brown">#473C33</color>
-    <color name="blue">#0487D9</color>
+    <color name="purple">#6667AB</color>
 
     <color name="green_20">#33ABC270</color>
     <color name="yellow_20">#33FEC868</color>
     <color name="orange_20">#33FDA769</color>
     <color name="brown_20">#33473C33</color>
+    <color name="purple_20">#336667AB</color>
 
     <color name="transparent">#00000000</color>
 </resources>
