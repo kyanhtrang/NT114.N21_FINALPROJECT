@@ -88,7 +88,7 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/purple_20"
-            android:onClick="callNextScreenFromOTP"
+            android:onClick="returnToPreviousIntent"
             android:text="Thay đổi số điện thoại"
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/black"
