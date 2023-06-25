@@ -16,13 +16,13 @@ public class AddPhoneNumberActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_phone_number);
         TextView phone = (TextView) findViewById(R.id.input_phone_number);
         Intent intent = new Intent(AddPhoneNumberActivity.this, OTP.class);
-        if (((TextView) findViewById(R.id.input_phone_number)).getText() == null) {
-            intent.putExtra("phonenum",phone.getText().toString().trim());
-        }
-        else  intent.putExtra("phonenum", getIntent().getStringExtra("phonenum"));
         findViewById(R.id.btn_continue).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (((TextView) findViewById(R.id.input_phone_number)).getText() == null) {
+                    intent.putExtra("phonenum",phone.getText().toString().trim());
+                }
+                else  intent.putExtra("phonenum", getIntent().getStringExtra("phonenum"));
                 intent.putExtra("email", getIntent().getStringExtra("email"));
                 intent.putExtra("password", getIntent().getStringExtra("password"));
                 intent.putExtra("fullname", getIntent().getStringExtra("fullname"));
