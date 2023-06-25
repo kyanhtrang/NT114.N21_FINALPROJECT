@@ -14,7 +14,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AddPhoneNumberActivity"
+            android:name=".Authentication.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Authentication.AddPhoneNumberActivity"
             android:exported="false" />
         <activity
             android:name=".User.UserProfileActivity"

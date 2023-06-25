@@ -87,6 +87,7 @@
                     android:layout_gravity="right"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
+                    android:onClick="resetPassword"
                     android:text="Quên mật khẩu?"
                     android:textAllCaps="false"
                     android:textColor="@color/brown"

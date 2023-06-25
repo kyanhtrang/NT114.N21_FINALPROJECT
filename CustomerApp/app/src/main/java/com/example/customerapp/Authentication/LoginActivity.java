@@ -118,6 +118,21 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null)  updateUI(currentUser);
     }
-
-
+    public void resetPassword(View view) {
+        String iemail = txtView_email.getText().toString();
+        try {
+            if (!iemail.isEmpty()) {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                if (!iemail.isEmpty()) {
+                    intent.putExtra("email", iemail);
+                }
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                startActivity(intent);
+            }
+        } catch (Exception ex) {
+            Log.e("ForgotPassword", ex.toString());
+        }
+    }
 }
