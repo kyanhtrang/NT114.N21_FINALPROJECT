@@ -33,7 +33,7 @@
         android:layout_marginStart="10dp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:background="@drawable/round_button"
+        android:background="@drawable/purple_round_button"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="parent"
