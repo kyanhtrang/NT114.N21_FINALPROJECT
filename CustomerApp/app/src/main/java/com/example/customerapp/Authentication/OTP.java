@@ -147,7 +147,7 @@ public class OTP extends AppCompatActivity {
                     }
                 });
     }
-    private void init(){
+    private void init(){ 
         TextView tvNoti = findViewById(R.id.tv_noti);
         otp = findViewById(R.id.pin_view);
         sendbtn = findViewById(R.id.btn_sendotp);
@@ -163,8 +163,7 @@ public class OTP extends AppCompatActivity {
     }
     private void sendotp(){
         // [START start_phone_auth]
-        if (phonenumber.length() <= 10) {
-            Log.d("PhoneNumber", phonenumber);
+        if (phonenumber.length() > 10) {
             phonenumber = "+84" + phonenumber.substring(1);
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     phonenumber,
