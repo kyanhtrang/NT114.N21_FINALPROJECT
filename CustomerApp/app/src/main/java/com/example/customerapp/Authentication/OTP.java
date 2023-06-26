@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.chaos.view.PinView;
 import com.example.customerapp.MainActivity;
+import com.example.customerapp.Model.User;
 import com.example.customerapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,6 +35,7 @@ import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.ktx.Firebase;
 
 import java.util.HashMap;
@@ -85,14 +87,22 @@ public class OTP extends AppCompatActivity {
                             user = task.getResult().getUser();
                             dtb = FirebaseFirestore.getInstance();
 
-                            Map<String, Object> info = new HashMap<>();
+                            User mUser = new User();
+                            mUser.setEmail(email);
+                            mUser.setBirthday(birth);
+                            mUser.setUserID(user.getUid());
+                            mUser.setFullName(fullname);
+                            mUser.setPhoneNumber(phonenumber);
+                            createUser(mUser);
+
+                            /*Map<String, Object> info = new HashMap<>();
                             info.put("email", email);
                             info.put("fullname",fullname);
                             info.put("gender",gender);
                             info.put("uid",user.getUid());
                             info.put("birth",birth);
                             info.put("phonenum", phonenumber);
-                            storedata(info);
+                            storedata(info);*/
                             // Update UI
                         } else {
                             // Sign in failed, display a message and update the UI
@@ -112,7 +122,6 @@ public class OTP extends AppCompatActivity {
                 });
     }
     private PinView otp;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,14 +135,31 @@ public class OTP extends AppCompatActivity {
             }
         });*/
     }
-
-    private void storedata(Map<String, Object> info){
+    private void storeData(Map<String, Object> info){
         dtb = FirebaseFirestore.getInstance();
-        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
-                .build();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder().build();
         dtb.setFirestoreSettings(settings);
         DocumentReference userRef = dtb.collection("Users").document(FirebaseAuth.getInstance().getUid());
-        userRef.set(info)
+        userRef.set(info, SetOptions.merge())
+               .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d("FireStore","User's Data Created succesfully");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("FireStore","Can't Create User Data") ;
+                    }
+                });
+    }
+    private void createUser(User user){
+        dtb = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder().build();
+        dtb.setFirestoreSettings(settings);
+        DocumentReference userRef = dtb.collection("Users").document(FirebaseAuth.getInstance().getUid());
+        userRef.set(user)
                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
