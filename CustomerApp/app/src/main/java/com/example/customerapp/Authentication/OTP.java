@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,9 @@ import android.widget.Toast;
 import com.chaos.view.PinView;
 import com.example.customerapp.MainActivity;
 import com.example.customerapp.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,9 +46,11 @@ import java.util.concurrent.TimeUnit;
 
 public class OTP extends AppCompatActivity {
     Button sendbtn;
+    private static final int RC_SIGN_IN = 0406;
     PhoneAuthCredential credential;
     String CodeSent;
     String phonenumber, fullname, gender, birth, email, password, noti;
+    ImageView btnGGsignin;
 
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
@@ -113,6 +119,7 @@ public class OTP extends AppCompatActivity {
     }
     private PinView otp;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,8 +156,8 @@ public class OTP extends AppCompatActivity {
     }
     private void init(){ 
         TextView tvNoti = findViewById(R.id.tv_noti);
+        btnGGsignin = findViewById(R.id.btn_ggsignin);
         otp = findViewById(R.id.pin_view);
-        sendbtn = findViewById(R.id.btn_sendotp);
         fullname = getIntent().getStringExtra("fullname");
         gender = getIntent().getStringExtra("gender");
         birth = getIntent().getStringExtra("birth");
@@ -163,7 +170,7 @@ public class OTP extends AppCompatActivity {
     }
     private void sendotp(){
         // [START start_phone_auth]
-        if (phonenumber.length() > 10) {
+        if (phonenumber.length() >= 10) {
             phonenumber = "+84" + phonenumber.substring(1);
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     phonenumber,
@@ -184,7 +191,6 @@ public class OTP extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
     }
 
     public void returnToPreviousIntent(View view) {
