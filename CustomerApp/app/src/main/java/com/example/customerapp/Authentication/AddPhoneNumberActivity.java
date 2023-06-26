@@ -38,15 +38,12 @@ public class AddPhoneNumberActivity extends AppCompatActivity {
         });
     }
     private boolean validatePhonenum(String val) {
-        String checkPassword = "^" +
-                "(?=S+$)" +           //no white spaces
-                ".{9,}" +               //at least 4 characters
-                "$";
+
         if (val.isEmpty()) {
             phone.setError("Hãy nhập số điện thoại");
             return false;
-        } else if (!val.matches(checkPassword)) {
-            phone.setError("Mật khẩu phải có ít nhất 6 ký tự!");
+        } else if (val.length() < 9) {
+            phone.setError("Vui lòng nhập đúng định dạng số điện thoại!");
             return false;
         } else {
             phone.setError(null);

@@ -180,7 +180,6 @@ public class OTP extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
     }
 
     public void returnToPreviousIntent(View view) {
