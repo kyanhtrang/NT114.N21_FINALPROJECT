@@ -79,6 +79,7 @@
         android:background="@drawable/purple_round_button"
         android:fontFamily="@font/opensans_bold"
         android:text="Tiếp tục"
+        android:onClick="callnewintent"
         android:textColor="@color/white"
         android:textSize="@dimen/_16ssp"
         app:layout_constraintBottom_toBottomOf="@+id/container"

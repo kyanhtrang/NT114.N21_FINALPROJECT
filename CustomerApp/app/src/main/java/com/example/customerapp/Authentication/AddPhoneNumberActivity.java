@@ -16,6 +16,7 @@ public class AddPhoneNumberActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_phone_number);
+
         phone = (TextView) findViewById(R.id.input_phone);
 
         phone.setText(getIntent().getStringExtra("phonenum"));
@@ -51,5 +52,6 @@ public class AddPhoneNumberActivity extends AppCompatActivity {
             phone.setError(null);
             return true;
         }
+
     }
 }

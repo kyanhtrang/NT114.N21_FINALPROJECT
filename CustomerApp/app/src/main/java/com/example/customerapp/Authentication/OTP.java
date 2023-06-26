@@ -150,7 +150,6 @@ public class OTP extends AppCompatActivity {
     private void init(){ 
         TextView tvNoti = findViewById(R.id.tv_noti);
         otp = findViewById(R.id.pin_view);
-        sendbtn = findViewById(R.id.btn_sendotp);
         fullname = getIntent().getStringExtra("fullname");
         gender = getIntent().getStringExtra("gender");
         birth = getIntent().getStringExtra("birth");
