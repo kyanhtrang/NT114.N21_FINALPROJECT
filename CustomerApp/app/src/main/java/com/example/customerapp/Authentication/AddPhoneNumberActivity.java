@@ -17,7 +17,7 @@ public class AddPhoneNumberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_phone_number);
 
-        phone = (TextView) findViewById(R.id.input_phone_number);
+        phone = (TextView) findViewById(R.id.input_phone);
 
         phone.setText(getIntent().getStringExtra("phonenum"));
         Intent intent = new Intent(AddPhoneNumberActivity.this, OTP.class);
