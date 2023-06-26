@@ -7,7 +7,7 @@
     tools:context=".Authentication.AddPhoneNumberActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img_phone"
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_200sdp"
         android:background="@drawable/phone"
@@ -18,18 +18,18 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv1"
+        android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nhập số điện thoại của bạn để nhận mã xác thực!"
         android:fontFamily="@font/opensans_regular"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/img_phone"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:textSize="@dimen/_18ssp"
         android:gravity="center"/>
     <View
-        android:id="@+id/view3"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
         android:layout_marginStart="@dimen/_15sdp"
@@ -37,9 +37,9 @@
         android:layout_marginTop="@dimen/_35sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv1"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_content"/>
     <TextView
-        android:id="@+id/phone_number"
+        android:id="@+id/tv_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_25sdp"
@@ -50,13 +50,13 @@
         android:text="Số điện thoại:"
         android:fontFamily="@font/opensans_medium"
         android:textSize="@dimen/_16ssp"
-        app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintEnd_toEndOf="@id/view3"
-        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="@id/container"
+        app:layout_constraintTop_toTopOf="@+id/container"
         tools:ignore="HardcodedText,TextFields" />
 
     <EditText
-        android:id="@+id/input_phone_number"
+        android:id="@+id/input_phone"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_5sdp"
@@ -64,9 +64,9 @@
         android:layout_marginEnd="@dimen/_25sdp"
         android:textSize="@dimen/_14ssp"
         android:inputType="text|phone"
-        app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintEnd_toEndOf="@id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number"
+        app:layout_constraintStart_toStartOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="@id/container"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phone"
         tools:ignore="TextFields" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -76,14 +76,15 @@
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_25sdp"
-        android:background="@drawable/blue_round_button"
+        android:background="@drawable/purple_round_button"
         android:fontFamily="@font/opensans_bold"
         android:text="Tiếp tục"
+        android:onClick="callnewintent"
         android:textColor="@color/white"
         android:textSize="@dimen/_16ssp"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
-        app:layout_constraintEnd_toEndOf="@id/input_phone_number"
-        app:layout_constraintStart_toStartOf="@+id/input_phone_number"
-        app:layout_constraintTop_toBottomOf="@+id/input_phone_number"
+        app:layout_constraintBottom_toBottomOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="@id/input_phone"
+        app:layout_constraintStart_toStartOf="@+id/input_phone"
+        app:layout_constraintTop_toBottomOf="@+id/input_phone"
         tools:ignore="HardcodedText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

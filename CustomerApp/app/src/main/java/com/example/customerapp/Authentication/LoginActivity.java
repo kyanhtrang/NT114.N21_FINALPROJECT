@@ -3,7 +3,6 @@ package com.example.customerapp.Authentication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,19 +11,15 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.customerapp.MainActivity;
 import com.example.customerapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
     TextView txtView_register, txtView_email, txtView_password;
@@ -112,8 +107,8 @@ public class LoginActivity extends AppCompatActivity {
     }
     void init (){
         txtView_register = findViewById(R.id.btn_register);
-        txtView_email = findViewById(R.id.email);
-        txtView_password = findViewById(R.id.password);
+        txtView_email = findViewById(R.id.input_email);
+        txtView_password = findViewById(R.id.input_password);
         progressDialog = new ProgressDialog(this);
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null)  updateUI(currentUser);

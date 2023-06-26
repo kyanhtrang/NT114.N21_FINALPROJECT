@@ -31,19 +31,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOGIN"
+                    android:fontFamily="@font/opensans_bold"
                     android:layout_marginTop="@dimen/_35sdp"
                     android:textColor="@color/brown"
                     android:textSize="@dimen/_24ssp"
                     android:textStyle="bold"/>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/text_layout_email"
+                    android:id="@+id/layout_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
-                    app:hintTextColor="@color/orange"      >
+                    app:hintTextColor="@color/purple"      >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/email"
+                        android:id="@+id/input_email"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_45sdp"
                         android:background="@color/transparent"
@@ -52,21 +53,22 @@
                         android:hint="Email"
                         android:inputType="text"
                         android:padding="@dimen/_5sdp"
+                        android:fontFamily="@font/opensans_regular"
                         tools:ignore="HardcodedText" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtText_passwordLayout"
+                    android:id="@+id/layout_password"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:ems="10"
-                    app:hintTextColor="@color/orange"
+                    app:hintTextColor="@color/purple"
                     app:passwordToggleDrawable="@drawable/show_password_selector"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/password"
+                        android:id="@+id/input_password"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_45sdp"
                         android:background="@color/transparent"
@@ -74,6 +76,7 @@
                         android:hint="Password"
                         android:textSize="@dimen/_12ssp"
                         android:inputType="textPassword"
+                        android:fontFamily="@font/opensans_regular"
                         android:padding="@dimen/_5sdp"
                         tools:ignore="HardcodedText">
                     </com.google.android.material.textfield.TextInputEditText>
@@ -88,20 +91,23 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:onClick="resetPassword"
+                    android:fontFamily="@font/opensans_semibold"
                     android:text="Quên mật khẩu?"
                     android:textAllCaps="false"
                     android:textColor="@color/brown"
                     android:textSize="@dimen/_10ssp"/>
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_signin"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:text="Đăng nhập"
+                    android:fontFamily="@font/opensans_bold"
                     android:onClick="login"
                     android:textStyle="bold"
                     android:textSize="@dimen/_16ssp"
                     android:textColor="@color/white"
-                    android:background="@drawable/blue_round_button"/>
+                    android:background="@drawable/purple_round_button"/>
             </LinearLayout>
 
             <LinearLayout
@@ -111,10 +117,12 @@
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/_20sdp">
                 <ImageView
+                    android:id="@+id/btn_fbsignin"
                     android:layout_width="@dimen/_35sdp"
                     android:layout_height="@dimen/_35sdp"
                     android:src="@drawable/ic_facebook"/>
                 <ImageView
+                    android:id="@+id/btn_ggsignin"
                     android:layout_width="@dimen/_35sdp"
                     android:layout_height="@dimen/_35sdp"
                     android:layout_marginStart="@dimen/_25sdp"
@@ -134,6 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Chưa có tài khoản? "
+            android:fontFamily="@font/opensans_regular"
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/white"/>
         <TextView
@@ -142,8 +151,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Đăng ký"
+            android:fontFamily="@font/opensans_bold"
             android:textSize="@dimen/_14ssp"
             android:textStyle="bold"
-            android:textColor="@color/brown"/>
+            android:textColor="@color/purple"/>
     </LinearLayout>
 </RelativeLayout>
