@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "935601772444",
+    "project_id": "renting-app-aec5c",
+    "storage_bucket": "renting-app-aec5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935601772444:android:08a6f6ff64738e0ace9a59",
+        "android_client_info": {
+          "package_name": "com.example.customerrenting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935601772444-777pg558ktiifjssi2a0nvdt2d92p0ps.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.customerrenting",
+            "certificate_hash": "2b744849d5e3f042ac549b12b3e0cf6300699473"
+          }
+        },
+        {
+          "client_id": "935601772444-laeitodhu2dfu69go5dvk3hm8h1t72q7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN3E5limujJyvyU-oJ4a41sfTgvqSnE9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "935601772444-97418036knp5dm3238mrp1a4tqio91u8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
