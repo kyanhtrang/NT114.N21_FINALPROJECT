@@ -24,7 +24,7 @@ public class AddPhoneNumberActivity extends AppCompatActivity {
         findViewById(R.id.btn_continue).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!validatePhonenum(phone.getText().toString())) {
+                if (validatePhonenum(phone.getText().toString())) {
                     intent.putExtra("phonenum", phone.getText().toString().trim());
                     intent.putExtra("email", getIntent().getStringExtra("email"));
                     intent.putExtra("password", getIntent().getStringExtra("password"));
