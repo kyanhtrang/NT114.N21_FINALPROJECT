@@ -41,8 +41,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -175,7 +173,6 @@ public class UserProfileActivity extends AppCompatActivity {
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Đang tải lên...");
             progressDialog.show();
-
             StorageReference ref = storageReference.child(type + "/"+ imageID);
             ref.putFile(avatarUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

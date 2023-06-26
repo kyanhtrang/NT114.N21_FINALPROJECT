@@ -30,14 +30,14 @@ public class UserInfoActivity extends AppCompatActivity {
         init();
     }
     private void init(){
-        nextBtn = findViewById(R.id.user_info_nextbtn);
+        //nextBtn = findViewById(R.id.user_info_nextbtn);
         fullname = findViewById(R.id.signup_fullname);
         gender = findViewById(R.id.signup_gender_select);
         datePicker = findViewById(R.id.datepicker);
         user = FirebaseAuth.getInstance().getCurrentUser();
     }
     public void confirminformation(View view){
-        if (validateFullName() & validateAge() & validateGender()) {
+        if (validateFullName() == validateAge() == validateGender() == true) {
             Intent intent = new Intent(UserInfoActivity.this, AddPhoneNumberActivity.class);
             intent.putExtra("email", getIntent().getStringExtra("email"));
             intent.putExtra("password", getIntent().getStringExtra("password"));
