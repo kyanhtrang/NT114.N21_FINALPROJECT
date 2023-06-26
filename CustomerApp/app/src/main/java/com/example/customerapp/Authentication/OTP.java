@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chaos.view.PinView;
@@ -43,7 +44,8 @@ public class OTP extends AppCompatActivity {
     Button sendbtn;
     PhoneAuthCredential credential;
     String CodeSent;
-    String phonenumber, fullname, gender, birth, email, password;
+    String phonenumber, fullname, gender, birth, email, password, noti;
+
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
@@ -146,6 +148,7 @@ public class OTP extends AppCompatActivity {
                 });
     }
     private void init(){
+        TextView tvNoti = findViewById(R.id.tv_noti);
         otp = findViewById(R.id.pin_view);
         sendbtn = findViewById(R.id.btn_sendotp);
         fullname = getIntent().getStringExtra("fullname");
@@ -154,6 +157,8 @@ public class OTP extends AppCompatActivity {
         email = getIntent().getStringExtra("email");
         password = getIntent().getStringExtra("password");
         phonenumber = getIntent().getStringExtra("phonenum");
+        noti = "Mã xác thực đã gửi về số điện thoại\n" + phonenumber;
+        tvNoti.setText(noti);
         sendotp();
     }
     private void sendotp(){
