@@ -162,7 +162,7 @@ public class OTP extends AppCompatActivity {
     }
     private void sendotp(){
         // [START start_phone_auth]
-        if (phonenumber.length() > 10) {
+        if (phonenumber.length() >= 10) {
             phonenumber = "+84" + phonenumber.substring(1);
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     phonenumber,
@@ -183,7 +183,6 @@ public class OTP extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
     }
 
     public void returnToPreviousIntent(View view) {
