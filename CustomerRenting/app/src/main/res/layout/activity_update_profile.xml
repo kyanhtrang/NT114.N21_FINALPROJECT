@@ -5,7 +5,7 @@
     android:background="@color/orange"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Authentication.UserInfoActivity">
+    tools:context=".Services.UsersManagement.UserInfoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

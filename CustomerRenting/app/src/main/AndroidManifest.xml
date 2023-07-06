@@ -13,22 +13,22 @@
         android:theme="@style/Theme.CustomerRenting"
         tools:targetApi="31">
         <activity
-            android:name=".Authentication.OTP"
+            android:name=".Services.Authentication.OTP"
             android:exported="false" />
         <activity
-            android:name=".Authentication.AddPhoneNumberActivity"
+            android:name=".Services.Authentication.AddPhoneNumberActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentication.ResetPasswordActivity"
+            android:name=".Services.Authentication.ResetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentication.UserInfoActivity"
+            android:name=".Services.UsersManagement.UserInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentication.SignUpActivity"
+            android:name=".Services.Authentication.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentication.LoginActivity"
+            android:name=".Services.Authentication.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".User.UserProfileActivity"
+            android:name=".Services.UsersManagement.UserProfileActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

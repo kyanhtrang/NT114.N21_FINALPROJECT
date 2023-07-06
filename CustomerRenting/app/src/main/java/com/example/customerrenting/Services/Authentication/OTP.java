@@ -1,4 +1,4 @@
-package com.example.customerrenting.Authentication;
+package com.example.customerrenting.Services.Authentication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
