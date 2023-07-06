@@ -1,4 +1,4 @@
-package com.example.customerrenting.Authentication;
+package com.example.customerrenting.Services.UsersManagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.customerrenting.Services.Authentication.AddPhoneNumberActivity;
 import com.example.customerrenting.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

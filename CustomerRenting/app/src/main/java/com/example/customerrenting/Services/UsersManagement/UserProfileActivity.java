@@ -1,4 +1,4 @@
-package com.example.customerrenting.User;
+package com.example.customerrenting.Services.UsersManagement;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;

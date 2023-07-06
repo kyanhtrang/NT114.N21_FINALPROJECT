@@ -1,4 +1,4 @@
-package com.example.customerrenting.Authentication;
+package com.example.customerrenting.Services.Authentication;
 
 import static android.content.ContentValues.TAG;
 
@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.customerrenting.MainActivity;
 import com.example.customerrenting.Model.User;
 import com.example.customerrenting.R;
+import com.example.customerrenting.Services.UsersManagement.UserInfoActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
