@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -33,13 +34,9 @@ import com.google.firebase.firestore.model.Document;
 import java.util.ArrayList;
 
 public class MessageFragment extends Fragment {
-    /*private FirebaseAuth mAuth;
-    private FirebaseDatabase database;*/
     private ArrayList<User> users;
-    private TextView Name;
-    private User user;
-    private UsersAdapter friendadapter;
-    RecyclerView friendRecyclewiew;
+    private UsersAdapter friendAdapter;
+    RecyclerView friendRecyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,58 +44,12 @@ public class MessageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_message, container, false);
 
-        /*database = FirebaseDatabase.getInstance();
-        mAuth = FirebaseAuth.getInstance();*/
         users = new ArrayList<>();
-        //Name = view.findViewById(R.id.title);
-        friendRecyclewiew = view.findViewById(R.id.friendRecyclerView);
+        friendRecyclerView = view.findViewById(R.id.friendRecyclerView);
+        friendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        friendAdapter = new UsersAdapter(users);
+        friendRecyclerView.setAdapter(friendAdapter);
         getUsers();
-        /*user.getFullName();
-        users.add(user);
-        friendadapter = new UsersAdapter(users);
-        friendRecyclewiew.setAdapter(friendadapter);*/
-
-
-        /*database.getReference().child("users").addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                users.clear();
-                for (DataSnapshot snapshot1 : snapshot.getChildren()){
-                    User user = snapshot1.getValue(User.class);
-                    if(!user.getUserID().equals(mAuth.getUid())){
-                        database.getReference().child("users")
-                                .child(mAuth.getUid())
-                                .child("friendList")
-                                .addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        for (DataSnapshot snapshot2 : snapshot.getChildren()){
-                                            String check = String.valueOf(snapshot2.getValue());
-
-                                            if(check.equals(user.getUserID())){
-                                                users.add(user);
-                                            }
-
-                                        }
-                                        //friendsAdapter.notifyDataSetChanged();
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {
-
-                                    }
-                                });
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
         return view;
     }
     private void getUsers(){
@@ -109,14 +60,10 @@ public class MessageFragment extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        user = new User();
-                        user.fullName = document.get("fullName").toString();
+                        User user = document.toObject(User.class);
                         users.add(user);
-                        Toast.makeText(getActivity(),user.fullName, Toast.LENGTH_LONG).show();
                     }
-                    friendadapter = new UsersAdapter(users);
-                    friendRecyclewiew.setAdapter(friendadapter);
-                    friendRecyclewiew.setVisibility(View.VISIBLE);
+                    friendAdapter.notifyDataSetChanged();
                 }
             }
         });
