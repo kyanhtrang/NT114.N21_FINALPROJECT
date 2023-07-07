@@ -27,8 +27,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/img_avatar_profile_input_fragment"
-                    android:layout_width="@dimen/_100sdp"
-                    android:layout_height="@dimen/_100sdp"
+                    android:layout_width="@dimen/_125sdp"
+                    android:layout_height="@dimen/_125sdp"
                     android:src="@drawable/avatar"
                     android:background="@drawable/orange_circle_line"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -38,76 +38,25 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/tv_phone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:text="Số điện thoại *"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:textColor="@color/purple"
-                    android:fontFamily="@font/opensans_semibold"
-                    app:layout_constraintStart_toStartOf="@+id/profile_input_fullname"
-                    app:layout_constraintTop_toBottomOf="@+id/img_avatar_profile_input_fragment"
-                    tools:ignore="HardcodedText" />
 
-                <EditText
-                    android:id="@+id/profile_input_phone"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_30sdp"
-                    android:layout_marginEnd="@dimen/_30sdp"
-                    android:ems="10"
-                    android:inputType="phone"
-                    android:fontFamily="@font/opensans_regular"
-                    android:textColor="@color/purple"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
-
-                <TextView
-                    android:id="@+id/text1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email *"
-                    android:textColor="@color/purple"
-                    android:fontFamily="@font/opensans_semibold"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_input_phone"
-                    tools:ignore="HardcodedText" />
-
-                <EditText
-                    android:id="@+id/profile_input_email"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textEmailAddress"
-                    android:fontFamily="@font/opensans_regular"
-                    android:textColor="@color/purple"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
-                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
-                    app:layout_constraintTop_toBottomOf="@+id/text1" />
-
-                <TextView
                     android:id="@+id/fullnameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:fontFamily="@font/opensans_semibold"
                     android:text="Tên người dùng *"
                     android:textColor="@color/purple"
-                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_input_email"
+                    app:layout_constraintStart_toStartOf="@+id/profile_input_fullname"
+                    app:layout_constraintTop_toBottomOf="@+id/img_avatar_profile_input_fragment"
                     tools:ignore="HardcodedText" />
 
                 <EditText
                     android:id="@+id/profile_input_fullname"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
-                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
                     android:backgroundTint="@color/purple"
                     android:fontFamily="@font/opensans_regular"
                     android:ems="10"
@@ -117,15 +66,38 @@
                     app:layout_constraintTop_toBottomOf="@+id/fullnameText" />
 
                 <TextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:text="Giới tính *"
+                    android:textColor="@color/purple"
+                    app:layout_constraintStart_toStartOf="@+id/profile_input_fullname"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_input_fullname"
+                    tools:ignore="HardcodedText" />
+
+                <Spinner
+                    android:id="@+id/gender"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:ems="10"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_fullname"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_fullname"
+                    app:layout_constraintTop_toBottomOf="@id/tv_gender"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
                     android:id="@+id/addressText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans_semibold"
-                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:text="Địa chỉ *"
                     android:textColor="@color/purple"
-                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_input_fullname"
+                    app:layout_constraintStart_toStartOf="@+id/fullnameText"
+                    app:layout_constraintTop_toBottomOf="@+id/gender"
                     tools:ignore="HardcodedText" />
 
                 <EditText
@@ -137,8 +109,8 @@
                     android:inputType="textPersonName"
                     android:textColor="@color/purple"
                     android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
-                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_fullname"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_fullname"
                     app:layout_constraintTop_toBottomOf="@+id/addressText" />
 
                 <TextView
@@ -146,10 +118,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans_semibold"
-                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:text="Thành phố"
                     android:textColor="@color/purple"
-                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintStart_toStartOf="@+id/fullnameText"
                     app:layout_constraintTop_toBottomOf="@+id/profile_input_address"
                     tools:ignore="HardcodedText" />
 
@@ -163,8 +135,8 @@
                     android:fontFamily="@font/opensans_regular"
                     android:textColor="@color/purple"
                     android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
-                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_fullname"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_fullname"
                     app:layout_constraintTop_toBottomOf="@+id/cityText" />
 
 
@@ -172,11 +144,11 @@
                     android:id="@+id/dateofBirthText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:fontFamily="@font/opensans_semibold"
                     android:text="Ngày sinh *"
                     android:textColor="@color/purple"
-                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintStart_toStartOf="@+id/fullnameText"
                     app:layout_constraintTop_toBottomOf="@+id/profile_input_city"
                     tools:ignore="HardcodedText" />
 
@@ -189,8 +161,8 @@
                     android:textSize="@dimen/_12ssp"
                     style="?android:spinnerStyle"
                     android:fontFamily="@font/opensans_regular"
-                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
-                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_fullname"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_fullname"
                     app:layout_constraintTop_toBottomOf="@+id/dateofBirthText"
                     tools:ignore="KeyboardInaccessibleWidget"
                     android:onClick="openDatePicker"/>
@@ -221,8 +193,8 @@
                     android:text="Cập nhật thông tin"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_16ssp"
-                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
-                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_fullname"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_fullname"
                     app:layout_constraintTop_toBottomOf="@+id/profile_input_dateofbirth"
                     app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
                     tools:ignore="HardcodedText" />

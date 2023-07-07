@@ -132,6 +132,36 @@
                     tools:ignore="HardcodedText" />
 
                 <TextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="Giới tính: :"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/purple"
+                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/fullname"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/purple"
+                    android:fontFamily="@font/opensans_regular"
+                    android:ems="10"
+                    android:text="Nữ"
+                    android:textColor="@color/purple"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="@id/phone"
+                    app:layout_constraintStart_toStartOf="@id/phone"
+                    app:layout_constraintTop_toTopOf="@+id/tv_gender"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_gender"/>
+
+
+                <TextView
                     android:id="@+id/tv_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -142,7 +172,7 @@
                     android:textSize="@dimen/_14ssp"
                     android:textColor="@color/purple"
                     app:layout_constraintStart_toStartOf="@+id/tv_phone"
-                    app:layout_constraintTop_toBottomOf="@+id/fullname"
+                    app:layout_constraintTop_toBottomOf="@+id/gender"
                     tools:ignore="HardcodedText" />
 
                 <TextView

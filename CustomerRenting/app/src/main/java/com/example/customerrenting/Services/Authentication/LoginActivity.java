@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -19,7 +20,7 @@ import android.widget.Toast;
 import com.example.customerrenting.MainActivity;
 import com.example.customerrenting.Model.User;
 import com.example.customerrenting.R;
-import com.example.customerrenting.Services.UsersManagement.UpdateProfileActivity;
+import com.example.customerrenting.Services.UsersManagement.RemindNotiActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -27,6 +28,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
@@ -34,10 +36,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -47,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
     ImageView btnGGsignin;
     private User user = new User();
     private FirebaseFirestore dtbUser;
+
+    private String email;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -59,7 +67,8 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                Toast.makeText(LoginActivity.this, "Đăng nhập thành công.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Đăng ký thành công.", Toast.LENGTH_SHORT).show();
+                email = account.getEmail();
 
                 AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
 
@@ -75,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                                     String uid = user.getUid();
 
                                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-                                    DocumentReference docRef = db.collection("User").document(uid);
+                                    DocumentReference docRef = db.collection("Users").document(uid);
 
                                     FirebaseFirestore.getInstance().collection("Users").document(uid)
                                             .get()
@@ -89,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                                             // do something with the retrieved data
                                                             String username = document.getString("fullName");
                                                             if (username.isEmpty()) {
-                                                                Intent intent = new Intent(LoginActivity.this, UpdateProfileActivity.class);
+                                                                Intent intent = new Intent(LoginActivity.this, RemindNotiActivity.class);
                                                                 startActivity(intent);
                                                             }
                                                             else
@@ -252,28 +261,30 @@ public class LoginActivity extends AppCompatActivity {
 
     private void createUser() {
         user.setUserID(FirebaseAuth.getInstance().getUid());
+        user.setEmail(email);
 
-        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
-                .build();
-        dtbUser.setFirestoreSettings(settings);
-
-        DocumentReference newUserRef = dtbUser
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference newUserRef = db
                 .collection("Users")
                 .document(FirebaseAuth.getInstance().getUid());
-        newUserRef.set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                progressDialog.dismiss();
-                if (task.isSuccessful()) {
+        newUserRef.set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        progressDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "Tạo tài khoản thành công", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        View parentLayout = findViewById(android.R.id.content);
+                        Snackbar.make(parentLayout, "Something went wrong.", Snackbar.LENGTH_SHORT).show();
+                    }
+                });
 
-                    Toast.makeText(LoginActivity.this, "Tạo tài khoản thành công",Toast.LENGTH_LONG).show();
-
-                } else {
-                    View parentLayout = findViewById(android.R.id.content);
-                    Snackbar.make(parentLayout, "Something went wrong.", Snackbar.LENGTH_SHORT).show();
-                }
-            }
-        });
         progressDialog.cancel();
     }
+
 }
