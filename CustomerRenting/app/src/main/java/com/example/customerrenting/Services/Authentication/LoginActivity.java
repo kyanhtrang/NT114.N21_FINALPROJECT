@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.example.customerrenting.MainActivity;
 import com.example.customerrenting.Model.User;
 import com.example.customerrenting.R;
-import com.example.customerrenting.Services.UsersManagement.UserInfoActivity;
+import com.example.customerrenting.Services.UsersManagement.UpdateProfileActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                                                             // do something with the retrieved data
                                                             String username = document.getString("fullName");
                                                             if (username.isEmpty()) {
-                                                                Intent intent = new Intent(LoginActivity.this, UserInfoActivity.class);
+                                                                Intent intent = new Intent(LoginActivity.this, UpdateProfileActivity.class);
                                                                 startActivity(intent);
                                                             }
                                                             else

@@ -1,106 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/orange"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Services.UsersManagement.UserInfoActivity">
+    tools:context=".Services.UsersManagement.UpdateProfileActivity">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_20sdp"
-        android:orientation="vertical">
-        <FrameLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_525sdp"
-                android:orientation="vertical"
-                android:paddingStart="@dimen/_15sdp"
-                android:paddingEnd="@dimen/_15sdp"
-                android:background="@drawable/white_round_corner">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_35sdp"
-                    android:text="SIGNUP"
-                    android:textColor="@color/brown"
-                    android:textSize="@dimen/_24ssp"
-                    android:textStyle="bold" />
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/text_layout_fullname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    app:hintTextColor="@color/orange">
+                android:layout_height="match_parent">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/signup_fullname"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_45sdp"
-                        android:background="@color/transparent"
-                        android:drawableStart="@drawable/ic_mail"
-                        android:hint="Họ và Tên"
-                        android:inputType="text"
-                        android:padding="@dimen/_5sdp"
-                        android:textSize="@dimen/_12ssp"
-                        tools:ignore="HardcodedText" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_avatar_profile_input_fragment"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:src="@drawable/avatar"
+                    android:background="@drawable/orange_circle_line"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/tv_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Giới tính"
-                    android:textSize="@dimen/_24ssp"
-                    android:layout_marginTop="@dimen/_10ssp"
-                    />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="Số điện thoại *"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:textColor="@color/purple"
+                    android:fontFamily="@font/opensans_semibold"
+                    app:layout_constraintStart_toStartOf="@+id/profile_input_fullname"
+                    app:layout_constraintTop_toBottomOf="@+id/img_avatar_profile_input_fragment"
+                    tools:ignore="HardcodedText" />
 
-                <RadioGroup
-                    android:id="@+id/signup_gender_select"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/profile_input_phone"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal"
-                    app:hintTextColor="@color/orange">
-                    <RadioButton
-                        android:id="@+id/male"
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="wrap_content"
-                        android:text="Nam"/>
-                    <RadioButton
-                        android:id="@+id/female"
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="wrap_content"
-                        android:text="Nữ"/>
-                    <RadioButton
-                        android:id="@+id/others"
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="wrap_content"
-                        android:text="Khác"/>
-                </RadioGroup>
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_30sdp"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:fontFamily="@font/opensans_regular"
+                    android:textColor="@color/purple"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
 
-                <DatePicker
-                    android:id="@+id/datepicker"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:calendarViewShown="false"
-                    android:datePickerMode="spinner"
-                    android:spinnersShown="true" />
+                    android:text="Email *"
+                    android:textColor="@color/purple"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_input_phone"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/profile_input_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/opensans_regular"
+                    android:textColor="@color/purple"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/text1" />
+
+                <TextView
+                    android:id="@+id/fullnameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:text="Tên người dùng *"
+                    android:textColor="@color/purple"
+                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_input_email"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/profile_input_fullname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    android:backgroundTint="@color/purple"
+                    android:fontFamily="@font/opensans_regular"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/purple"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintTop_toBottomOf="@+id/fullnameText" />
+
+                <TextView
+                    android:id="@+id/addressText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Địa chỉ *"
+                    android:textColor="@color/purple"
+                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_input_fullname"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/profile_input_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:fontFamily="@font/opensans_regular"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/purple"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/addressText" />
+
+                <TextView
+                    android:id="@+id/cityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Thành phố"
+                    android:textColor="@color/purple"
+                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_input_address"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/profile_input_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/purple"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/opensans_regular"
+                    android:textColor="@color/purple"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/cityText" />
+
+
+                <TextView
+                    android:id="@+id/dateofBirthText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:text="Ngày sinh *"
+                    android:textColor="@color/purple"
+                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_input_city"
+                    tools:ignore="HardcodedText" />
+
                 <Button
-                    android:id="@+id/user_info_nextbtn"
-                    android:layout_width="match_parent"
+                    android:id="@+id/profile_input_dateofbirth"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/_10sdp"
-                    android:onClick="confirminformation"
-                    android:text="Xác nhận"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
-        </FrameLayout>
-    </LinearLayout>
-</RelativeLayout>
+                    android:text="MM DD YYYY"
+                    android:textColor="@color/purple"
+                    android:textSize="@dimen/_12ssp"
+                    style="?android:spinnerStyle"
+                    android:fontFamily="@font/opensans_regular"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/dateofBirthText"
+                    tools:ignore="KeyboardInaccessibleWidget"
+                    android:onClick="openDatePicker"/>
+
+                <TextView
+                    android:id="@+id/tvBirthDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:inputType="datetime"
+                    android:textColor="@color/purple"
+                    android:fontFamily="@font/opensans_regular"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_input_dateofbirth"
+                    app:layout_constraintStart_toStartOf="@+id/profile_input_dateofbirth"
+                    app:layout_constraintTop_toTopOf="@+id/profile_input_dateofbirth"
+                    tools:ignore="TextViewEdits" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_update"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_marginBottom="@dimen/_50sdp"
+                    android:background="@drawable/orange_round_button"
+                    android:backgroundTint="@color/orange"
+                    android:text="Cập nhật thông tin"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintEnd_toEndOf="@id/profile_input_phone"
+                    app:layout_constraintStart_toStartOf="@id/profile_input_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_input_dateofbirth"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
+                    tools:ignore="HardcodedText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,6 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -18,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.customerrenting.Model.User;
 import com.example.customerrenting.R;
-import com.example.customerrenting.Services.UsersManagement.UserInfoActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
