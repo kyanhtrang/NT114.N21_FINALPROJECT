@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import com.example.customerrenting.Services.Authentication.LoginActivity;
 import com.example.customerrenting.R;
-import com.example.customerrenting.Services.UsersManagement.UserProfileActivity;
+import com.example.customerrenting.Services.UsersManagement.ViewProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingFragment extends Fragment {
@@ -44,7 +44,7 @@ public class SettingFragment extends Fragment {
     }
 
     public void profile() {
-        Intent intent = new Intent(getActivity(), UserProfileActivity.class);
+        Intent intent = new Intent(getActivity(), ViewProfileActivity.class);
         startActivity(intent);
     }
 }
