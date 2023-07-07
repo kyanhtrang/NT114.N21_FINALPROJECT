@@ -234,7 +234,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     String username = document.getString("fullName");
                                                     String phonenumber = document.getString("phoneNumber");
                                                     if (username != null && username.isEmpty()) {
-                                                        Intent intent = new Intent(LoginActivity.this, UpdateProfileActivity.class);
+                                                        Intent intent = new Intent(LoginActivity.this, RemindNotiActivity.class);
                                                         intent.putExtra("phone", phonenumber);
                                                         startActivity(intent);
                                                     }
