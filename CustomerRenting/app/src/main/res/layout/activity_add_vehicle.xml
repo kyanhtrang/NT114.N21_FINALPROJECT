@@ -112,18 +112,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_price" />
 
                 <TextView
-                    android:id="@+id/tv_owner"
+                    android:id="@+id/tv_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:text="Chủ xe"
+                    android:text="Loại xe"
                     android:textColor="@color/brown"
                     app:layout_constraintStart_toStartOf="@+id/tv_name"
                     app:layout_constraintTop_toBottomOf="@+id/et_price"
                     tools:ignore="HardcodedText" />
 
                 <EditText
-                    android:id="@+id/et_owner"
+                    android:id="@+id/et_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"
@@ -132,7 +132,7 @@
                     android:textSize="@dimen/_15ssp"
                     app:layout_constraintEnd_toEndOf="@+id/et_price"
                     app:layout_constraintStart_toStartOf="@+id/et_price"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_owner" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_type" />
 
                 <TextView
                     android:id="@+id/tv_number"
@@ -141,8 +141,8 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text="Biển số xe"
                     android:textColor="@color/brown"
-                    app:layout_constraintStart_toStartOf="@+id/tv_owner"
-                    app:layout_constraintTop_toBottomOf="@+id/et_owner"
+                    app:layout_constraintStart_toStartOf="@+id/tv_type"
+                    app:layout_constraintTop_toBottomOf="@+id/et_type"
                     tools:ignore="HardcodedText" />
 
                 <EditText
