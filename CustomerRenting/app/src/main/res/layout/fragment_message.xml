@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/green"
     tools:context=".Fragments.MessageFragment">
 
     <View
@@ -18,19 +19,20 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_gravity="center"
-        app:cardCornerRadius="50dp"
+        app:cardCornerRadius="@dimen/_75sdp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <ImageView
             android:id="@+id/profilePic"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="@dimen/_75sdp"
             android:contentDescription="TODO"
+            android:src="@drawable/avatar"
             android:scaleType="centerCrop"
             tools:ignore="ContentDescription,HardcodedText" />
     </androidx.cardview.widget.CardView>
@@ -38,14 +40,13 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="75dp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:gravity="center_vertical"
         android:text="Chats"
         android:textColor="@color/brown"
-        android:textSize="25sp"
+        android:textSize="@dimen/_25ssp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardView"
@@ -55,12 +56,10 @@
         android:id="@+id/friendRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:clipToPadding="false"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:orientation="vertical"
-        android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

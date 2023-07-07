@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupStore">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_75sdp"
+        android:textColor="@color/brown"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Đăng Ký Cửa Hàng"
+        android:textSize="@dimen/_30ssp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:background="@drawable/rental"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_store_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        android:ems="10"
+        app:hintTextColor="@color/purple">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/store_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/transparent"
+            android:drawableStart="@drawable/ic_store"
+            android:hint="Store Name"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/opensans_regular"
+            android:padding="@dimen/_10sdp"
+            tools:ignore="HardcodedText">
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_signup"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@+id/layout_store_name"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Đăng ký cửa hàng"
+        android:fontFamily="@font/opensans_bold"
+        android:textStyle="bold"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/white"
+        android:background="@drawable/purple_round_button"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
