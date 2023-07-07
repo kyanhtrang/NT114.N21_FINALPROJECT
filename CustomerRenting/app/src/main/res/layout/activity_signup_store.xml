@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="@dimen/_75sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:textColor="@color/brown"
         app:layout_constraintTop_toTopOf="parent"
         android:text="Đăng Ký Cửa Hàng"
@@ -31,10 +31,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_store_name"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         android:ems="10"
         app:hintTextColor="@color/purple">
@@ -46,12 +44,56 @@
             android:background="@color/transparent"
             android:drawableStart="@drawable/ic_store"
             android:hint="Store Name"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_14ssp"
             android:fontFamily="@font/opensans_regular"
             android:padding="@dimen/_10sdp"
             tools:ignore="HardcodedText">
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/Scale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:textColor="@color/brown"
+        app:layout_constraintTop_toBottomOf="@id/layout_store_name"
+        android:text="Quy mô cửa hàng"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@id/Scale">
+
+        <RadioButton
+            android:id="@+id/Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14ssp"
+            android:text="Nhỏ" />
+
+        <RadioButton
+            android:id="@+id/Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14ssp"
+            android:text="Vừa" />
+
+        <RadioButton
+            android:id="@+id/Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14ssp"
+            android:text="Lớn" />
+
+    </RadioGroup>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_signup"
@@ -59,7 +101,7 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginStart="@dimen/_15sdp"
-        app:layout_constraintTop_toBottomOf="@+id/layout_store_name"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
         android:layout_marginTop="@dimen/_20sdp"
         android:text="Đăng ký cửa hàng"
         android:fontFamily="@font/opensans_bold"

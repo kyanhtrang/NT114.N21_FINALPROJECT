@@ -19,6 +19,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.customerrenting.MainActivity;
@@ -48,6 +49,7 @@ import java.util.UUID;
 public class UpdateProfileActivity extends AppCompatActivity {
 
     private DatePickerDialog datePickerDialog;
+    private TextView birthday;
     private Button dateButton,btnUpdate;
     private Uri mImageURI;
     private ImageView imgAvatar;
@@ -104,6 +106,23 @@ public class UpdateProfileActivity extends AppCompatActivity {
                 AvatarpickImagesFromGallery.launch("image/*");
             }
         });
+        dateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+
+                datePickerDialog = new DatePickerDialog(UpdateProfileActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        birthday.setText(i2 + "/" + (i1 + 1) + "/" + i);
+                    }
+                }, year, month, day);
+                datePickerDialog.show();
+            }
+        });
     }
 
     private void init(){
@@ -116,9 +135,10 @@ public class UpdateProfileActivity extends AppCompatActivity {
         spGender = findViewById(R.id.gender);
 
         //date of birth button
-        initDatePicker();
+        //initDatePicker();
         dateButton = findViewById(R.id.profile_input_dateofbirth);
-        dateButton.setText(getTodaysDate());
+        birthday = findViewById(R.id.tvBirthDate);
+        //dateButton.setText(getTodaysDate());
 
         dtb_user = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -179,7 +199,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
                     });
         }
     }
-    private String getTodaysDate()  {
+    /*private String getTodaysDate()  {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
@@ -190,9 +210,9 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
     private String makeDateString(int day, int month, int year) {
         return getMonthFormat(month) + " " + day + " " + year;
-    }
+    }*/
 
-    private String getMonthFormat(int month) {
+    /*private String getMonthFormat(int month) {
         if(month == 1)
             return "01";
         if(month == 2)
@@ -220,9 +240,9 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
         //default should never happen
         return "01";
-    }
+    }*/
 
-    private void initDatePicker() {
+    /*private void initDatePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
         {
             @Override
@@ -243,7 +263,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
         //datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
 
-    }
+    }*/
 
     private void getInfo(){
 
