@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".Services.UsersManagement.RemindNotiActivity">
+    <ImageView
+        android:id="@+id/img_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_75sdp"
+        android:background="@drawable/img_car"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_noti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Tài khoản của bạn chưa cập nhật thông tin cá nhân!"
+        tools:ignore="MissingConstraints"
+        android:textColor="@color/white"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="@dimen/_18ssp"
+        android:layout_marginTop="@dimen/_50sdp"
+        app:layout_constraintTop_toBottomOf="@+id/img_view"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/tv_tranfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cập nhật ngay >>"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:paddingStart="@dimen/_50sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_5sdp"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/orange"
+        android:fontFamily="@font/opensans_bold"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/_35sdp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_noti"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
