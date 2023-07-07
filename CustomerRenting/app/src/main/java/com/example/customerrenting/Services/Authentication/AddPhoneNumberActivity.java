@@ -49,6 +49,5 @@ public class AddPhoneNumberActivity extends AppCompatActivity {
             phone.setError(null);
             return true;
         }
-
     }
 }
