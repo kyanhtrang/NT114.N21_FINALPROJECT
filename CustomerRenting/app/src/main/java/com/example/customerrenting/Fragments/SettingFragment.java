@@ -8,10 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.customerrenting.ChangePasswordActivity;
+import com.example.customerrenting.Services.Authentication.ChangePasswordActivity;
 import com.example.customerrenting.Services.Authentication.LoginActivity;
 import com.example.customerrenting.R;
 import com.example.customerrenting.Services.UsersManagement.ViewProfileActivity;

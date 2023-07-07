@@ -26,11 +26,6 @@ public class AddPhoneNumberActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (validatePhonenum(phone.getText().toString())) {
                     intent.putExtra("phonenum", phone.getText().toString().trim());
-                    intent.putExtra("email", getIntent().getStringExtra("email"));
-                    intent.putExtra("password", getIntent().getStringExtra("password"));
-                    intent.putExtra("fullname", getIntent().getStringExtra("fullname"));
-                    intent.putExtra("gender", getIntent().getStringExtra("gender"));
-                    intent.putExtra("birth", getIntent().getStringExtra("birth"));
                     Log.d("AddPhoneNumber", "This is a solid phone number");
                     startActivity(intent);
                 }
