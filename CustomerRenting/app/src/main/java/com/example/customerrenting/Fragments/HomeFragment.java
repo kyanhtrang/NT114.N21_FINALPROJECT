@@ -80,10 +80,10 @@ public class HomeFragment extends Fragment {
         rcvPopular = view.findViewById(R.id.rcvPopular);
         rcvPopular.setLayoutManager(linearLayoutManager);
         ArrayList<Vehicle> vehicles = new ArrayList<>();
-        vehicles.add(new Vehicle("", "", "", "xe 4 chổ", "500000", "", "", "", ""));
-        vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", ""));
-        vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", ""));
-        vehicles.add(new Vehicle("", "", "", "xe máy", "150000", "", "", "", ""));
+        vehicles.add(new Vehicle("", "", "", "xe 4 chổ", "500000", "", "", "", "", ""));
+        vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", "",""));
+        vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", "",""));
+        vehicles.add(new Vehicle("", "", "", "xe máy", "150000", "", "", "", "", ""));
         adapter = new PopularAdapter(vehicles);
         rcvPopular.setAdapter(adapter);
     }
