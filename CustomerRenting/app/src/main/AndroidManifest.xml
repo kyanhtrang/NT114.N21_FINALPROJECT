@@ -13,6 +13,9 @@
         android:theme="@style/Theme.CustomerRenting"
         tools:targetApi="31">
         <activity
+            android:name=".Services.Booking.VehicleDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".Services.Authentication.OTP"
             android:exported="false" />
         <activity
@@ -29,9 +32,10 @@
             android:exported="false" />
         <activity
             android:name=".Services.Authentication.LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,10 +45,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="false">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
     </application>
 

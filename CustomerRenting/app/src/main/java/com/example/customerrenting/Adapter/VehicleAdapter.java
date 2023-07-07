@@ -12,18 +12,17 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.customerrenting.Model.Vehicle;
+import com.example.customerrenting.Model.VehicleType;
 import com.example.customerrenting.R;
-import com.example.customerrenting.Model.Vehicle;
 import com.example.customerrenting.R;
 
 import java.util.ArrayList;
 
 public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleViewHolder>{
 
-    ArrayList<Vehicle> vehicles;
+    ArrayList<VehicleType> vehicles;
 
-    public VehicleAdapter(ArrayList<Vehicle> vehicles) {
+    public VehicleAdapter(ArrayList<VehicleType> vehicles) {
         this.vehicles = vehicles;
     }
 
