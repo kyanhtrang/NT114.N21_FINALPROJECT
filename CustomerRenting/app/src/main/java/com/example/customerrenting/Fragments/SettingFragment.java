@@ -15,11 +15,12 @@ import com.example.customerrenting.ChangePasswordActivity;
 import com.example.customerrenting.Services.Authentication.LoginActivity;
 import com.example.customerrenting.R;
 import com.example.customerrenting.Services.UsersManagement.ViewProfileActivity;
+import com.example.customerrenting.SignupStore;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingFragment extends Fragment {
     private View view;
-    TextView  btnProfile, btnSignout, btnChangePassword;
+    TextView  btnProfile, btnSignout, btnChangePassword, btnStore;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -27,7 +28,8 @@ public class SettingFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_setting, container, false);
         btnSignout = (TextView) view.findViewById(R.id.logout);
         btnProfile = (TextView) view.findViewById(R.id.accountSettings) ;
-        btnChangePassword = (TextView) view.findViewById(R.id.changepassword) ;
+        btnChangePassword = (TextView) view.findViewById(R.id.changepassword);
+        btnStore = (TextView) view.findViewById(R.id.store);
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { profile(); }
@@ -44,7 +46,18 @@ public class SettingFragment extends Fragment {
                 ChangePassword();
             }
         });
+        btnStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignUpStore();
+            }
+        });
         return view;
+    }
+
+    private void SignUpStore() {
+        Intent intent = new Intent(getActivity(), SignupStore.class);
+        startActivity(intent);
     }
 
     private void ChangePassword() {
