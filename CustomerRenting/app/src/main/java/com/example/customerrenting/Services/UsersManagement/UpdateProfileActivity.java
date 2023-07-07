@@ -287,7 +287,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
                                 {
                                     spGender.setSelection(1);
                                 }
-                                dateButton.setText(document.get("birthday").toString());
+                                birthday.setText(document.get("birthday").toString());
 
                                 user.setAvatarURL(document.get("avatarURL").toString());
                                 if (!document.get("avatarURL").toString().isEmpty()) {
@@ -311,7 +311,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         user.setFullName(fullname.getText().toString());
         user.setAddress(address.getText().toString());
         user.setCity(city.getText().toString());
-        user.setBirthday(dateButton.getText().toString());
+        user.setBirthday(birthday.getText().toString());
         user.setAvatarURL(downloadUrl);
         user.setGender(spGender.getSelectedItem().toString());
 
