@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.customerrenting.R;
@@ -14,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ResetPasswordActivity extends AppCompatActivity {
 
-    private EditText inputEmail;
+    private TextView inputEmail;
     private Button btnReset;
     private FirebaseAuth mAuth;
     private String email;
@@ -29,7 +30,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         inputEmail.setText(email);
     }
     private void init(){
-        inputEmail = findViewById(R.id.editTextResetEmail);
+        inputEmail = findViewById(R.id.input_email);
         btnReset = findViewById(R.id.btn_resetPassword);
         mAuth = FirebaseAuth.getInstance();
     }
