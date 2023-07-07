@@ -16,6 +16,12 @@
             android:name=".SignupStore"
             android:exported="false" />
         <activity
+            android:name=".Services.Vehicle.AddVehicleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Services.Authentication.CCCDActivity"
+            android:exported="false" />
+        <activity
             android:name=".Services.UsersManagement.RemindNotiActivity"
             android:exported="false" />
         <activity
