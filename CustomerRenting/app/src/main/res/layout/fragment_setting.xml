@@ -54,14 +54,14 @@
             android:layout_marginTop="10dp"
             android:layout_height="70dp"
             android:clickable="true"
-            android:drawableStart="@drawable/ic_mail"
+            android:drawableStart="@drawable/ic_profile"
             android:drawablePadding="15dp"
             android:gravity="center_vertical"
             android:paddingStart="25dp"
             android:paddingEnd="10dp"
             android:text="Thông tin tài khoản"
             android:textColor="@color/brown"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_14ssp"
             android:textStyle="bold" />
 
         <TextView
@@ -77,41 +77,45 @@
             android:paddingEnd="10dp"
             android:text="Thay đổi mật khẩu"
             android:textColor="@color/brown"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_14ssp"
             android:textStyle="bold" />
         <TextView
-            android:id="@+id/about"
+            android:id="@+id/store"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:clickable="true"
-            android:drawableStart="@drawable/ic_lock"
+            android:drawableStart="@drawable/ic_store"
             android:drawablePadding="12dp"
             android:gravity="center_vertical"
             android:paddingStart="25dp"
             android:paddingEnd="10dp"
             android:text="Đăng ký cửa hàng"
             android:textColor="@color/brown"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_14ssp"
             android:textStyle="bold" />
 
     </LinearLayout>
 
-    <Button
+    <TextView
         android:id="@+id/logout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_35sdp"
-        android:layout_marginBottom="@dimen/_25sdp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:drawableStart="@drawable/ic_logout"
+        android:drawablePadding="12dp"
         android:layout_marginHorizontal="@dimen/_15sdp"
-        android:background="@drawable/purple_round_button"
-        android:text="Logout"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_18ssp"
-        android:textStyle="bold"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        android:gravity="center_vertical"
+        android:paddingStart="25dp"
+        android:paddingEnd="10dp"
+        android:text="Đăng xuất"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintTop_toBottomOf="@id/layout"
+        android:textStyle="bold" />
 
 
 
