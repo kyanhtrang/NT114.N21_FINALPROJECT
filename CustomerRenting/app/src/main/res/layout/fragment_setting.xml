@@ -6,28 +6,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.SettingFragment">
 
-    <Button
-        android:id="@+id/user_profile_btn"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="wrap_content"
-        android:onClick="profile"
-        android:text="User Profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/logout_btn"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="wrap_content"
-        android:onClick="logout"
-        android:text="Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="75dp"
+        android:layout_marginTop="@dimen/_25sdp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.903" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/avatar" />
+
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        android:text="Trang Kỳ Anh"
+        android:textSize="@dimen/_24ssp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:orientation="vertical"
+        android:background="@drawable/green_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name">
+
+        <TextView
+            android:id="@+id/accountSettings"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="70dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_mail"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:paddingStart="25dp"
+            android:paddingEnd="10dp"
+            android:text="Thông tin tài khoản"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/updateProfilePicture"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:paddingStart="25dp"
+            android:paddingEnd="10dp"
+            android:text="Thay đổi mật khẩu"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:paddingStart="25dp"
+            android:paddingEnd="10dp"
+            android:text="Đăng ký cửa hàng"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginBottom="@dimen/_25sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:background="@drawable/purple_round_button"
+        android:text="Logout"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18ssp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
