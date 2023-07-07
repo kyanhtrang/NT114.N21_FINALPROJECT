@@ -140,7 +140,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         //initDatePicker();
         dateButton = findViewById(R.id.profile_input_dateofbirth);
         birthday = findViewById(R.id.tvBirthDate);
-        dateButton.setText(getTodaysDate());
+        //dateButton.setText(getTodaysDate());
 
         dtb_user = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
