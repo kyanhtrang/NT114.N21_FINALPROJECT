@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.customerrenting.Model.Vehicle;
-import com.example.customerrenting.Model.VehicleType;
 import com.example.customerrenting.R;
 
 import java.util.ArrayList;
