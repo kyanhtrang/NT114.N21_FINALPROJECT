@@ -40,6 +40,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -138,7 +140,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         //initDatePicker();
         dateButton = findViewById(R.id.profile_input_dateofbirth);
         birthday = findViewById(R.id.tvBirthDate);
-        //dateButton.setText(getTodaysDate());
+        dateButton.setText(getTodaysDate());
 
         dtb_user = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -155,8 +157,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        if(mImageURI != null)
-        {
+        if(mImageURI != null) {
             imageID = UUID.randomUUID().toString();
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
@@ -199,7 +200,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
                     });
         }
     }
-    /*private String getTodaysDate()  {
+    private String getTodaysDate()  {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
@@ -210,9 +211,9 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
     private String makeDateString(int day, int month, int year) {
         return getMonthFormat(month) + " " + day + " " + year;
-    }*/
+    }
 
-    /*private String getMonthFormat(int month) {
+    private String getMonthFormat(int month) {
         if(month == 1)
             return "01";
         if(month == 2)
@@ -240,9 +241,9 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
         //default should never happen
         return "01";
-    }*/
+    }
 
-    /*private void initDatePicker() {
+    private void initDatePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
         {
             @Override
@@ -263,7 +264,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
         //datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
 
-    }*/
+    }
 
     private void getInfo(){
 
@@ -288,6 +289,8 @@ public class UpdateProfileActivity extends AppCompatActivity {
                                     spGender.setSelection(1);
                                 }
                                 birthday.setText(document.get("birthday").toString());
+                                TextView birthdayTextFormat = (TextView) findViewById(R.id.profile_input_dateofbirth);
+                                birthdayTextFormat.setText("");
 
                                 user.setAvatarURL(document.get("avatarURL").toString());
                                 if (!document.get("avatarURL").toString().isEmpty()) {
