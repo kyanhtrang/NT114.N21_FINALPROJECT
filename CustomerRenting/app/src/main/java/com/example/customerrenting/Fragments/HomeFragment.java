@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.customerrenting.Adapter.PopularAdapter;
+import com.example.customerrenting.Adapter.PopularVehicleAdapter;
 import com.example.customerrenting.Adapter.VehicleAdapter;
 import com.example.customerrenting.Model.Vehicle;
 import com.example.customerrenting.Model.VehicleType;
@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
         vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", "", ""));
         vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", "", ""));
         vehicles.add(new Vehicle("", "", "", "xe máy", "150000", "", "", "", "", ""));
-        adapter = new PopularAdapter(vehicles);
+        adapter = new PopularVehicleAdapter(vehicles);
         rcvPopular.setAdapter(adapter);
     }
 }

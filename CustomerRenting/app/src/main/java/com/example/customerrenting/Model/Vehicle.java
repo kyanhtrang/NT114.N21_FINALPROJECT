@@ -1,17 +1,17 @@
 package com.example.customerrenting.Model;
 
 public class Vehicle {
-    String vehicle_id, supplier_id, suppier_name;
+    String vehicle_id, supplier_id, supplier_name;
     String vehicle_name, vehicle_price, vehicle_seats, vehicle_number, vehicle_availability, vehicle_type;
     String vehicle_imageURL;
 
     public Vehicle() {
     }
 
-    public Vehicle(String vehicle_id, String supplier_id, String suppier_name, String vehicle_name, String vehicle_price, String vehicle_seats, String vehicle_number, String vehicle_availability, String vehicle_imageURL, String vehicle_type) {
+    public Vehicle(String vehicle_id, String supplier_id, String supplier_name, String vehicle_name, String vehicle_price, String vehicle_seats, String vehicle_number, String vehicle_availability, String vehicle_imageURL, String vehicle_type) {
         this.vehicle_id = vehicle_id;
         this.supplier_id = supplier_id;
-        this.suppier_name = suppier_name;
+        this.supplier_name = supplier_name;
         this.vehicle_name = vehicle_name;
         this.vehicle_price = vehicle_price;
         this.vehicle_seats = vehicle_seats;
@@ -45,12 +45,12 @@ public class Vehicle {
         this.supplier_id = supplier_id;
     }
 
-    public String getSuppier_name() {
-        return suppier_name;
+    public String getSupplier_name() {
+        return supplier_name;
     }
 
-    public void setSuppier_name(String suppier_name) {
-        this.suppier_name = suppier_name;
+    public void setSupplier_name(String supplier_name) {
+        this.supplier_name = supplier_name;
     }
 
     public String getVehicle_name() {
