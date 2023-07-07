@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 public class ViewProfileActivity extends AppCompatActivity {
 
     private Button btnUpdate;
-    private ImageView imgAvatar, imgFrontCCCD, imgBehindCCCD;
+    private ImageView imgAvatar;
     private TextView tvPhone, tvEmail, tvName, tvAddress, tvCity, tvBirthday, tvGender;
     private FirebaseFirestore dtb_user;
     private FirebaseUser firebaseUser;
@@ -37,7 +37,7 @@ public class ViewProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_profile);
 
         init();
-        getInfor();
+        getInfo();
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,11 +50,7 @@ public class ViewProfileActivity extends AppCompatActivity {
 
     private void init(){
         btnUpdate = findViewById(R.id.btn_update);
-
         imgAvatar = findViewById(R.id.img_avatar);
-        imgFrontCCCD = findViewById(R.id.img_front_CCCD);
-        imgBehindCCCD = findViewById(R.id.img_behind_CCCD);
-
         tvName = findViewById(R.id.fullname);
         tvEmail = findViewById(R.id.email);
         tvPhone = findViewById(R.id.phone);
@@ -68,51 +64,33 @@ public class ViewProfileActivity extends AppCompatActivity {
         user.setUserID(firebaseUser.getUid());
     }
 
-    private void getInfor() {
+    private void getInfo() {
         dtb_user.collection("Users")
-                .whereEqualTo("user_id", user.getUserID())
+                .whereEqualTo("userID", user.getUserID())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()){
                             for (QueryDocumentSnapshot document : task.getResult()){
-                                tvName.setText(document.get("fullName").toString());
-                                tvEmail.setText(document.get("email").toString());
-                                tvPhone.setText(document.get("phoneNumber").toString());
-                                tvAddress.setText(document.get("address").toString());
-                                tvCity.setText(document.get("city").toString());
-                                tvBirthday.setText(document.get("birthday").toString());
-                                user.setAvatarURL(document.get("avatarURL").toString());
-                                tvGender.setText(document.get("gender").toString());
+                                tvName.setText(document.getString("fullName"));
+                                tvEmail.setText(document.getString("email"));
+                                tvPhone.setText(document.getString("phoneNumber"));
+                                tvAddress.setText(document.getString("address"));
+                                tvCity.setText(document.getString("city"));
+                                tvBirthday.setText(document.getString("birthday"));
+                                user.setAvatarURL(document.getString("avatarURL"));
+                                tvGender.setText(document.getString("gender"));
 
-                                if (!document.get("avatarURL").toString().isEmpty()) {
+                                if (!document.getString("avatarURL").isEmpty()) {
                                     Picasso.get().load(user.getAvatarURL()).into(imgAvatar);
                                 }
                                 else {
                                     user.setAvatarURL("");
                                 }
-//
-//                                user.setCiCardFront(document.get("ciCardFront").toString());
-//                                if (!document.get("ciCardFront").toString().isEmpty()) {
-//                                    Picasso.get().load(user.getCiCardFront()).into(imgFrontCCCD);
-//                                }
-//                                else {
-//                                    user.setCiCardFront("");
-//                                }
-//
-//                                user.setCiCardBehind(document.get("ciCardBehind").toString());
-//                                if (!document.get("ciCardBehind").toString().isEmpty()) {
-//                                    Picasso.get().load(user.getCiCardBehind()).into(imgBehindCCCD);
-//                                }
-//                                else {
-//                                    user.setCiCardBehind("");
-//                                }
-
                             }
                         }
                         else {
-                            //
                             Toast.makeText(ViewProfileActivity.this, "Không thể lấy thông tin", Toast.LENGTH_LONG).show();
                         }
                     }

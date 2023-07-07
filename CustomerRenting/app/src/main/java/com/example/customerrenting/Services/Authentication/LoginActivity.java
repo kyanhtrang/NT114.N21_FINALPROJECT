@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import com.example.customerrenting.MainActivity;
 import com.example.customerrenting.Model.User;
 import com.example.customerrenting.R;
 import com.example.customerrenting.Services.UsersManagement.RemindNotiActivity;
+import com.example.customerrenting.Services.UsersManagement.UpdateProfileActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -54,7 +56,8 @@ public class LoginActivity extends AppCompatActivity {
     private User user = new User();
     private FirebaseFirestore dtbUser;
 
-    private String email;
+    private Button btnSignin;
+    private String email, password;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -144,6 +147,12 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
 
+        btnSignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
         GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         btnGGsignin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (event.getAction() == KeyEvent.ACTION_DOWN)
                 {
                     if (keyCode == KeyEvent.KEYCODE_ENTER){
-                        login(v);
+                        signIn();
                         Log.d("Login", "Enter Pressed");
                         return true;
                     }
@@ -193,35 +202,65 @@ public class LoginActivity extends AppCompatActivity {
         }
         return valid;
     }
-    public void login(View signin) {
-        String email = txtView_email.getText().toString().trim();
-        String password = txtView_password.getText().toString().trim();
+    private void signIn() {
+        email = txtView_email.getText().toString();
+        password = txtView_password.getText().toString();
 
-        if (!validateForm()){
+        if (!validateForm()) {
             return;
         }
+
         progressDialog.show();
+
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Log.d("Firebase Auth", "Login Successful");
-                            mAuth.getCurrentUser();
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
+                        if (task.isSuccessful()) {
+                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                            String uid = firebaseUser.getUid();
+
+                            FirebaseFirestore.getInstance().collection("Users").document(uid)
+                                    .get()
+                                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(LoginActivity.this, "Đăng nhập thành công.", Toast.LENGTH_SHORT).show();
+
+                                                DocumentSnapshot document = task.getResult();
+                                                if (document.exists()) {
+                                                    // do something with the retrieved data
+                                                    String username = document.getString("fullName");
+                                                    String phonenumber = document.getString("phoneNumber");
+                                                    if (username != null && username.isEmpty()) {
+                                                        Intent intent = new Intent(LoginActivity.this, UpdateProfileActivity.class);
+                                                        intent.putExtra("phone", phonenumber);
+                                                        startActivity(intent);
+                                                    }
+                                                    else
+                                                    {
+                                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                                        startActivity(intent);
+                                                        onStop();
+                                                    }
+
+                                                } else {
+                                                    // the document does not exist
+                                                }
+                                            } else {
+                                                // handle the error
+                                            }
+                                        }
+                                    });
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Đăng nhập thất bại.", Toast.LENGTH_SHORT).show();
                             progressDialog.cancel();
                         }
                     }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("Firebase Auth", "Login Fail");
-                        progressDialog.cancel();
-                    }
                 });
     }
+
     private void updateUI(FirebaseUser currentUser) {
         if (currentUser != null) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -239,6 +278,9 @@ public class LoginActivity extends AppCompatActivity {
         if (currentUser != null) {
             updateUI(currentUser);
         }
+
+        email = txtView_email.getText().toString();
+        password = txtView_password.getText().toString();
     }
 
     public void resetPassword(View view) {

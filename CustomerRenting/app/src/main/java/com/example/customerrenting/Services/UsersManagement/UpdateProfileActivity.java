@@ -51,7 +51,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
     private Button dateButton,btnUpdate;
     private Uri mImageURI;
     private ImageView imgAvatar;
-    private String imageID;
+    private String imageID, gender;
     private String documentId, downloadUrl, uploadtype;
     private FirebaseUser firebaseUser;
     private FirebaseFirestore dtb_user;
@@ -248,17 +248,25 @@ public class UpdateProfileActivity extends AppCompatActivity {
     private void getInfo(){
 
         dtb_user.collection("Users")
-                .whereEqualTo("user_id", user.getUserID())
+                .whereEqualTo("userID", user.getUserID())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()){
                             for (QueryDocumentSnapshot document : task.getResult()){
-                                fullname.setText(document.get("username").toString());
+                                fullname.setText(document.get("fullName").toString());
                                 address.setText(document.get("address").toString());
                                 city.setText(document.get("city").toString());
-
+                                gender = document.get("gender").toString();
+                                if (gender == "Nam")
+                                {
+                                    spGender.setSelection(0);
+                                }
+                                else
+                                {
+                                    spGender.setSelection(1);
+                                }
                                 dateButton.setText(document.get("birthday").toString());
 
                                 user.setAvatarURL(document.get("avatarURL").toString());
