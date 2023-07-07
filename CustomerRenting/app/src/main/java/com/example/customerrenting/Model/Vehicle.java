@@ -1,23 +1,32 @@
 package com.example.customerrenting.Model;
 
 public class Vehicle {
-    String vehicle_id, provider_id, provider_name;
-    String vehicle_name, vehicle_price, vehicle_seats, vehicle_number, vehicle_availability;
+    String vehicle_id, supplier_id, suppier_name;
+    String vehicle_name, vehicle_price, vehicle_seats, vehicle_number, vehicle_availability, vehicle_type;
     String vehicle_imageURL;
 
     public Vehicle() {
     }
 
-    public Vehicle(String vehicle_id, String provider_id, String provider_name, String vehicle_name, String vehicle_price, String vehicle_seats, String vehicle_number, String vehicle_availability, String vehicle_imageURL) {
+    public Vehicle(String vehicle_id, String supplier_id, String suppier_name, String vehicle_name, String vehicle_price, String vehicle_seats, String vehicle_number, String vehicle_availability, String vehicle_imageURL, String vehicle_type) {
         this.vehicle_id = vehicle_id;
-        this.provider_id = provider_id;
-        this.provider_name = provider_name;
+        this.supplier_id = supplier_id;
+        this.suppier_name = suppier_name;
         this.vehicle_name = vehicle_name;
         this.vehicle_price = vehicle_price;
         this.vehicle_seats = vehicle_seats;
         this.vehicle_number = vehicle_number;
         this.vehicle_availability = vehicle_availability;
         this.vehicle_imageURL = vehicle_imageURL;
+        this.vehicle_type = vehicle_type;
+    }
+
+    public String getVehicle_type() {
+        return vehicle_type;
+    }
+
+    public void setVehicle_type(String vehicle_type) {
+        this.vehicle_type = vehicle_type;
     }
 
     public String getVehicle_id() {
@@ -28,20 +37,20 @@ public class Vehicle {
         this.vehicle_id = vehicle_id;
     }
 
-    public String getProvider_id() {
-        return provider_id;
+    public String getSupplier_id() {
+        return supplier_id;
     }
 
-    public void setProvider_id(String provider_id) {
-        this.provider_id = provider_id;
+    public void setSupplier_id(String supplier_id) {
+        this.supplier_id = supplier_id;
     }
 
-    public String getProvider_name() {
-        return provider_name;
+    public String getSuppier_name() {
+        return suppier_name;
     }
 
-    public void setProvider_name(String provider_name) {
-        this.provider_name = provider_name;
+    public void setSuppier_name(String suppier_name) {
+        this.suppier_name = suppier_name;
     }
 
     public String getVehicle_name() {
