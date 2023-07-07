@@ -18,14 +18,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingFragment extends Fragment {
     private View view;
-    private Button btnSignout;
-    TextView  btnProfile;
+    TextView  btnProfile, btnSignout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_setting, container, false);
-        btnSignout = (Button) view.findViewById(R.id.logout);
+        btnSignout = (TextView) view.findViewById(R.id.logout);
         btnProfile = (TextView) view.findViewById(R.id.accountSettings) ;
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
