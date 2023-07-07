@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/layout"
         android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginHorizontal="@dimen/_15sdp"
         android:orientation="vertical"
         android:background="@drawable/green_corner"
@@ -65,12 +65,12 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/updateProfilePicture"
+            android:id="@+id/changepassword"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:clickable="true"
-            android:drawableStart="@drawable/ic_lock"
+            android:drawableStart="@drawable/ic_lock_change"
             android:drawablePadding="15dp"
             android:gravity="center_vertical"
             android:paddingStart="25dp"
@@ -101,9 +101,8 @@
     <TextView
         android:id="@+id/logout"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:clickable="true"
         android:drawableStart="@drawable/ic_logout"
         android:drawablePadding="12dp"
