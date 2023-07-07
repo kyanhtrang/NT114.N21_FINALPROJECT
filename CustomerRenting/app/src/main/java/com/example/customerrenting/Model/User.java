@@ -7,12 +7,14 @@ public class User implements Parcelable {
 
     private String email;
     private String userID;
+    private String gender;
     private String fullName;
     private String avatarURL;
     private String birthday;
     private String phoneNumber;
     private String address;
     private String city;
+
 
     public User() {
         address = "";
@@ -23,6 +25,7 @@ public class User implements Parcelable {
         birthday = "";
         phoneNumber = "";
         city = "";
+        gender = "";
     }
 
     protected User(Parcel in) {
@@ -34,6 +37,7 @@ public class User implements Parcelable {
         phoneNumber = in.readString();
         address = in.readString();
         city = in.readString();
+        gender = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -47,6 +51,14 @@ public class User implements Parcelable {
             return new User[size];
         }
     };
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public String getAvatarURL() {
         return avatarURL;
@@ -117,7 +129,7 @@ public class User implements Parcelable {
     }
 
 
-    public User(String email, String user_id, String username, String avatarURL, String dateOfBirth, String phoneNumber, String address, String city, String password, String ciCardFront, String ciCardBehind) {
+    public User(String email, String user_id, String username, String avatarURL, String dateOfBirth, String phoneNumber, String address, String city, String gender) {
         this.email = email;
         this.userID = user_id;
         this.fullName = username;
@@ -126,6 +138,7 @@ public class User implements Parcelable {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.city = city;
+        this.gender = gender;
     }
 
     @Override
@@ -154,5 +167,6 @@ public class User implements Parcelable {
         dest.writeString(phoneNumber);
         dest.writeString(address);
         dest.writeString(city);
+        dest.writeString(gender);
     }
 }
