@@ -35,6 +35,7 @@ public class NoticeFragment extends Fragment {
     View view;
     String token, idsupplier;
     private FirebaseFirestore dtbVehicle, dtbNoti;
+    private Notification notification = new Notification();
     ArrayList<String> id_supplier = new ArrayList<>();
 
     @Override
@@ -53,7 +54,8 @@ public class NoticeFragment extends Fragment {
     public void getID(String id_vehicle){
         dtbVehicle.collection("Vehicles")
                 .whereEqualTo("vehicle_id", id_vehicle)
-                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
@@ -77,8 +79,11 @@ public class NoticeFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 token = document.get("token").toString();
                                 sendNoti(token, "Thong báo", "Co don hang moi");
-                                Notification notification = new Notification();
-                                addNoti(id_supplier, "Thong báo", "Co don hang moi", notification);
+
+                                notification.setId_user(id_supplier);
+                                notification.setTitle("Thong báo");
+                                notification.setBody("Co don hang moi");
+                                addNoti();
                             }
                         }
                     }
@@ -94,11 +99,8 @@ public class NoticeFragment extends Fragment {
         );
     }
 
-    public void addNoti(String idsuplier,String title, String body, Notification notification){
-        notification = new Notification();
-        notification.setId_user(idsuplier);
-        notification.setTitle(title);
-        notification.setBody(body);
+    public void addNoti(){
+
        /* FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder().build();
         dtbNoti.setFirestoreSettings(settings);
 
