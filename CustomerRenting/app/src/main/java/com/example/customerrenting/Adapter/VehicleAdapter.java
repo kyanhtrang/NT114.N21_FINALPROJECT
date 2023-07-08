@@ -1,5 +1,6 @@
 package com.example.customerrenting.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,73 +8,67 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.customerrenting.Model.VehicleType;
+import com.example.customerrenting.Model.Vehicle;
+import com.example.customerrenting.Model.onClickInterface;
 import com.example.customerrenting.R;
+import com.example.customerrenting.Services.Booking.VehicleDetailActivity;
+import com.example.customerrenting.Services.Vehicle.ShowAllVehicleActivity;
 
 import java.util.ArrayList;
 
-public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleViewHolder>{
-
-    ArrayList<VehicleType> vehicles;
-
-    public VehicleAdapter(ArrayList<VehicleType> vehicles) {
+public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHolder>{
+    ShowAllVehicleActivity showAllVehicleActivity;
+    Vehicle vehicle;
+    ArrayList<Vehicle> vehicles;
+    onClickInterface onClickInterface;
+    public VehicleAdapter(ShowAllVehicleActivity context, ArrayList<Vehicle> vehicles, onClickInterface onClickInterface) {
+        this.showAllVehicleActivity = context;
         this.vehicles = vehicles;
+        this.onClickInterface = onClickInterface;
     }
-
     @NonNull
     @Override
-    public VehicleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_vehical,parent,false);
-        return new VehicleViewHolder(view);
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(showAllVehicleActivity).inflate(R.layout.vehicle_card, parent, false);
+        return new MyViewHolder(v);
     }
-
     @Override
-    public void onBindViewHolder(@NonNull VehicleViewHolder holder, int position) {
-        holder.vehicalName.setText(vehicles.get(position).getVehicalName());
-        String picurl = "";
-        switch (position){
-            case 0:
-                picurl="xeoto";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.vehical_background));
-                break;
-            case 1:
-                picurl="taxi";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.vehical_background1));
-                break;
-            case 2:
-                picurl="xemay";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.vehical_background2));
-                break;
-            case 3:
-                picurl="xedap";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.vehical_background3));
-                break;
-        }
-        int drawableResourceID=holder.itemView.getContext().getResources().getIdentifier(picurl,"drawable",holder.itemView.getContext().getPackageName());
-        Glide.with(holder.itemView.getContext())
-                .load(drawableResourceID)
-                .into(holder.imgVehical);
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+        final int pos = position;
+        vehicle = vehicles.get(position);
+        holder.name.setText(vehicle.getVehicle_name());
+        holder.price.setText(vehicle.getVehicle_price());
+        holder.provider.setText(vehicle.getSupplier_name());
+        Glide.with(showAllVehicleActivity).load(vehicle.getVehicle_imageURL()).into(holder.vehicleImage);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickInterface.setClick(pos);
+                vehicle = vehicles.get(pos);
+                Intent intent = new Intent(showAllVehicleActivity, VehicleDetailActivity.class);
+                intent.putExtra("vehicle_id", vehicle.getVehicle_id());
+                showAllVehicleActivity.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-         return vehicles.size();
+        return vehicles.size();
     }
-
-    public class VehicleViewHolder extends RecyclerView.ViewHolder{
-        TextView vehicalName;
-        ImageView imgVehical;
-        ConstraintLayout mainLayout;
-        public VehicleViewHolder(@NonNull View itemView) {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView name, price, provider;
+        ImageView vehicleImage;
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            vehicalName=itemView.findViewById(R.id.tvVehicalName);
-            imgVehical=itemView.findViewById(R.id.imgVehical);
-            mainLayout=itemView.findViewById(R.id.layoutVehical);
+            name = itemView.findViewById(R.id.card_vehicle_name);
+            price = itemView.findViewById(R.id.card_tv_vehicle_price);
+            provider = itemView.findViewById(R.id.card_provider_name);
+            vehicleImage = itemView.findViewById(R.id.card_img_vehicle);
         }
+
     }
 }

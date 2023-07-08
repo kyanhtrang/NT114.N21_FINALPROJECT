@@ -1,13 +1,13 @@
 package com.example.customerrenting.Model;
 
-public class VehicleType {
+public class VehicleTemplate {
     private String vehicalName;
     private String vehicalImage;
 
-    public VehicleType() {
+    public VehicleTemplate() {
     }
 
-    public VehicleType(String vehicalName, String vehicalImage) {
+    public VehicleTemplate(String vehicalName, String vehicalImage) {
         this.vehicalName = vehicalName;
         this.vehicalImage = vehicalImage;
     }
