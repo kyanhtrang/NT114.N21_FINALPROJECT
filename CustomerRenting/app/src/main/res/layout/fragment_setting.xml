@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.SettingFragment">
+    tools:context=".Fragments.MainFragments.SettingFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -60,6 +60,22 @@
             android:paddingStart="25dp"
             android:paddingEnd="10dp"
             android:text="Thông tin tài khoản"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tranfer"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_lock_change"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:paddingStart="25dp"
+            android:paddingEnd="10dp"
+            android:text="Chuyển đến cửa hàng"
             android:textColor="@color/brown"
             android:textSize="@dimen/_14ssp"
             android:textStyle="bold" />
