@@ -3,6 +3,9 @@ package com.example.customerrenting.Services.PushNotifications;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.os.StrictMode;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -20,7 +23,19 @@ import java.util.Map;
 
 public class FCMSend {
     private static String BASA_URL = "https://fcm.googleapis.com/fcm/send";
-    private static String SERVER_KEY = "key=AAAA2dY2F5w:APA91bEKESW6ghTSjfVs2B2xpPZ5mbS1DttOS5ISbIQaHRTqCI9Is4081ZDu_ZEoM15vkHRQbSLil3JkonGc_4kuvbqSu7uYeI66bBRdRaQuzEdGznvp3mUBQsgteZDdqHhoEYuh4AaJ";
+    private static String SERVER_KEY;
+
+    static {
+        try {
+            // Load the server key from the config.properties file
+            InputStream inputStream = FCMSend.class.getClassLoader().getResourceAsStream("config.properties");
+            Properties properties = new Properties();
+            properties.load(inputStream);
+            SERVER_KEY = properties.getProperty("server_key");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void pushNotification(Context context, String token, String title, String message) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -49,9 +64,10 @@ public class FCMSend {
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
                     params.put("Context-Type", "application/json");
-                    params.put("Authorization", SERVER_KEY);
+                    params.put("Authorization", "key=" + SERVER_KEY);
                     return params;
                 }
+
             };
             queue.add(jsonObjectRequest);
         } catch (JSONException e) {

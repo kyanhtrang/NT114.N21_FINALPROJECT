@@ -3,6 +3,7 @@ package com.example.customerrenting.Fragments.MainFragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
@@ -38,6 +39,10 @@ public class NoticeFragment extends Fragment {
     private Notification notification = new Notification();
     ArrayList<String> id_supplier = new ArrayList<>();
 
+    private static String SERVER_KEY;
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +55,7 @@ public class NoticeFragment extends Fragment {
         getID(id_vehicle);
         return view;
     }
+
 
     public void getID(String id_vehicle){
         dtbVehicle.collection("Vehicles")
