@@ -14,7 +14,7 @@ import com.example.customerrenting.Services.Authentication.ChangePasswordActivit
 import com.example.customerrenting.Services.Authentication.LoginActivity;
 import com.example.customerrenting.R;
 import com.example.customerrenting.Services.UsersManagement.ViewProfileActivity;
-import com.example.customerrenting.SignupStore;
+import com.example.customerrenting.CreateStore;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingFragment extends Fragment {
@@ -55,7 +55,7 @@ public class SettingFragment extends Fragment {
     }
 
     private void SignUpStore() {
-        Intent intent = new Intent(getActivity(), SignupStore.class);
+        Intent intent = new Intent(getActivity(), CreateStore.class);
         startActivity(intent);
     }
 

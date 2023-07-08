@@ -1,30 +1,38 @@
 package com.example.customerrenting.Model;
 
 public class Store {
-    private String StoreId, SupplierID, VehicleID, StoreName;
+    private String StoreID, SupplierID, StoreName;
     private String Size;
+
     private int Numbers;
     private String address;
 
     public Store() {
     }
 
-    public Store(String storeId, String supplierID, String vehicleID, String storeName, String size, int numbers, String address) {
-        StoreId = storeId;
+    public Store(String storeId, String supplierID, String storeName, String size, int numbers, String address) {
+        StoreID = storeId;
         SupplierID = supplierID;
-        VehicleID = vehicleID;
         StoreName = storeName;
         Size = size;
         Numbers = numbers;
         this.address = address;
     }
 
+    public int getNumbers() {
+        return Numbers;
+    }
+
+    public void setNumbers(int numbers) {
+        Numbers = numbers;
+    }
+
     public String getStoreId() {
-        return StoreId;
+        return StoreID;
     }
 
     public void setStoreId(String storeId) {
-        StoreId = storeId;
+        StoreID = storeId;
     }
 
     public String getSupplierID() {
@@ -33,14 +41,6 @@ public class Store {
 
     public void setSupplierID(String supplierID) {
         SupplierID = supplierID;
-    }
-
-    public String getVehicleID() {
-        return VehicleID;
-    }
-
-    public void setVehicleID(String vehicleID) {
-        VehicleID = vehicleID;
     }
 
     public String getStoreName() {
@@ -57,14 +57,6 @@ public class Store {
 
     public void setSize(String size) {
         Size = size;
-    }
-
-    public int getNumbers() {
-        return Numbers;
-    }
-
-    public void setNumbers(int numbers) {
-        Numbers = numbers;
     }
 
     public String getAddress() {
