@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.TextView;
 
 import android.widget.Toast;
@@ -50,7 +51,7 @@ public class SettingFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         init();
 
-        title = view.findViewById(R.id.name);
+        title = view.findViewById(R.id.tv_titleNoti);
         dtb_user = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         user.setUserID(firebaseUser.getUid());
@@ -89,6 +90,7 @@ public class SettingFragment extends Fragment {
                 ChangePassword();
             }
         });
+
         btnStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +155,7 @@ public class SettingFragment extends Fragment {
         startActivity(intent);
     }
 
+
     private void ChangePassword() {
         Intent intent = new Intent(getActivity(), ChangePasswordActivity.class);
         startActivity(intent);
@@ -168,6 +171,7 @@ public class SettingFragment extends Fragment {
         Intent intent = new Intent(getActivity(), ViewProfileActivity.class);
         startActivity(intent);
     }
+
 
     public void init()
     {

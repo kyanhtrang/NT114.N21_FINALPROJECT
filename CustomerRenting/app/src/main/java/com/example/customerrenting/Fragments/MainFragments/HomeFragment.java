@@ -11,53 +11,33 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.customerrenting.Adapter.PopularAdapter;
-import com.example.customerrenting.Adapter.VehicleAdapter;
-import com.example.customerrenting.MainActivity;
 import com.example.customerrenting.Model.Token;
 import com.example.customerrenting.Model.User;
 import com.example.customerrenting.Model.Vehicle;
 import com.example.customerrenting.R;
-import com.example.customerrenting.Services.UsersManagement.UpdateProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.TextView;
 
 import com.example.customerrenting.Adapter.VehicleTemplateAdapter;
-import com.example.customerrenting.Model.Token;
 
-import com.example.customerrenting.Model.Vehicle;
 import com.example.customerrenting.Model.VehicleTemplate;
 import com.example.customerrenting.Model.onClickInterface;
-import com.example.customerrenting.R;
 import com.example.customerrenting.Services.Vehicle.ShowAllVehicleActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreSettings;
-
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
@@ -74,8 +54,10 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore dtb_token, dtb_user;
     private FirebaseUser firebaseUser;
     private onClickInterface onclickInterface;
+
     private TextView showa, title;
     private User user = new User();
+
 
     View view;
 
@@ -103,8 +85,7 @@ public class HomeFragment extends Fragment {
                             }
                         }
                         else {
-                            //
-                            Toast.makeText(view.getContext(), "Không thể lấy thông tin", Toast.LENGTH_LONG).show();
+                            // Toast.makeText(view.getContext(), "Không thể lấy thông tin", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -120,7 +101,7 @@ public class HomeFragment extends Fragment {
 
     private void setRcvVehical() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false);
-        rcvVehical = view.findViewById(R.id.rcvVehical);
+        rcvVehical = view.findViewById(R.id.rcvNoti);
         rcvVehical.setLayoutManager(linearLayoutManager);
         ArrayList<VehicleTemplate> vehicles = new ArrayList<>();
         vehicles.add(new VehicleTemplate("Ô tô", "xeoto"));
@@ -135,6 +116,7 @@ public class HomeFragment extends Fragment {
         rcvPopular = view.findViewById(R.id.rcvPopular);
         rcvPopular.setLayoutManager(linearLayoutManager);
         ArrayList<Vehicle> vehicles = new ArrayList<>();
+      
         vehicles.add(new Vehicle("", "", "", "xe 4 chổ", "500000", "", "", "", "", "", "", "", ""));
         vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", "","", "", "", ""));
         vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", "","", "", "", ""));
