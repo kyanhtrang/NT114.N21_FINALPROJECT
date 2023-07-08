@@ -234,7 +234,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     String username = document.getString("fullName");
                                                     String phonenumber = document.getString("phoneNumber");
                                                     if (username != null && username.isEmpty()) {
-                                                        Intent intent = new Intent(LoginActivity.this, UpdateProfileActivity.class);
+                                                        Intent intent = new Intent(LoginActivity.this, RemindNotiActivity.class);
                                                         intent.putExtra("phone", phonenumber);
                                                         startActivity(intent);
                                                     }
@@ -269,15 +269,16 @@ public class LoginActivity extends AppCompatActivity {
     }
     void init() {
         btnGGsignin = findViewById(R.id.btn_ggsignin);
+        btnSignin = findViewById(R.id.btn_signin);
         txtView_register = findViewById(R.id.btn_register);
         txtView_email = findViewById(R.id.input_email);
         txtView_password = findViewById(R.id.input_password);
         progressDialog = new ProgressDialog(this);
         dtbUser = FirebaseFirestore.getInstance(); // Initialize dtbUser variable
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+/*        FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             updateUI(currentUser);
-        }
+        }*/
 
         email = txtView_email.getText().toString();
         password = txtView_password.getText().toString();
