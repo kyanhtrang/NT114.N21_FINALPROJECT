@@ -17,7 +17,7 @@
             android:name=".Services.Vehicle.UpdateVehicleActivity"
             android:exported="false" />
         <activity
-            android:name=".SignupStore"
+            android:name=".CreateStore"
             android:exported="false" />
         <activity
             android:name=".Services.Vehicle.AddVehicleActivity"
