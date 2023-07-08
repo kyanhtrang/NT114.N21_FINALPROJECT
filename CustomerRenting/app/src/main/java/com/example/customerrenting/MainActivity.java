@@ -11,11 +11,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.customerrenting.Fragments.ActivityFragment;
-import com.example.customerrenting.Fragments.HomeFragment;
-import com.example.customerrenting.Fragments.MessageFragment;
-import com.example.customerrenting.Fragments.NoticeFragment;
-import com.example.customerrenting.Fragments.SettingFragment;
+import com.example.customerrenting.Fragments.MainFragments.ActivityFragment;
+import com.example.customerrenting.Fragments.MainFragments.HomeFragment;
+import com.example.customerrenting.Fragments.MainFragments.MessageFragment;
+import com.example.customerrenting.Fragments.MainFragments.NoticeFragment;
+import com.example.customerrenting.Fragments.MainFragments.SettingFragment;
 
 public class MainActivity extends AppCompatActivity {
 

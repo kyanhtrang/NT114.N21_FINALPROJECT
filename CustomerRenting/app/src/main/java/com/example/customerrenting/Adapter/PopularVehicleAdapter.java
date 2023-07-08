@@ -12,7 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.customerrenting.Fragments.HomeFragment;
+import com.example.customerrenting.Fragments.MainFragments.HomeFragment;
 import com.example.customerrenting.Model.Vehicle;
 import com.example.customerrenting.Model.onClickInterface;
 import com.example.customerrenting.R;
