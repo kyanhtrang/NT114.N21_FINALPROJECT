@@ -13,6 +13,7 @@ import com.example.customerrenting.Model.Vehicle;
 import com.example.customerrenting.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewholder>{
 
@@ -21,12 +22,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     public NotificationAdapter(ArrayList<Notification> notifications) {
         this.notifications = notifications;
+        notifyDataSetChanged();
     }
-
     @NonNull
     @Override
     public NotificationViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_vehicle_popular,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_noti,parent,false);
         return new NotificationAdapter.NotificationViewholder(view);
     }
 
