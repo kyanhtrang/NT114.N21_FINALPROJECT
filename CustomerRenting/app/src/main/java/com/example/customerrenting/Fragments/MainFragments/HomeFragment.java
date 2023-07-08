@@ -54,7 +54,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
-
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
@@ -70,7 +69,6 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore dtb_token;
     private onClickInterface onclickInterface;
     private TextView showa;
-
 
     View view;
 
@@ -106,6 +104,7 @@ public class HomeFragment extends Fragment {
         rcvPopular = view.findViewById(R.id.rcvPopular);
         rcvPopular.setLayoutManager(linearLayoutManager);
         ArrayList<Vehicle> vehicles = new ArrayList<>();
+      
         vehicles.add(new Vehicle("", "", "", "xe 4 chổ", "500000", "", "", "", "", "", "", "", ""));
         vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", "","", "", "", ""));
         vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", "","", "", "", ""));
