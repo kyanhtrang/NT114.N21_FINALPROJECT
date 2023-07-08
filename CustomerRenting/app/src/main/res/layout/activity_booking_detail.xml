@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Services.Booking.BookingDetail">
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tv_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="CHI TIẾT ĐƠN HÀNG"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_noti_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btn_noti_back" />
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="ID:"
+                    android:textStyle="bold"
+                    android:textColor="@color/brown"
+                    android:textSize="20sp"
+
+                    app:layout_constraintTop_toBottomOf="@+id/tv_confirm"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="60dp"
+                    />
+                <TextView
+                    android:id="@+id/txtview_noti_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="id giao dich"
+                    android:textColor="@color/brown"
+                    android:textSize="20sp"
+
+                    app:layout_constraintTop_toBottomOf="@+id/tv_confirm"
+                    app:layout_constraintLeft_toRightOf="@+id/tv"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_noti_back"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ic_arrow_back_blu"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/status"
+                    app:layout_constraintTop_toBottomOf="@+id/txtview_noti_id"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="Trạng thái: "
+                    android:textColor="@color/brown"
+                    android:textStyle="bold"
+                    android:layout_marginStart="60dp"
+                    android:textSize="20sp"
+
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtview_noti_status"
+                    app:layout_constraintTop_toBottomOf="@+id/txtview_noti_id"
+                    app:layout_constraintLeft_toRightOf="@+id/status"
+                    android:text="đang chờ "
+                    android:textColor="@color/brown"
+                    android:layout_marginStart="5dp"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:id="@+id/img_noti_car"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/status" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/provide_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="@id/img_noti_car"
+                    app:layout_constraintStart_toStartOf="@id/img_noti_car"
+                    app:layout_constraintTop_toBottomOf="@+id/img_noti_car">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/green_round_button"
+                        android:paddingBottom="10dp">
+
+                        <View
+                            android:id="@+id/divider"
+                            android:layout_width="0dp"
+                            android:layout_height="0.3dp"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:background="@color/green"
+                            android:scrollbarThumbHorizontal="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/driverDetailText" />
+
+                        <TextView
+                            android:id="@+id/driverDetailText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="4dp"
+
+                            android:text="Thông tin nhà cung cấp"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="24dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/driverDetailText"
+                            app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/nameText"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Họ Tên:"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/txtview_noti_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingLeft="15dp"
+
+                                    android:textColor="@color/white" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/emailText"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+
+                                    android:textColor="@color/white"
+                                    android:text="Email:" />
+
+                                <TextView
+                                    android:id="@+id/txtview_noti_email"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingLeft="15dp"
+
+                                    android:textColor="@color/white" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/phoneNumberText"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/white"
+                                    android:text="SĐT:" />
+
+                                <TextView
+                                    android:id="@+id/txtview_noti_phoneNumber"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingLeft="15dp"
+
+                                    android:textColor="@color/white" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/Vehicle_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="@id/img_noti_car"
+                    app:layout_constraintStart_toStartOf="@id/img_noti_car"
+                    app:layout_constraintTop_toBottomOf="@+id/provide_info">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/green_round_button"
+                        android:paddingBottom="10dp"
+                        android:id="@+id/layout_noti_Vehicle">
+
+                        <View
+                            android:id="@+id/divider1"
+                            android:layout_width="0dp"
+                            android:layout_height="0.3dp"
+                            android:layout_marginTop="4dp"
+                            android:background="#707070"
+                            android:scrollbarThumbHorizontal="@color/brown"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_InforCar" />
+
+
+                        <TextView
+                            android:id="@+id/tv_InforCar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="4dp"
+
+                            android:text="Thông tin xe"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="24dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="@+id/divider1"
+                            app:layout_constraintStart_toStartOf="@+id/tv_InforCar"
+                            app:layout_constraintTop_toBottomOf="@id/divider1">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingBottom="5dp">
+
+                                <TextView
+                                    android:id="@+id/txtview_noti_BrandCar"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+
+                                    android:textColor="@color/white"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/gia"
+                                    android:layout_width="75dp"
+                                    android:layout_height="wrap_content"
+
+                                    android:textColor="@color/white"
+                                    android:text="Giá:" />
+
+                                <TextView
+                                    android:id="@+id/txtview_noti_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:paddingLeft="15dp"
+
+                                    android:textColor="@color/white" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/noti_DiaDiem"
+                                    android:layout_width="75dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nơi đỗ xe:"
+
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/txt_checkout_address"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:paddingLeft="15dp"
+
+                                    android:textColor="@color/white"/>
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/noti_pickup"
+                                    android:layout_width="75dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Ngày nhận:"
+
+                                    android:textColor="@color/white" />
+                                <TextView
+                                    android:id="@+id/tv_noti_pickup"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="15dp"
+
+                                    android:textColor="@color/white"
+                                    tools:layout_editor_absoluteX="125dp"
+                                    tools:layout_editor_absoluteY="269dp"
+                                    />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/noti_dropoff"
+                                    android:layout_width="75dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Ngày trả:"
+
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/tv_noti_dropoff"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:paddingLeft="15dp"
+
+                                    android:textColor="@color/white" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/divider2"
+                            android:layout_width="0dp"
+                            android:layout_height="0.3dp"
+                            android:layout_marginTop="8dp"
+                            android:background="#707070"
+                            android:scrollbarThumbHorizontal="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="24dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_InforCar"
+                            app:layout_constraintTop_toBottomOf="@+id/divider2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txtview_noti_totalText"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:textColor="@color/white"
+                                        android:text="Tổng tiền cần thanh toán:" />
+
+                                    <TextView
+                                        android:id="@+id/txtview_noti_totalCost"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:textColor="@color/white"
+                                        android:textSize="24sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_customer_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:background="@drawable/green_round_card"
+                    android:backgroundTint="@color/orange"
+                    android:text="XÁC NHẬN VÀ THANH TOÁN"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18ssp"
+                    android:layout_margin="@dimen/_15sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/img_noti_car"
+                    app:layout_constraintStart_toStartOf="@+id/img_noti_car"
+                    app:layout_constraintTop_toBottomOf="@+id/Vehicle_info"
+                    tools:ignore="HardcodedText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

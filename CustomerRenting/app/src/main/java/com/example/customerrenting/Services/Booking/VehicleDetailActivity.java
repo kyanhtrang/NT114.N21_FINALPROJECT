@@ -43,7 +43,7 @@ public class VehicleDetailActivity extends AppCompatActivity {
         btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(VehicleDetailActivity.this, DateToRentActivity.class);
+                Intent i = new Intent(VehicleDetailActivity.this, ScheduleSelect.class);
                 i.putExtra("vehicle_id", vehicleID);
                 startActivity(i);
             }

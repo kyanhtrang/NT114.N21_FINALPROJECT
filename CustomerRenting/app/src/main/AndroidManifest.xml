@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,6 +19,9 @@
             android:name=".Services.Message.ChatActivity"
             android:exported="false" />
         <activity
+            android:name=".Services.Booking.BookingDetail"
+            android:exported="false" />
+        <activity
             android:name=".SupplierActivity"
             android:exported="false" />
         <activity
@@ -23,6 +29,9 @@
             android:exported="false" />
         <activity
             android:name=".Services.Booking.VehicleDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Services.Booking.ScheduleSelect"
             android:exported="false" />
         <activity
             android:name=".Services.Vehicle.ShowAllVehicleActivity"
@@ -77,6 +86,17 @@
             </intent-filter>
             -->
         </activity>
+        <activity
+            android:name=".Services.PushNotifications.PushNotificationService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGIN_EVENT" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

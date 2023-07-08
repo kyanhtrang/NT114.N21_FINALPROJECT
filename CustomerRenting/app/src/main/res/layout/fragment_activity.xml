@@ -7,13 +7,33 @@
     tools:context=".Fragments.MainFragments.ActivityFragment">
 
     <TextView
+        android:id="@+id/tv_title"
+        android:text="HOẠT ĐỘNG"
+        android:textStyle="bold"
+        android:textSize="@dimen/_30ssp"
+        android:textColor="@color/orange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ACTIVITY"
-        android:textSize="@dimen/_35sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        tools:ignore="HardcodedText,MissingConstraints" />
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        android:paddingBottom="@dimen/_100sdp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_15sdp"
+            tools:ignore="MissingConstraints">
+        </androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

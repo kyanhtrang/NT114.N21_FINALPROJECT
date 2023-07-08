@@ -39,7 +39,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.2.1'
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
     implementation 'com.google.firebase:firebase-database:20.2.2'
-    implementation fileTree(dir: '..\\app\\src\\main\\java\\com\\example\\customerrenting\\Services\\ZaloPay\\ZPDK', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
 
     testImplementation 'junit:junit:4.13.2'
@@ -56,4 +55,12 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.android.volley:volley:1.2.0'
+
+    //ZaloPay
+    implementation fileTree(dir: '..\\app\\src\\main\\java\\com\\example\\customerrenting\\Services\\ZaloPay\\ZPDK', include: ['*.aar', '*.jar'], exclude: [])
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("commons-codec:commons-codec:1.14")
+
 }

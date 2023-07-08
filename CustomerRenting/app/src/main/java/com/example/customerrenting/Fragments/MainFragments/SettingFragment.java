@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.ImageView;
+
 import android.widget.TextView;
 
 import android.widget.Toast;
@@ -32,15 +34,17 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import com.squareup.picasso.Picasso;
+
 
 public class SettingFragment extends Fragment {
     private View view;
-    private TextView  btnProfile, btnSignout, btnChangePassword, btnStore, btnTranfer;
+    private TextView  btnProfile, btnSignout, btnChangePassword, btnStore, btnTranfer, title;
 
     private FirebaseUser firebaseUser;
     private DocumentReference userRef;
-    private FirebaseFirestore db;
+    private FirebaseFirestore db, dtb_user;
     private User user = new User();
 
     private ImageView imgAvt;
@@ -54,7 +58,32 @@ public class SettingFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         init();
 
+
+        title = view.findViewById(R.id.tv_titleNoti);
+        dtb_user = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        user.setUserID(firebaseUser.getUid());
+
+        dtb_user.collection("Users")
+                .whereEqualTo("userID", user.getUserID())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            for (QueryDocumentSnapshot document : task.getResult()){
+                                title.setText(document.get("fullName").toString()) ;
+                            }
+                        }
+                        else {
+                            //
+                            Toast.makeText(view.getContext(), "Không thể lấy thông tin", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
         getImage();
+
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +101,7 @@ public class SettingFragment extends Fragment {
                 ChangePassword();
             }
         });
+
         btnStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,6 +166,7 @@ public class SettingFragment extends Fragment {
         startActivity(intent);
     }
 
+
     private void ChangePassword() {
         Intent intent = new Intent(getActivity(), ChangePasswordActivity.class);
         startActivity(intent);
@@ -151,6 +182,7 @@ public class SettingFragment extends Fragment {
         Intent intent = new Intent(getActivity(), ViewProfileActivity.class);
         startActivity(intent);
     }
+
 
     public void init()
     {
