@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/vehicle_info_card"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/_20sdp">
+
+    <TextView
+        android:id="@+id/tv_noti_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="23sp"
+        android:textColor="@color/white"
+        tools:text="Tên nhà cung cấp" />
+
+    <LinearLayout
+        android:id="@+id/_bookingID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp">
+
+        <TextView
+            android:id="@+id/bookingIDText"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            android:text="ID:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_noti_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18dp"
+            android:paddingLeft="15dp"
+            android:text="1234"
+            android:textColor="@color/white" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/_pickupDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/pickupDateText"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Nhận xe"
+            android:textSize="17dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/pickupDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:paddingLeft="15dp"
+            android:text="07:33 p.m January, 1 2020" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/_returnDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/returnDateText"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:textColor="@color/white"
+            android:text="Trả xe" />
+
+        <TextView
+            android:id="@+id/returnDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:textSize="18dp"
+            android:paddingLeft="15dp"
+            android:text="07:33 p.m January, 10 2020"
+            android:textColor="@color/white" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/_TrangThai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/tv_"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:text="Trạng thái:" />
+
+        <TextView
+            android:id="@+id/tv_Status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:textSize="18dp"
+            android:paddingLeft="15dp"
+            android:text="Nhà cung cấp đã xác nhận"
+            android:textColor="@color/white" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_Detail"
+            android:text="Chi tiết"
+            android:textSize="16dp"
+            android:backgroundTint="@color/green"
+            android:layout_marginLeft="200dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+</LinearLayout>
