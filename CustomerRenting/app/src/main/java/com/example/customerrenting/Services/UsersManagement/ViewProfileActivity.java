@@ -82,8 +82,8 @@ public class ViewProfileActivity extends AppCompatActivity {
                                 tvCity.setText(document.getString("city"));
                                 tvBirthday.setText(document.getString("birthday"));
                                 user.setAvatarURL(document.getString("avatarURL"));
-                                user.setAvatarURL(document.getString("ciCardFront"));
-                                user.setAvatarURL(document.getString("ciCardBehind"));
+                                user.setFrontCard(document.getString("ciCardFront"));
+                                user.setBehindCard(document.getString("ciCardBehind"));
                                 tvGender.setText(document.getString("gender"));
 
                                 if (!document.getString("avatarURL").isEmpty()) {
