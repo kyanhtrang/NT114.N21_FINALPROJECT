@@ -59,12 +59,12 @@ public class HomeFragment extends Fragment {
 
     private User user = new User();
     private ImageView imgAvt;
-    private FirebaseFirestore dtb_token;
+
 
     private onClickInterface onclickInterface;
 
     private TextView showa, title;
-    private User user = new User();
+
 
 
     View view;
