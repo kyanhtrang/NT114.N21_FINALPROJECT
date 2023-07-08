@@ -14,15 +14,22 @@ import android.view.ViewGroup;
 
 import com.example.customerrenting.Adapter.PopularAdapter;
 import com.example.customerrenting.Model.Token;
+import com.example.customerrenting.Model.User;
 import com.example.customerrenting.Model.Vehicle;
 import com.example.customerrenting.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
+
 
 import android.widget.TextView;
 
@@ -32,6 +39,7 @@ import com.example.customerrenting.Model.VehicleTemplate;
 import com.example.customerrenting.Model.onClickInterface;
 import com.example.customerrenting.Services.Vehicle.ShowAllVehicleActivity;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,9 +51,13 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView rcvVehical;
     private RecyclerView rcvPopular;
-    private FirebaseFirestore dtb_token;
+    private FirebaseFirestore dtb_token, dtb_user;
+    private FirebaseUser firebaseUser;
     private onClickInterface onclickInterface;
-    private TextView showa;
+
+    private TextView showa, title;
+    private User user = new User();
+
 
     View view;
 
@@ -54,6 +66,30 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        title = view.findViewById(R.id.tvHiName);
+
+        dtb_user = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        user.setUserID(firebaseUser.getUid());
+
+        dtb_user.collection("Users")
+                .whereEqualTo("userID", user.getUserID())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            for (QueryDocumentSnapshot document : task.getResult()){
+                                title.setText("Hi " + document.get("fullName").toString()) ;
+                            }
+                        }
+                        else {
+                            //
+                            Toast.makeText(view.getContext(), "Không thể lấy thông tin", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
 
         dtb_token = FirebaseFirestore.getInstance();
         setRcvVehical();
