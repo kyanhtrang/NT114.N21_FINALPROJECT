@@ -1,10 +1,8 @@
 package com.example.customerrenting.Model;
 
-
-
-import com.example.carrenting.Service.ZaloPay.Constant.AppInfo;
-import com.example.carrenting.Service.ZaloPay.Helper.Helpers;
-import com.example.carrenting.Service.ZaloPay.HttpProvider;
+import com.example.customerrenting.Services.ZaloPay.Constant.AppInfo;
+import com.example.customerrenting.Services.ZaloPay.Helper.Helpers;
+import com.example.customerrenting.Services.ZaloPay.HttpProvider;
 
 import org.json.JSONObject;
 
