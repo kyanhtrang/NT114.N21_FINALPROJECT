@@ -8,6 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.customerrenting.R;
+
+public class NoticeFragment extends Fragment {
+
 import android.widget.Toast;
 
 import com.example.customerrenting.R;
@@ -27,10 +32,12 @@ public class NoticeFragment extends Fragment {
     String token, idsupplier;
     private FirebaseFirestore dtbVehicle;
     ArrayList<String> id_supplier = new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         view = inflater.inflate(R.layout.fragment_notice, container, false);
         dtbVehicle = FirebaseFirestore.getInstance();
         String id_vehicle = "rwqZxIF2JDRRJVoCgk6q";

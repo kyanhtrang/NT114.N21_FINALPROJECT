@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupStore">
+    tools:context=".CreateStore">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="@dimen/_75sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:textColor="@color/brown"
+        android:fontFamily="@font/opensans_bold"
         app:layout_constraintTop_toTopOf="parent"
         android:text="Đăng Ký Cửa Hàng"
         android:textSize="@dimen/_30ssp"
@@ -31,10 +32,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_store_name"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         android:ems="10"
         app:hintTextColor="@color/purple">
@@ -45,22 +44,70 @@
             android:layout_height="@dimen/_50sdp"
             android:background="@color/transparent"
             android:drawableStart="@drawable/ic_store"
-            android:hint="Store Name"
-            android:textSize="@dimen/_12ssp"
             android:fontFamily="@font/opensans_regular"
+            android:hint="Store Name"
             android:padding="@dimen/_10sdp"
-            tools:ignore="HardcodedText">
-        </com.google.android.material.textfield.TextInputEditText>
+
+            android:textSize="@dimen/_14ssp"
+            tools:ignore="HardcodedText" />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/Scale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:textColor="@color/brown"
+        app:layout_constraintTop_toBottomOf="@id/layout_store_name"
+        android:text="Quy mô cửa hàng"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@id/Scale">
+
+        <RadioButton
+            android:id="@+id/Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Nhỏ (5 - 10 xe)" />
+
+        <RadioButton
+            android:id="@+id/Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:textSize="@dimen/_14ssp"
+            android:text="Vừa (10 - 20 xe)" />
+
+        <RadioButton
+            android:id="@+id/Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:textSize="@dimen/_14ssp"
+            android:text="Lớn (>20 xe)" />
+
+    </RadioGroup>
+
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_signup"
+        android:id="@+id/btn_create"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         android:layout_marginStart="@dimen/_15sdp"
-        app:layout_constraintTop_toBottomOf="@+id/layout_store_name"
-        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:text="Đăng ký cửa hàng"
         android:fontFamily="@font/opensans_bold"
         android:textStyle="bold"

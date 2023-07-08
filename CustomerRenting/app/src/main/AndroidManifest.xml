@@ -14,12 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomerRenting"
         tools:targetApi="31">
-
+        <activity
+            android:name=".SupplierActivity"
+            android:exported="false" />
         <activity
             android:name=".Services.Vehicle.UpdateVehicleActivity"
             android:exported="false" />
         <activity
-            android:name=".SignupStore"
+            android:name=".Services.Booking.VehicleDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Services.Vehicle.ShowAllVehicleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateStore"
             android:exported="false" />
         <activity
             android:name=".Services.Vehicle.AddVehicleActivity"

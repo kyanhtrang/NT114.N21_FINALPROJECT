@@ -19,9 +19,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -29,17 +27,15 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class OTP extends AppCompatActivity {
     Button sendbtn;
-    private static final int RC_SIGN_IN = 0406;
-    PhoneAuthCredential credential;
-    String CodeSent;
-    String phonenumber, fullname, gender, birth, email, password, noti;
-    ImageView btnGGsignin;
+    private PhoneAuthCredential credential;
+    private String CodeSent;
+    private String phoneNumber, noti;
+    private FirebaseFirestore mDb;
 
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
@@ -53,6 +49,26 @@ public class OTP extends AppCompatActivity {
             if (code!=null){
                 otp.setText(code);
                 verifyCode(code);
+
+                FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                        .build();
+                mDb.setFirestoreSettings(settings);
+                DocumentReference newUserRef = mDb
+                        .collection("Users")
+                        .document(FirebaseAuth.getInstance().getUid());
+                newUserRef.update("phoneNumber", phoneNumber).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+
+/*
+                                Toast.makeText(ValidatePhoneActivity.this, "Update phone number successful", Toast.LENGTH_LONG).show();
+*/
+                            Intent intent = new Intent(OTP.this, CCCDActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                });
             }
         }
         @Override
@@ -62,11 +78,11 @@ public class OTP extends AppCompatActivity {
     };
     private void verifyCode(String code) {
         credential = PhoneAuthProvider.getCredential(CodeSent,code);
-        signInWithPhoneAuthCredential(credential);
+//        signInWithPhoneAuthCredential(credential);
     }
     FirebaseFirestore dtb;
     FirebaseUser user;
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+/*    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -105,7 +121,7 @@ public class OTP extends AppCompatActivity {
                         Log.e("FireBase Auth", "Failed to create user");
                     }
                 });
-    }
+    }*/
     private PinView otp;
 
 
@@ -145,24 +161,18 @@ public class OTP extends AppCompatActivity {
     }
     private void init(){
         TextView tvNoti = findViewById(R.id.tv_noti);
-        btnGGsignin = findViewById(R.id.btn_ggsignin);
         otp = findViewById(R.id.pin_view);
-        fullname = getIntent().getStringExtra("fullname");
-        gender = getIntent().getStringExtra("gender");
-        birth = getIntent().getStringExtra("birth");
-        email = getIntent().getStringExtra("email");
-        password = getIntent().getStringExtra("password");
-        phonenumber = getIntent().getStringExtra("phonenum");
-        noti = "Mã xác thực đã gửi về số điện thoại\n" + phonenumber;
+        phoneNumber = getIntent().getStringExtra("phonenum");
+        noti = "Mã xác thực đã gửi về số điện thoại\n" + phoneNumber;
         tvNoti.setText(noti);
         sendotp();
     }
     private void sendotp(){
         // [START start_phone_auth]
-        if (phonenumber.length() >= 10) {
-            phonenumber = "+84" + phonenumber.substring(1);
+        if (phoneNumber.length() >= 10) {
+            phoneNumber = "+84" + phoneNumber.substring(1);
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                    phonenumber,
+                    phoneNumber,
                     60L,
                     TimeUnit.SECONDS,
                     OTP.this,
@@ -176,20 +186,13 @@ public class OTP extends AppCompatActivity {
         String code = otp.getText().toString();
         if (!code.isEmpty()){
             verifyCode(code);
-            Intent intent = new Intent(OTP.this, LoginActivity.class);
+            Intent intent = new Intent(OTP.this, CCCDActivity.class);
             startActivity(intent);
             finish();
         }
     }
 
     public void returnToPreviousIntent(View view) {
-        Intent intent = new Intent(OTP.this, AddPhoneNumberActivity.class);
-        intent.putExtra("email", getIntent().getStringExtra("email"));
-        intent.putExtra("password", getIntent().getStringExtra("password"));
-        intent.putExtra("fullname", getIntent().getStringExtra("fullname"));
-        intent.putExtra("gender", getIntent().getStringExtra("gender"));
-        intent.putExtra("birth", getIntent().getStringExtra("birth"));
-        intent.putExtra("phonenum",getIntent().getStringExtra("phonenum"));
-        startActivity(intent);
+        finish();
     }
 }

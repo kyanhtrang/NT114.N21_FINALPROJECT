@@ -275,6 +275,7 @@ public class LoginActivity extends AppCompatActivity {
         txtView_password = findViewById(R.id.input_password);
         progressDialog = new ProgressDialog(this);
         dtbUser = FirebaseFirestore.getInstance(); // Initialize dtbUser variable
+
 /*        FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             updateUI(currentUser);

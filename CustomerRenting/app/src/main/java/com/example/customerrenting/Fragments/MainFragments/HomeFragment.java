@@ -18,7 +18,6 @@ import com.example.customerrenting.Adapter.VehicleAdapter;
 import com.example.customerrenting.MainActivity;
 import com.example.customerrenting.Model.Token;
 import com.example.customerrenting.Model.Vehicle;
-import com.example.customerrenting.Model.VehicleType;
 import com.example.customerrenting.R;
 import com.example.customerrenting.Services.UsersManagement.UpdateProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,6 +32,28 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.SetOptions;
+
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.customerrenting.Adapter.VehicleTemplateAdapter;
+import com.example.customerrenting.Model.Token;
+
+import com.example.customerrenting.Model.Vehicle;
+import com.example.customerrenting.Model.VehicleTemplate;
+import com.example.customerrenting.Model.onClickInterface;
+import com.example.customerrenting.R;
+import com.example.customerrenting.Services.Vehicle.ShowAllVehicleActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
@@ -46,6 +67,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView rcvVehical;
     private RecyclerView rcvPopular;
     private FirebaseFirestore dtb_token;
+    private onClickInterface onclickInterface;
+    private TextView showa;
 
     View view;
 
@@ -58,7 +81,9 @@ public class HomeFragment extends Fragment {
         dtb_token = FirebaseFirestore.getInstance();
         setRcvVehical();
         setRcvPopular();
+        showal();
         getToken();
+
         return view;
     }
 
@@ -66,24 +91,24 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false);
         rcvVehical = view.findViewById(R.id.rcvVehical);
         rcvVehical.setLayoutManager(linearLayoutManager);
-        ArrayList<VehicleType> vehicles = new ArrayList<>();
-        vehicles.add(new VehicleType("Ô tô", "xeoto"));
-        vehicles.add(new VehicleType("Taxi", "taxi"));
-        vehicles.add(new VehicleType("Xe máy", "xemay"));
-        vehicles.add(new VehicleType("Xe đạp", "xedap"));
-        adapter = new VehicleAdapter(vehicles);
+        ArrayList<VehicleTemplate> vehicles = new ArrayList<>();
+        vehicles.add(new VehicleTemplate("Ô tô", "xeoto"));
+        vehicles.add(new VehicleTemplate("Taxi", "taxi"));
+        vehicles.add(new VehicleTemplate("Xe máy", "xemay"));
+        vehicles.add(new VehicleTemplate("Xe đạp", "xedap"));
+        adapter = new VehicleTemplateAdapter(vehicles);
         rcvVehical.setAdapter(adapter);
     }
-
     private void setRcvPopular() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false);
         rcvPopular = view.findViewById(R.id.rcvPopular);
         rcvPopular.setLayoutManager(linearLayoutManager);
         ArrayList<Vehicle> vehicles = new ArrayList<>();
-        vehicles.add(new Vehicle("", "", "", "xe 4 chổ", "500000", "", "", "", ""));
-        vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", ""));
-        vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", ""));
-        vehicles.add(new Vehicle("", "", "", "xe máy", "150000", "", "", "", ""));
+      
+        vehicles.add(new Vehicle("", "", "", "xe 4 chổ", "500000", "", "", "", "", "", "", "", ""));
+        vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", "","", "", "", ""));
+        vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", "","", "", "", ""));
+        vehicles.add(new Vehicle("", "", "", "xe máy", "150000", "", "", "", "", "", "", "", ""));
         adapter = new PopularAdapter(vehicles);
         rcvPopular.setAdapter(adapter);
     }
@@ -126,4 +151,16 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    private void showal(){
+        TextView textView = view.findViewById(R.id.txtShowAllVehicle);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), ShowAllVehicleActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
 }

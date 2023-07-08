@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(R.id.fragment_container, HomeFragment.class, null)
+                .replace(R.id.supplier_container, HomeFragment.class, null)
                 .commit();
 
         layoutHome.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.fragment_container, HomeFragment.class, null)
+                            .replace(R.id.supplier_container, HomeFragment.class, null)
                             .commit();
 
                     textActivity.setVisibility(View.GONE);
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.fragment_container, ActivityFragment.class, null)
+                            .replace(R.id.supplier_container, ActivityFragment.class, null)
                             .commit();
 
                     textHome.setVisibility(View.GONE);
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.fragment_container, MessageFragment.class, null)
+                            .replace(R.id.supplier_container, MessageFragment.class, null)
                             .commit();
 
                     textHome.setVisibility(View.GONE);
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.fragment_container, NoticeFragment.class, null)
+                            .replace(R.id.supplier_container, NoticeFragment.class, null)
                             .commit();
 
                     textHome.setVisibility(View.GONE);
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.fragment_container, SettingFragment.class, null)
+                            .replace(R.id.supplier_container, SettingFragment.class, null)
                             .commit();
 
                     textHome.setVisibility(View.GONE);
@@ -233,7 +233,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
 
     }
 
