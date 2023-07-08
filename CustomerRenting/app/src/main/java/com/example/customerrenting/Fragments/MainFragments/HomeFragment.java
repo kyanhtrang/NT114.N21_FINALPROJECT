@@ -8,6 +8,32 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.example.customerrenting.Adapter.PopularAdapter;
+import com.example.customerrenting.Adapter.VehicleAdapter;
+import com.example.customerrenting.MainActivity;
+import com.example.customerrenting.Model.Token;
+import com.example.customerrenting.Model.Vehicle;
+import com.example.customerrenting.Model.VehicleType;
+import com.example.customerrenting.R;
+import com.example.customerrenting.Services.UsersManagement.UpdateProfileActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.SetOptions;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +56,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
@@ -45,6 +72,7 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore dtb_token;
     private onClickInterface onclickInterface;
     private TextView showa;
+
 
     View view;
 
@@ -80,21 +108,14 @@ public class HomeFragment extends Fragment {
         rcvPopular = view.findViewById(R.id.rcvPopular);
         rcvPopular.setLayoutManager(linearLayoutManager);
         ArrayList<Vehicle> vehicles = new ArrayList<>();
-        vehicles.add(new Vehicle("", "", "", "xe 4 chổ", "500000", "", "", "", "", ""));
-        vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", "", ""));
-        vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", "", ""));
-        vehicles.add(new Vehicle("", "", "", "xe máy", "150000", "", "", "", "", ""));
-        onclickInterface = new onClickInterface() {
-            @Override
-            public void setClick(int position) {
-                vehicles.indexOf(position);
-                Log.d("Position: ","Position is " + position);
-                adapter.notifyDataSetChanged();
-            }
-        };
-        adapter = new PopularVehicleAdapter(HomeFragment.this ,vehicles, onclickInterface);
+        vehicles.add(new Vehicle("", "", "", "xe 4 chổ", "500000", "", "", "", "", "", "", "", ""));
+        vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", "","", "", "", ""));
+        vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", "","", "", "", ""));
+        vehicles.add(new Vehicle("", "", "", "xe máy", "150000", "", "", "", "", "", "", "", ""));
+        adapter = new PopularAdapter(vehicles);
         rcvPopular.setAdapter(adapter);
     }
+
     private void getToken() {
         Token token = new Token();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
@@ -133,6 +154,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
     private void showal(){
         TextView textView = view.findViewById(R.id.txtShowAllVehicle);
         textView.setOnClickListener(new View.OnClickListener() {
@@ -143,4 +165,5 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
 }

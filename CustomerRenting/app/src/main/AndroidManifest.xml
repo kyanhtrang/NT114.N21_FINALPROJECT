@@ -12,11 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomerRenting"
         tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name=".SupplierActivity"-->
-<!--            android:exported="false" />-->
         <activity
-            android:name=".Services.Vehicle.ShowAllVehicleActivity"
+            android:name=".SupplierActivity"
             android:exported="false" />
         <activity
             android:name=".Services.Vehicle.UpdateVehicleActivity"

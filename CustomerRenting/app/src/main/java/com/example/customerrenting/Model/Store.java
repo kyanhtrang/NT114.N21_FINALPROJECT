@@ -3,7 +3,6 @@ package com.example.customerrenting.Model;
 public class Store {
     private String StoreID, SupplierID, StoreName;
     private String Size;
-
     private int Numbers;
     private String address;
 
@@ -31,8 +30,8 @@ public class Store {
         return StoreID;
     }
 
-    public void setStoreId(String storeId) {
-        StoreID = storeId;
+    public void setStoreId(String storeID) {
+        StoreID = storeID;
     }
 
     public String getSupplierID() {

@@ -9,11 +9,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/orange_round_button"
+            android:background="@drawable/green_round_card"
             android:layout_margin="@dimen/_15sdp">
-
                 <ImageView
-                    android:id="@+id/card_img_vehicle"
+                    android:id="@+id/img_vehicle"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_120sdp"
                     android:layout_margin="@dimen/_10sdp"
@@ -23,17 +22,17 @@
                     android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_provider_name"
+                    app:layout_constraintTop_toBottomOf="@id/provider_name"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
-                    android:id="@+id/card_vehicle_name"
+                    android:id="@+id/vehicle_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/brown"
                     android:text="Tên xe"
                     android:textSize="@dimen/_24ssp"
                     android:textStyle="bold"
@@ -41,18 +40,19 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="HardcodedText" />
                 <TextView
-                    android:id="@+id/card_provider_name"
+                    android:id="@+id/provider_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:text="Tên nhà cung cấp"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/card_vehicle_name"
-                    app:layout_constraintTop_toBottomOf="@+id/card_vehicle_name"
+                    app:layout_constraintStart_toStartOf="@id/vehicle_name"
+                    app:layout_constraintTop_toBottomOf="@+id/vehicle_name"
                     tools:ignore="HardcodedText" />
                 <TextView
-                    android:id="@+id/card_tv_vehicle_price"
+                    android:id="@+id/tv_vehicle_price"
+
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_27sdp"
                     android:backgroundTint="@color/white"
@@ -60,11 +60,12 @@
                     android:paddingStart="@dimen/_7sdp"
                     android:paddingTop="@dimen/_5sdp"
                     android:text="Giá/ngày"
-                    android:textColor="@color/black"
+                    android:textColor="@color/brown"
                     android:textSize="@dimen/_12ssp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:background="@drawable/card_background"
+                    android:background="@drawable/select_button"
+
                     tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

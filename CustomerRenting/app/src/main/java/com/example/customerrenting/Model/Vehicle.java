@@ -2,23 +2,13 @@ package com.example.customerrenting.Model;
 
 public class Vehicle {
     String vehicle_id, supplier_id, supplier_name;
-    String vehicle_name, vehicle_price, vehicle_seats, vehicle_number, vehicle_availability, vehicle_type;
+    String vehicle_name, vehicle_price, vehicle_seats, vehicle_number, vehicle_availability, vehicle_type, supplier_address, supplier_phone, supplier_email;
     String vehicle_imageURL;
 
     public Vehicle() {
-        this.vehicle_id = "";
-        this.supplier_id = "";
-        this.supplier_name = "";
-        this.vehicle_name = "";
-        this.vehicle_price = "";
-        this.vehicle_seats = "";
-        this.vehicle_number = "";
-        this.vehicle_availability = "";
-        this.vehicle_imageURL = "";
-        this.vehicle_type = "";
     }
 
-    public Vehicle(String vehicle_id, String supplier_id, String supplier_name, String vehicle_name, String vehicle_price, String vehicle_seats, String vehicle_number, String vehicle_availability, String vehicle_imageURL, String vehicle_type) {
+    public Vehicle(String vehicle_id, String supplier_id, String supplier_name, String vehicle_name, String vehicle_price, String vehicle_seats, String vehicle_number, String vehicle_availability, String vehicle_imageURL, String vehicle_type, String supllier_address, String supplier_phone, String supplier_email) {
         this.vehicle_id = vehicle_id;
         this.supplier_id = supplier_id;
         this.supplier_name = supplier_name;
@@ -29,6 +19,33 @@ public class Vehicle {
         this.vehicle_availability = vehicle_availability;
         this.vehicle_imageURL = vehicle_imageURL;
         this.vehicle_type = vehicle_type;
+        this.supplier_address = supllier_address;
+        this.supplier_email = supplier_email;
+        this.supplier_phone = supplier_phone;
+    }
+
+    public String getSupplier_address() {
+        return supplier_address;
+    }
+
+    public void setSupplier_address(String supplier_address) {
+        this.supplier_address = supplier_address;
+    }
+
+    public String getSupplier_phone() {
+        return supplier_phone;
+    }
+
+    public void setSupplier_phone(String supplier_phone) {
+        this.supplier_phone = supplier_phone;
+    }
+
+    public String getSupplier_email() {
+        return supplier_email;
+    }
+
+    public void setSupplier_email(String supplier_email) {
+        this.supplier_email = supplier_email;
     }
 
     public String getVehicle_type() {

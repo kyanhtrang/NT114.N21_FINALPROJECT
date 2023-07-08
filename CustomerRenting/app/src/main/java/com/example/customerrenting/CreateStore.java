@@ -33,7 +33,6 @@ public class CreateStore extends AppCompatActivity {
 
     private EditText inputName;
     private RadioGroup radioGroup;
-    private RadioButton rSmall, rMedium, rLarge;
     private Button btnCreate;
     private User user = new User();
     private Store store = new Store();
@@ -60,9 +59,6 @@ public class CreateStore extends AppCompatActivity {
         inputName = findViewById(R.id.store_name);
         radioGroup = findViewById(R.id.radioGroup);
         btnCreate = findViewById(R.id.btn_create);
-        rSmall = findViewById(R.id.Small);
-        rMedium = findViewById(R.id.Medium);
-        rLarge = findViewById(R.id.Large);
 
         db = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -97,7 +93,8 @@ public class CreateStore extends AppCompatActivity {
                                     public void onSuccess(Void unused) {
                                         store.setStoreId(storeRef.getId());
                                         updateData(store.getStoreId());
-                                        Toast.makeText(CreateStore.this, "Thêm xe thành công", Toast.LENGTH_LONG).show();
+                                        updateUser(user.getUserID());
+                                        Toast.makeText(CreateStore.this, "Thêm store thành công", Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(CreateStore.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -106,12 +103,13 @@ public class CreateStore extends AppCompatActivity {
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(CreateStore.this, "Thêm xe thất bại", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(CreateStore.this, "Thêm store thất bại", Toast.LENGTH_LONG).show();
                                     }
                                 });
                     }
-                } else {
-                    Toast.makeText(CreateStore.this, "Không thể lấy thông tin", Toast.LENGTH_LONG).show();
+                    else {
+                        Toast.makeText(CreateStore.this, "Không thể lấy thông tin", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
 
@@ -129,6 +127,27 @@ public class CreateStore extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(CreateStore.this, "Error updating document", Toast.LENGTH_LONG).show();
+                            }
+                        });
+            }
+
+            private void updateUser(String UserID)
+            {
+                Map<String, Object> data = new HashMap<>();
+                data.put("haveStore", 1);
+                data.put("storeName", store.getStoreName());
+                userRef.update(data)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(CreateStore.this, "DocumentSnapshot successfully updated!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(CreateStore.this, "Error updating document", Toast.LENGTH_LONG).show();
+
                             }
                         });
             }

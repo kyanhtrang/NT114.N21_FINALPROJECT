@@ -16,7 +16,8 @@ public class User implements Parcelable {
     private String city;
     private String frontCard;
     private String behindCard;
-
+    private int haveStore;
+    private String storeName;
 
     public User() {
         address = "";
@@ -30,6 +31,8 @@ public class User implements Parcelable {
         gender = "";
         frontCard = "";
         behindCard = "";
+        haveStore = 0;
+        storeName = "";
     }
 
     protected User(Parcel in) {
@@ -44,6 +47,8 @@ public class User implements Parcelable {
         gender = in.readString();
         frontCard = in.readString();
         behindCard = in.readString();
+        haveStore = in.readInt();
+        storeName = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -57,6 +62,22 @@ public class User implements Parcelable {
             return new User[size];
         }
     };
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public int getHaveStore() {
+        return haveStore;
+    }
+
+    public void setHaveStore(int haveStore) {
+        this.haveStore = haveStore;
+    }
 
     public String getFrontCard() {
         return frontCard;
@@ -151,7 +172,7 @@ public class User implements Parcelable {
     }
 
 
-    public User(String email, String user_id, String username, String avatarURL, String dateOfBirth, String phoneNumber, String address, String city, String gender, String frontCard, String behindCard) {
+    public User(String email, String user_id, String username, String avatarURL, String dateOfBirth, String phoneNumber, String address, String city, String gender, String frontCard, String behindCard, int haveStore, String storeName) {
         this.email = email;
         this.userID = user_id;
         this.fullName = username;
@@ -163,6 +184,8 @@ public class User implements Parcelable {
         this.gender = gender;
         this.frontCard = frontCard;
         this.behindCard = behindCard;
+        this.haveStore = haveStore;
+        this.storeName = storeName;
     }
 
     @Override
@@ -194,5 +217,7 @@ public class User implements Parcelable {
         dest.writeString(gender);
         dest.writeString(frontCard);
         dest.writeString(behindCard);
+        dest.writeInt(haveStore);
+        dest.writeString(storeName);
     }
 }

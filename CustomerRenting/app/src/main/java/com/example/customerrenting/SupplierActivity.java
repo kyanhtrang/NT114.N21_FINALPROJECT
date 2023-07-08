@@ -3,7 +3,6 @@ package com.example.customerrenting;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
@@ -16,27 +15,28 @@ import com.example.customerrenting.Fragments.MainFragments.HomeFragment;
 import com.example.customerrenting.Fragments.MainFragments.MessageFragment;
 import com.example.customerrenting.Fragments.MainFragments.NoticeFragment;
 import com.example.customerrenting.Fragments.MainFragments.SettingFragment;
+import com.example.customerrenting.Fragments.SupplierFragments.SupplierActivityFragment;
+import com.example.customerrenting.Fragments.SupplierFragments.SupplierHomeFragment;
+import com.example.customerrenting.Fragments.SupplierFragments.SupplierMessageFragment;
+import com.example.customerrenting.Fragments.SupplierFragments.SupplierNoticeFragment;
+import com.example.customerrenting.Fragments.SupplierFragments.SupplierSettingFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class SupplierActivity extends AppCompatActivity {
 
     LinearLayout layoutHome, layoutActivity, layoutMessage, layoutNotice, layoutSetting;
     ImageView imgHome, imgActivity, imgMessage, imgNotice, imgSetting;
     TextView textHome, textActivity, textMessage, textNotice, textSetting;
     private int selectedTab = 1;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_supplier);
 
-        String email = getIntent().getStringExtra("email"), password = getIntent().getStringExtra("password");
-        Log.d("User Credential", email + ":" + password);
         init();
-
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(R.id.supplier_container, HomeFragment.class, null)
+                .replace(R.id.supplier_container, SupplierHomeFragment.class, null)
                 .commit();
 
         layoutHome.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.supplier_container, HomeFragment.class, null)
+                            .replace(R.id.supplier_container, SupplierHomeFragment.class, null)
                             .commit();
 
                     textActivity.setVisibility(View.GONE);
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.supplier_container, ActivityFragment.class, null)
+                            .replace(R.id.supplier_container, SupplierActivityFragment.class, null)
                             .commit();
 
                     textHome.setVisibility(View.GONE);
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.supplier_container, MessageFragment.class, null)
+                            .replace(R.id.supplier_container, SupplierMessageFragment.class, null)
                             .commit();
 
                     textHome.setVisibility(View.GONE);
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.supplier_container, NoticeFragment.class, null)
+                            .replace(R.id.supplier_container, SupplierNoticeFragment.class, null)
                             .commit();
 
                     textHome.setVisibility(View.GONE);
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.supplier_container, SettingFragment.class, null)
+                            .replace(R.id.supplier_container, SupplierSettingFragment.class, null)
                             .commit();
 
                     textHome.setVisibility(View.GONE);
@@ -233,7 +233,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void init(){
@@ -255,5 +254,4 @@ public class MainActivity extends AppCompatActivity {
         textNotice = findViewById(R.id.text_notice);
         textSetting = findViewById(R.id.text_setting);
     }
-
 }
