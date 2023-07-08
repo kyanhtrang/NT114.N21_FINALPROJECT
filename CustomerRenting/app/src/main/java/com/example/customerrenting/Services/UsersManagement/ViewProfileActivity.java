@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 public class ViewProfileActivity extends AppCompatActivity {
 
     private Button btnUpdate;
-    private ImageView imgAvatar;
+    private ImageView imgAvatar, imgFrontCCCD, imgBehindCCCD;
     private TextView tvPhone, tvEmail, tvName, tvAddress, tvCity, tvBirthday, tvGender;
     private FirebaseFirestore dtb_user;
     private FirebaseUser firebaseUser;
@@ -80,6 +80,8 @@ public class ViewProfileActivity extends AppCompatActivity {
                                 tvCity.setText(document.getString("city"));
                                 tvBirthday.setText(document.getString("birthday"));
                                 user.setAvatarURL(document.getString("avatarURL"));
+                                user.setAvatarURL(document.getString("ciCardFront"));
+                                user.setAvatarURL(document.getString("ciCardBehind"));
                                 tvGender.setText(document.getString("gender"));
 
                                 if (!document.getString("avatarURL").isEmpty()) {
@@ -87,6 +89,22 @@ public class ViewProfileActivity extends AppCompatActivity {
                                 }
                                 else {
                                     user.setAvatarURL("");
+                                }
+
+                                user.setFrontCard(document.get("ciCardFront").toString());
+                                if (!document.get("ciCardFront").toString().isEmpty()) {
+                                    Picasso.get().load(user.getFrontCard()).into(imgFrontCCCD);
+                                }
+                                else {
+                                    user.setFrontCard("");
+                                }
+
+                                user.setBehindCard(document.get("ciCardBehind").toString());
+                                if (!document.get("ciCardBehind").toString().isEmpty()) {
+                                    Picasso.get().load(user.getBehindCard()).into(imgBehindCCCD);
+                                }
+                                else {
+                                    user.setBehindCard("");
                                 }
                             }
                         }
