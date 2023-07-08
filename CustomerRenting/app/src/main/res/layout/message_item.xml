@@ -33,7 +33,6 @@
                 android:layout_height="@dimen/_50sdp"
                 android:contentDescription="TODO"
                 android:scaleType="centerCrop"
-                android:src="@drawable/avatar"
                 tools:ignore="ContentDescription,HardcodedText" />
         </androidx.cardview.widget.CardView>
         <LinearLayout
@@ -54,7 +53,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/_10sdp"
-                    android:text="Thanh Hang"
                     android:textColor="@color/brown"
                     android:textSize="@dimen/_17ssp"
                     android:textStyle="bold" />
@@ -70,7 +68,6 @@
                     android:id="@+id/friendLastMsg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hi!"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:letterSpacing="0.02"
@@ -81,7 +78,6 @@
                     android:id="@+id/friendLastMsgTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="10:15 AM"
                     android:layout_weight="4"
                     android:textColor="@color/brown"
                     android:textSize="@dimen/_8ssp"

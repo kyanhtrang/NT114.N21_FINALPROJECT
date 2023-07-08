@@ -10,11 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.customerrenting.ChatActivity;
+import com.example.customerrenting.Services.Message.ChatActivity;
 import com.example.customerrenting.Fragments.MainFragments.MessageFragment;
 import com.example.customerrenting.Model.User;
 import com.example.customerrenting.Model.onClickInterface;
-import com.example.customerrenting.Model.onClickUserItem;
 import com.example.customerrenting.R;
 import com.squareup.picasso.Picasso;
 
@@ -85,19 +84,10 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
             String avatarURL = user.getAvatarURL();
             if (avatarURL != null && !avatarURL.isEmpty()) {
-                imgAvt.setVisibility(View.VISIBLE);
                 Picasso.get().load(avatarURL).into(imgAvt);
             } else {
-                imgAvt.setVisibility(View.GONE);
+                user.setAvatarURL("");;
             }
         }
-
-        /*@Override
-        public void onClick(View view) {
-            int position = getAdapterPosition();
-            if (position != RecyclerView.NO_POSITION *//*&& clickInterface != null*//*) {
-                clickInterface.setClick(position);
-            }
-        }*/
     }
 }
