@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.customerrenting.Adapter.PopularAdapter;
 import com.example.customerrenting.Model.Token;
@@ -51,8 +53,14 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView rcvVehical;
     private RecyclerView rcvPopular;
+
     private FirebaseFirestore dtb_token, dtb_user;
     private FirebaseUser firebaseUser;
+
+    private User user = new User();
+    private ImageView imgAvt;
+    private FirebaseFirestore dtb_token;
+
     private onClickInterface onclickInterface;
 
     private TextView showa, title;
@@ -66,7 +74,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
-
         title = view.findViewById(R.id.tvHiName);
 
         dtb_user = FirebaseFirestore.getInstance();
@@ -90,12 +97,16 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
+        imgAvt = view.findViewById(R.id.imgAvatar);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        user.setUserID(firebaseUser.getUid());
+
         dtb_token = FirebaseFirestore.getInstance();
         setRcvVehical();
         setRcvPopular();
         showal();
         getToken();
-
+        getImage();
         return view;
     }
 
@@ -173,6 +184,27 @@ public class HomeFragment extends Fragment {
                 startActivity(i);
             }
         });
+    }
+
+    public void getImage(){
+        dtb_token.collection("Users")
+                .whereEqualTo("userID", user.getUserID())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                user.setAvatarURL(document.getString("avatarURL"));
+                                if (!document.getString("avatarURL").isEmpty()) {
+                                    Picasso.get().load(user.getAvatarURL()).into(imgAvt);
+                                } else {
+                                    user.setAvatarURL("");
+                                }
+                            }
+                        }
+                    }
+                });
     }
 
 }
