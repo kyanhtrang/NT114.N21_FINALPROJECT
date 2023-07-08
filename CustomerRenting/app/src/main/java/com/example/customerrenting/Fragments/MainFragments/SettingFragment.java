@@ -1,4 +1,4 @@
-package com.example.customerrenting.Fragments;
+package com.example.customerrenting.Fragments.MainFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
