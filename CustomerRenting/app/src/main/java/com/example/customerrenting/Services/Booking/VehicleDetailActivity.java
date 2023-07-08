@@ -77,11 +77,11 @@ public class VehicleDetailActivity extends AppCompatActivity {
                         if (task.isSuccessful()){
                             for (QueryDocumentSnapshot document : task.getResult()){
 
-                                vehicle.setSupplier_id(document.get("provider_id").toString());
+                                vehicle.setSupplier_id(document.get("supplier_id").toString());
                                 vehicle.setVehicle_id(document.get("vehicle_id").toString());
                                 vehicle.setVehicle_availability(document.get("vehicle_availability").toString());
 
-                                vehicle.setSupplier_name(document.get("provider_name").toString());
+                                vehicle.setSupplier_name(document.get("supplier_name").toString());
                                 providerName.setText(vehicle.getSupplier_name());
 
                                 vehicle.setVehicle_name(document.get("vehicle_name").toString());

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.customerrenting.Adapter.PopularVehicleAdapter;
@@ -24,6 +25,7 @@ import com.example.customerrenting.Model.VehicleTemplate;
 import com.example.customerrenting.Model.onClickInterface;
 import com.example.customerrenting.R;
 import com.example.customerrenting.Services.UsersManagement.UpdateProfileActivity;
+import com.example.customerrenting.Services.Vehicle.ShowAllVehicleActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,6 +40,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,6 +54,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView rcvPopular;
     private FirebaseFirestore dtb_token;
     private onClickInterface onclickInterface;
+    private TextView showa;
 
     View view;
 
@@ -62,6 +67,7 @@ public class HomeFragment extends Fragment {
         dtb_token = FirebaseFirestore.getInstance();
         setRcvVehical();
         setRcvPopular();
+        showal();
         getToken();
 
         return view;
@@ -79,7 +85,6 @@ public class HomeFragment extends Fragment {
         adapter = new VehicleTemplateAdapter(vehicles);
         rcvVehical.setAdapter(adapter);
     }
-
     private void setRcvPopular() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false);
         rcvPopular = view.findViewById(R.id.rcvPopular);
@@ -100,7 +105,6 @@ public class HomeFragment extends Fragment {
         adapter = new PopularVehicleAdapter(HomeFragment.this ,vehicles, onclickInterface);
         rcvPopular.setAdapter(adapter);
     }
-
     private void getToken() {
         Token token = new Token();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
@@ -136,6 +140,16 @@ public class HomeFragment extends Fragment {
                     public void onSuccess(Void unused) {
                     }
                 });
+            }
+        });
+    }
+    private void showal(){
+        TextView textView = view.findViewById(R.id.txtShowAllVehicle);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), ShowAllVehicleActivity.class);
+                startActivity(i);
             }
         });
     }
