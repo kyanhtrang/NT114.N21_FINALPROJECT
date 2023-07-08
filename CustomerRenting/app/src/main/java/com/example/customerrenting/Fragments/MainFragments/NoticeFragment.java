@@ -37,10 +37,6 @@ public class NoticeFragment extends Fragment {
     String token, idsupplier;
     private FirebaseFirestore dtbVehicle, dtbNoti;
     private Notification notification = new Notification();
-    ArrayList<String> id_supplier = new ArrayList<>();
-
-    private static String SERVER_KEY;
-
 
 
     @Override
