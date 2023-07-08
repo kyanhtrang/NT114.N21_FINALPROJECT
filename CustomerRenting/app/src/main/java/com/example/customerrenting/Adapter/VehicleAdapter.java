@@ -64,10 +64,10 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
         ImageView vehicleImage;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.card_vehicle_name);
-            price = itemView.findViewById(R.id.card_tv_vehicle_price);
-            provider = itemView.findViewById(R.id.card_provider_name);
-            vehicleImage = itemView.findViewById(R.id.card_img_vehicle);
+            name = itemView.findViewById(R.id.vehicle_name);
+            price = itemView.findViewById(R.id.tv_vehicle_price);
+            provider = itemView.findViewById(R.id.provider_name);
+            vehicleImage = itemView.findViewById(R.id.img_vehicle);
         }
 
     }

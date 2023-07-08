@@ -18,7 +18,6 @@ import com.example.customerrenting.Adapter.VehicleAdapter;
 import com.example.customerrenting.MainActivity;
 import com.example.customerrenting.Model.Token;
 import com.example.customerrenting.Model.Vehicle;
-import com.example.customerrenting.Model.VehicleType;
 import com.example.customerrenting.R;
 import com.example.customerrenting.Services.UsersManagement.UpdateProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,7 +39,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.customerrenting.Adapter.PopularVehicleAdapter;
 import com.example.customerrenting.Adapter.VehicleTemplateAdapter;
 import com.example.customerrenting.Model.Token;
 

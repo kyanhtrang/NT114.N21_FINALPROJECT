@@ -11,7 +11,6 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.customerrenting.Adapter.PopularVehicleAdapter;
 import com.example.customerrenting.Adapter.VehicleAdapter;
 import com.example.customerrenting.Model.Vehicle;
 import com.example.customerrenting.Model.onClickInterface;
