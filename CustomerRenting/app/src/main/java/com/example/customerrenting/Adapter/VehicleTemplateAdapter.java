@@ -12,23 +12,23 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.customerrenting.Model.VehicleType;
+import com.example.customerrenting.Model.VehicleTemplate;
 import com.example.customerrenting.R;
 
 import java.util.ArrayList;
 
-public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleViewHolder>{
+public class VehicleTemplateAdapter extends RecyclerView.Adapter<VehicleTemplateAdapter.VehicleViewHolder>{
 
-    ArrayList<VehicleType> vehicles;
+    ArrayList<VehicleTemplate> vehicles;
 
-    public VehicleAdapter(ArrayList<VehicleType> vehicles) {
+    public VehicleTemplateAdapter(ArrayList<VehicleTemplate> vehicles) {
         this.vehicles = vehicles;
     }
 
     @NonNull
     @Override
     public VehicleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_vehical,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_vehicle,parent,false);
         return new VehicleViewHolder(view);
     }
 
@@ -66,13 +66,14 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleV
     }
 
     public class VehicleViewHolder extends RecyclerView.ViewHolder{
-        TextView vehicalName;
+        TextView vehicalName, vehiclePrice;
         ImageView imgVehical;
         ConstraintLayout mainLayout;
         public VehicleViewHolder(@NonNull View itemView) {
             super(itemView);
             vehicalName=itemView.findViewById(R.id.tvVehicalName);
             imgVehical=itemView.findViewById(R.id.imgVehical);
+            vehiclePrice=itemView.findViewById(R.id.tvVehiclePrice);
             mainLayout=itemView.findViewById(R.id.layoutVehical);
         }
     }

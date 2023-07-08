@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.customerrenting.Adapter.PopularVehicleAdapter;
-import com.example.customerrenting.Adapter.VehicleAdapter;
+import com.example.customerrenting.Adapter.VehicleTemplateAdapter;
 import com.example.customerrenting.Model.Vehicle;
-import com.example.customerrenting.Model.VehicleType;
+import com.example.customerrenting.Model.VehicleTemplate;
 import com.example.customerrenting.R;
 
 import java.util.ArrayList;
@@ -42,12 +42,12 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false);
         rcvVehical = view.findViewById(R.id.rcvVehical);
         rcvVehical.setLayoutManager(linearLayoutManager);
-        ArrayList<VehicleType> vehicles = new ArrayList<>();
-        vehicles.add(new VehicleType("Ô tô", "xeoto"));
-        vehicles.add(new VehicleType("Taxi", "taxi"));
-        vehicles.add(new VehicleType("Xe máy", "xemay"));
-        vehicles.add(new VehicleType("Xe đạp", "xedap"));
-        adapter = new VehicleAdapter(vehicles);
+        ArrayList<VehicleTemplate> vehicles = new ArrayList<>();
+        vehicles.add(new VehicleTemplate("Ô tô", "xeoto"));
+        vehicles.add(new VehicleTemplate("Taxi", "taxi"));
+        vehicles.add(new VehicleTemplate("Xe máy", "xemay"));
+        vehicles.add(new VehicleTemplate("Xe đạp", "xedap"));
+        adapter = new VehicleTemplateAdapter(vehicles);
         rcvVehical.setAdapter(adapter);
     }
 
