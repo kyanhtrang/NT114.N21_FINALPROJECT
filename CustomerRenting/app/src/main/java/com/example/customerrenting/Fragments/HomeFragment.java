@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-
 import com.example.customerrenting.Adapter.PopularVehicleAdapter;
 import com.example.customerrenting.Adapter.VehicleTemplateAdapter;
 import com.example.customerrenting.MainActivity;
@@ -87,7 +86,6 @@ public class HomeFragment extends Fragment {
         vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", "", ""));
         vehicles.add(new Vehicle("", "", "", "xe máy", "150000", "", "", "", "", ""));
         adapter = new PopularVehicleAdapter(vehicles);
-
         rcvPopular.setAdapter(adapter);
     }
 
