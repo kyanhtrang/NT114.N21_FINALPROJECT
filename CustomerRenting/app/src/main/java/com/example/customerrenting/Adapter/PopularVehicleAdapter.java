@@ -50,7 +50,7 @@ public class PopularVehicleAdapter extends RecyclerView.Adapter<PopularVehicleAd
         holder.tvVehicleName.setText(popularVehicle.get(position).getVehicle_name());
         holder.tvVehiclePrice.setText(popularVehicle.get(position).getVehicle_price() + "/ngày");
         int drawableResourceID=holder.itemView.getContext().getResources().getIdentifier(popularVehicle.get(position).getVehicle_imageURL(),"drawable",holder.itemView.getContext().getPackageName());
-        Glide.with(holder.itemView.getContext())
+        Glide.with(homeFragment.getActivity())
                 .load(drawableResourceID)
                 .into(holder.imgVehical);
         holder.itemView.findViewById(R.id.tvRent).setOnClickListener(new View.OnClickListener() {

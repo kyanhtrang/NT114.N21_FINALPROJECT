@@ -23,7 +23,7 @@
         android:id="@+id/editTextDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="YYYY/MM/DD"
+        android:text="DD/MM/YYYY"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"

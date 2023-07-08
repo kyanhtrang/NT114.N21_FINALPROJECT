@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.example.customerrenting.Model.Token;
 
 import com.example.customerrenting.Model.Vehicle;
 import com.example.customerrenting.Model.VehicleTemplate;
+import com.example.customerrenting.Model.onClickInterface;
 import com.example.customerrenting.R;
 import com.example.customerrenting.Services.UsersManagement.UpdateProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -47,6 +49,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView rcvVehical;
     private RecyclerView rcvPopular;
     private FirebaseFirestore dtb_token;
+    private onClickInterface onclickInterface;
 
     View view;
 
@@ -60,6 +63,7 @@ public class HomeFragment extends Fragment {
         setRcvVehical();
         setRcvPopular();
         getToken();
+
         return view;
     }
 
@@ -85,7 +89,15 @@ public class HomeFragment extends Fragment {
         vehicles.add(new Vehicle("", "", "", "xe bán tải", "1000000", "", "", "", "", ""));
         vehicles.add(new Vehicle("", "", "", "xe Vision", "200000", "", "", "", "", ""));
         vehicles.add(new Vehicle("", "", "", "xe máy", "150000", "", "", "", "", ""));
-        adapter = new PopularVehicleAdapter(vehicles);
+        onclickInterface = new onClickInterface() {
+            @Override
+            public void setClick(int position) {
+                vehicles.indexOf(position);
+                Log.d("Position: ","Position is " + position);
+                adapter.notifyDataSetChanged();
+            }
+        };
+        adapter = new PopularVehicleAdapter(HomeFragment.this ,vehicles, onclickInterface);
         rcvPopular.setAdapter(adapter);
     }
 

@@ -45,7 +45,11 @@ public class DateToRentActivity extends AppCompatActivity {
                 picker = new DatePickerDialog(DateToRentActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        ngayNhan.setText(i2 + "/" + (i1 + 1) + "/" + i);
+                        String date = "";
+                        if (i2 < 10) date = "0" + i2; else date += i2;
+                        if (i1 < 10) date = date + "/0" + (i1 + 1); else date += i1 + 1;
+                        date += "/" + i;
+                        ngayNhan.setText(date);
                     }
                 }, year, month, day);
                 picker.show();
