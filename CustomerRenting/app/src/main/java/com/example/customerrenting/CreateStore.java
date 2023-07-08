@@ -135,6 +135,7 @@ public class CreateStore extends AppCompatActivity {
             {
                 Map<String, Object> data = new HashMap<>();
                 data.put("haveStore", 1);
+                data.put("storeName", store.getStoreName());
                 userRef.update(data)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
