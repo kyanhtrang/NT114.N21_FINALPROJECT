@@ -3,6 +3,7 @@ package com.example.customerrenting.Fragments.MainFragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,9 +43,12 @@ public class NoticeFragment extends Fragment {
     View view;
     String token;
     private FirebaseFirestore dtbVehicle, dtbNoti;
+    private Notification notification = new Notification();
+
     private RecyclerView rcvNoti;
     private RecyclerView.Adapter adapter;
     ArrayList<Notification> notifications = new ArrayList<>();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,10 +65,12 @@ public class NoticeFragment extends Fragment {
         return view;
     }
 
+
     public void getID(String id_vehicle){
         dtbVehicle.collection("Vehicles")
                 .whereEqualTo("vehicle_id", id_vehicle)
-                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
@@ -87,9 +93,13 @@ public class NoticeFragment extends Fragment {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 token = document.get("token").toString();
-                                sendNoti(token, "Thông báo", "Có đơn hàng mới");
-                                Notification notification = new Notification();
-                                addNoti(id_supplier, "Thông báo", "Có đơn hàng mới", notification);
+                                sendNoti(token, "Thong báo", "Co don hang moi");
+
+                                notification.setId_user(id_supplier);
+                                notification.setTitle("Thong báo");
+                                notification.setBody("Co don hang moi");
+                                addNoti();
+
                             }
                         }
                     }
@@ -105,11 +115,8 @@ public class NoticeFragment extends Fragment {
         );
     }
 
-    public void addNoti(String idsuplier,String title, String body, Notification notification){
-        notification = new Notification();
-        notification.setId_user(idsuplier);
-        notification.setTitle(title);
-        notification.setBody(body);
+    public void addNoti(){
+
        /* FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder().build();
         dtbNoti.setFirestoreSettings(settings);
 

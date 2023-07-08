@@ -23,6 +23,8 @@
         <activity
             android:name=".Services.Booking.VehicleDetailActivity"
             android:exported="false" />
+        <activity android:name=".Services.Booking.ScheduleSelect"
+            android:exported="false"/>
         <activity
             android:name=".Services.Vehicle.ShowAllVehicleActivity"
             android:exported="false" />
