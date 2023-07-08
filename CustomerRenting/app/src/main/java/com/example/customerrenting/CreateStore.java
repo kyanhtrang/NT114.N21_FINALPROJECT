@@ -33,7 +33,6 @@ public class CreateStore extends AppCompatActivity {
 
     private EditText inputName;
     private RadioGroup radioGroup;
-    private RadioButton rSmall, rMedium, rLarge;
     private Button btnCreate;
     private User user = new User();
     private Store store = new Store();
@@ -60,9 +59,6 @@ public class CreateStore extends AppCompatActivity {
         inputName = findViewById(R.id.store_name);
         radioGroup = findViewById(R.id.radioGroup);
         btnCreate = findViewById(R.id.btn_create);
-        rSmall = findViewById(R.id.Small);
-        rMedium = findViewById(R.id.Medium);
-        rLarge = findViewById(R.id.Large);
 
         db = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
