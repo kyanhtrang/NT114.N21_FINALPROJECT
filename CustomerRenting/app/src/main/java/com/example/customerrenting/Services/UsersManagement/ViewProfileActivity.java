@@ -51,6 +51,8 @@ public class ViewProfileActivity extends AppCompatActivity {
     private void init(){
         btnUpdate = findViewById(R.id.btn_update);
         imgAvatar = findViewById(R.id.img_avatar);
+        imgFrontCCCD = findViewById(R.id.img_front_CCCD);
+        imgBehindCCCD = findViewById(R.id.img_behind_CCCD);
         tvName = findViewById(R.id.fullname);
         tvEmail = findViewById(R.id.email);
         tvPhone = findViewById(R.id.phone);
