@@ -43,7 +43,7 @@ public class SupplierVehicleAdapter extends RecyclerView.Adapter<SupplierVehicle
         vehicle = vehicles.get(position);
         holder.name.setText(vehicle.getVehicle_name());
         holder.price.setText(vehicle.getVehicle_price());
-        holder.provider.setText(vehicle.getSuppier_name());
+        holder.provider.setText(vehicle.getSupplier_name());
         Glide.with(supplierHomeFragment.getActivity()).load(vehicle.getVehicle_imageURL()).into(holder.vehicleImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
