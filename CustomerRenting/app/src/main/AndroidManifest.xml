@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +16,9 @@
         android:theme="@style/Theme.CustomerRenting"
         tools:targetApi="31">
         <activity
+            android:name=".Services.Booking.BookingDetail"
+            android:exported="false" />
+        <activity
             android:name=".SupplierActivity"
             android:exported="false" />
         <activity
@@ -23,8 +27,9 @@
         <activity
             android:name=".Services.Booking.VehicleDetailActivity"
             android:exported="false" />
-        <activity android:name=".Services.Booking.ScheduleSelect"
-            android:exported="false"/>
+        <activity
+            android:name=".Services.Booking.ScheduleSelect"
+            android:exported="false" />
         <activity
             android:name=".Services.Vehicle.ShowAllVehicleActivity"
             android:exported="false" />
@@ -78,10 +83,11 @@
             </intent-filter>
             -->
         </activity>
-        <activity android:name=".Services.PushNotifications.PushNotificationService"
+        <activity
+            android:name=".Services.PushNotifications.PushNotificationService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGIN_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGIN_EVENT" />
             </intent-filter>
         </activity>
 

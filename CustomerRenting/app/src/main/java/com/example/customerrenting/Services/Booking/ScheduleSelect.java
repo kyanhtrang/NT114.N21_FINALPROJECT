@@ -130,7 +130,7 @@ public class ScheduleSelect extends AppCompatActivity {
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                toast("Thêm noti thất bại");
+                                                toast("Thêm activity thất bại");
                                             }
                                         });
 
@@ -152,9 +152,7 @@ public class ScheduleSelect extends AppCompatActivity {
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-/*
                                         Toast.makeText(ScheduleSelect.this, "DocumentSnapshot successfully updated!", Toast.LENGTH_LONG).show();
-*/
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
