@@ -185,9 +185,8 @@ public class AddVehicleActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()){
                             for (QueryDocumentSnapshot document : task.getResult()){
-                                getStoreID();
                                 vehicle.setSupplier_id(document.get("userID").toString());
-                                vehicle.setSupplier_name(document.get("fullName").toString());
+                                vehicle.setSupplier_name(document.get("storeName").toString());
                                 vehicle.setSupplier_address(document.get("address").toString() + " " + document.get("city").toString());
                                 vehicle.setSupplier_email(document.get("email").toString());
                                 vehicle.setSupplier_phone(document.get("phoneNumber").toString());
@@ -195,7 +194,6 @@ public class AddVehicleActivity extends AppCompatActivity {
                                 vehicle.setVehicle_name(vehicle_name.getText().toString());
                                 vehicle.setVehicle_seats(vehicle_seats.getText().toString());
                                 vehicle.setVehicle_price(vehicle_price.getText().toString() + " VND");
-                                vehicle.setSupplier_name(user.getUserID());
                                 vehicle.setVehicle_number(vehicle_number.getText().toString());
                                 vehicle.setVehicle_availability("available");
                                 vehicle.setVehicle_imageURL(downloadUrl);
@@ -251,9 +249,4 @@ public class AddVehicleActivity extends AppCompatActivity {
                 });
     }
 
-    public void getStoreID()
-    {
-        dtb_store.collection("Stores")
-                .whereEqualTo("supplierID", user.getUserID())z
-    }
 }
