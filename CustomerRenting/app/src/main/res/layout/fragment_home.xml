@@ -142,7 +142,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvVehical"
+                    android:id="@+id/rcvNoti"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="16dp"
@@ -164,7 +164,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rcvVehical" />
+                    app:layout_constraintTop_toBottomOf="@+id/rcvNoti" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcvPopular"
@@ -193,7 +193,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.908"
                     app:layout_constraintStart_toEndOf="@+id/textView2"
-                    app:layout_constraintTop_toBottomOf="@+id/rcvVehical"
+                    app:layout_constraintTop_toBottomOf="@+id/rcvNoti"
                     app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

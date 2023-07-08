@@ -25,7 +25,7 @@
 
     </androidx.cardview.widget.CardView>
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/tv_titleNoti"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -46,7 +46,7 @@
         android:background="@drawable/green_corner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name">
+        app:layout_constraintTop_toBottomOf="@+id/tv_titleNoti">
 
         <TextView
             android:id="@+id/accountSettings"
