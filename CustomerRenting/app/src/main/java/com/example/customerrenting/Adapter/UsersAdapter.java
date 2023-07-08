@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.customerrenting.ChatActivity;
 import com.example.customerrenting.Fragments.MainFragments.MessageFragment;
 import com.example.customerrenting.Model.User;
+import com.example.customerrenting.Model.onClickInterface;
 import com.example.customerrenting.Model.onClickUserItem;
 import com.example.customerrenting.R;
 import com.squareup.picasso.Picasso;
@@ -22,13 +23,13 @@ import java.util.ArrayList;
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
 
     private ArrayList<User> users;
-    private onClickUserItem listener;
+    private onClickInterface onClickInterface;;
     MessageFragment messageFragment;
-
-    public UsersAdapter(MessageFragment context, ArrayList<User> users, onClickUserItem listener) {
+    User user;
+    public UsersAdapter(MessageFragment context, ArrayList<User> users, onClickInterface onClickInterface) {
         this.messageFragment = context;
         this.users = users;
-        this.listener = listener;
+        this.onClickInterface = onClickInterface;
     }
 
     @NonNull
@@ -41,14 +42,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         holder.bindData(users.get(position));
-
-        User user = new User();
+        final int pos = position;
+        user = users.get(position);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onClickUserItem(new User());
-                //user = users.get(user);
+                onClickInterface.setClick(pos);
+                user = users.get(pos);
                 Intent intent = new Intent(messageFragment.getActivity(), ChatActivity.class);
                 intent.putExtra("userID", user.getUserID());
                 messageFragment.startActivity(intent);

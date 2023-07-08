@@ -48,7 +48,7 @@ public class MessageFragment extends Fragment {
     private ArrayList<User> users;
     private UsersAdapter friendAdapter;
     RecyclerView friendRecyclerView;
-    private onClickUserItem onClickUserItem;
+    private onClickInterface onClickInterface;;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,13 +58,14 @@ public class MessageFragment extends Fragment {
 
         users = new ArrayList<>();
         friendRecyclerView = view.findViewById(R.id.friendRecyclerView);
-        friendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        friendAdapter = new UsersAdapter(MessageFragment.this, users, onClickUserItem);
+        friendRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        friendAdapter = new UsersAdapter(MessageFragment.this, users, onClickInterface);
         friendRecyclerView.setAdapter(friendAdapter);
         getUsers();
-        onClickUserItem = new onClickUserItem() {
+        onClickInterface = new onClickInterface() {
             @Override
-            public void onClickUserItem(User user) {
+            public void setClick(int position) {
+                users.get(position);
                 friendAdapter.notifyDataSetChanged();
             }
         };
