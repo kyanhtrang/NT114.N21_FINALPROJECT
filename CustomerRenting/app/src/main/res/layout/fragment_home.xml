@@ -48,7 +48,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvHiName"
                     app:layout_constraintVertical_bias="0.0" />
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgAvatar"
                     android:layout_width="250px"
                     android:layout_height="250px"

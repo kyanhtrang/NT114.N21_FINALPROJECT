@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
+
 import android.widget.TextView;
 
 import android.widget.Toast;
@@ -33,6 +35,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import com.squareup.picasso.Picasso;
+
+
 public class SettingFragment extends Fragment {
     private View view;
     private TextView  btnProfile, btnSignout, btnChangePassword, btnStore, btnTranfer, title;
@@ -42,6 +47,8 @@ public class SettingFragment extends Fragment {
     private FirebaseFirestore db, dtb_user;
     private User user = new User();
 
+    private ImageView imgAvt;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +57,7 @@ public class SettingFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_setting, container, false);
         db = FirebaseFirestore.getInstance();
         init();
+
 
         title = view.findViewById(R.id.tv_titleNoti);
         dtb_user = FirebaseFirestore.getInstance();
@@ -73,6 +81,9 @@ public class SettingFragment extends Fragment {
                         }
                     }
                 });
+
+        getImage();
+
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,6 +186,7 @@ public class SettingFragment extends Fragment {
 
     public void init()
     {
+        imgAvt = view.findViewById(R.id.profilePic);
         btnSignout = view.findViewById(R.id.logout);
         btnProfile =  view.findViewById(R.id.accountSettings) ;
         btnChangePassword = view.findViewById(R.id.changepassword);
@@ -185,6 +197,27 @@ public class SettingFragment extends Fragment {
         user.setUserID(firebaseUser.getUid());
         userRef = db.collection("Users").document(user.getUserID());
 
+    }
+
+    public void getImage(){
+        db.collection("Users")
+                .whereEqualTo("userID", user.getUserID())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                user.setAvatarURL(document.getString("avatarURL"));
+                                if (!document.getString("avatarURL").isEmpty()) {
+                                    Picasso.get().load(user.getAvatarURL()).into(imgAvt);
+                                } else {
+                                    user.setAvatarURL("");
+                                }
+                            }
+                        }
+                    }
+                });
     }
 
 }
