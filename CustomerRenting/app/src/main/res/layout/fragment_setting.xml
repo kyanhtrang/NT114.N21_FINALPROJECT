@@ -65,6 +65,22 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tranfer"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_lock_change"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:paddingStart="25dp"
+            android:paddingEnd="10dp"
+            android:text="Chuyển đến cửa hàng"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/changepassword"
             android:layout_width="match_parent"
             android:layout_height="70dp"
