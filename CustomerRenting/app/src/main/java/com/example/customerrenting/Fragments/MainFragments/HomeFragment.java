@@ -85,8 +85,7 @@ public class HomeFragment extends Fragment {
                             }
                         }
                         else {
-                            //
-                            Toast.makeText(view.getContext(), "Không thể lấy thông tin", Toast.LENGTH_LONG).show();
+                            // Toast.makeText(view.getContext(), "Không thể lấy thông tin", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

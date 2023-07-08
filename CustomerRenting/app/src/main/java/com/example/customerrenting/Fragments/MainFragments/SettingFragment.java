@@ -51,7 +51,7 @@ public class SettingFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         init();
 
-        title = view.findViewById(R.id.name);
+        title = view.findViewById(R.id.tv_titleNoti);
         dtb_user = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         user.setUserID(firebaseUser.getUid());

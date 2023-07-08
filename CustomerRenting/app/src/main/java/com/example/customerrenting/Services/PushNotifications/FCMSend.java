@@ -3,9 +3,6 @@ package com.example.customerrenting.Services.PushNotifications;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.os.StrictMode;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -14,6 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.customerrenting.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,24 +23,14 @@ public class FCMSend {
     private static String BASA_URL = "https://fcm.googleapis.com/fcm/send";
     private static String SERVER_KEY;
 
-    static {
-        try {
-            // Load the server key from the config.properties file
-            InputStream inputStream = FCMSend.class.getClassLoader().getResourceAsStream("config.properties");
-            Properties properties = new Properties();
-            properties.load(inputStream);
-            SERVER_KEY = properties.getProperty("server_key");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void pushNotification(Context context, String token, String title, String message) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         RequestQueue queue = Volley.newRequestQueue(context);
 
-        try{
+        SERVER_KEY = context.getResources().getString(R.string.server_key);
+
+        try {
             JSONObject json = new JSONObject();
             json.put("to", token);
             JSONObject notification = new JSONObject();
@@ -58,16 +46,14 @@ public class FCMSend {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                 }
-            }
-            ){
+            }) {
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
                     params.put("Context-Type", "application/json");
-                    params.put("Authorization", "key=" + SERVER_KEY);
+                    params.put("Authorization", SERVER_KEY);
                     return params;
                 }
-
             };
             queue.add(jsonObjectRequest);
         } catch (JSONException e) {
