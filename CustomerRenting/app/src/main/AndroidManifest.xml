@@ -22,6 +22,12 @@
             android:name=".Services.Vehicle.UpdateVehicleActivity"
             android:exported="false" />
         <activity
+            android:name=".Services.Booking.VehicleDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Services.Vehicle.ShowAllVehicleActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateStore"
             android:exported="false" />
         <activity

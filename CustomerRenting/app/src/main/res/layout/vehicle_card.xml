@@ -11,7 +11,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/green_round_card"
             android:layout_margin="@dimen/_15sdp">
-
                 <ImageView
                     android:id="@+id/img_vehicle"
                     android:layout_width="match_parent"
@@ -53,6 +52,7 @@
                     tools:ignore="HardcodedText" />
                 <TextView
                     android:id="@+id/tv_vehicle_price"
+
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_27sdp"
                     android:backgroundTint="@color/white"
@@ -65,6 +65,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:background="@drawable/select_button"
+
                     tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

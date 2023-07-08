@@ -4,15 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import android.widget.Toast;
 
 import com.example.customerrenting.Model.User;
+
 import com.example.customerrenting.Services.Authentication.ChangePasswordActivity;
 import com.example.customerrenting.Services.Authentication.LoginActivity;
 import com.example.customerrenting.R;
@@ -44,6 +47,7 @@ public class SettingFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_setting, container, false);
         db = FirebaseFirestore.getInstance();
         init();
+
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { profile(); }
@@ -112,12 +116,14 @@ public class SettingFragment extends Fragment {
                         }
                     }
                 });
+
             }
         });
         return view;
     }
 
     private void createStore() {
+
         Intent intent = new Intent(getActivity(), CreateStore.class);
         startActivity(intent);
     }
@@ -151,4 +157,5 @@ public class SettingFragment extends Fragment {
         userRef = db.collection("Users").document(user.getUserID());
 
     }
+
 }

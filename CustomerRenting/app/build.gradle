@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.2.1'
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
     implementation 'com.google.firebase:firebase-database:20.2.2'
+    implementation fileTree(dir: '..\\app\\src\\main\\java\\com\\example\\customerrenting\\Services\\ZaloPay\\ZPDK', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
 
     testImplementation 'junit:junit:4.13.2'
