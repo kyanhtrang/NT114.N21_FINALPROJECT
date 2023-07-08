@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,10 +44,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class MessageFragment extends Fragment implements onClickUserItem {
+public class MessageFragment extends Fragment {
     private ArrayList<User> users;
     private UsersAdapter friendAdapter;
     RecyclerView friendRecyclerView;
+    private onClickUserItem onClickUserItem;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,9 +59,15 @@ public class MessageFragment extends Fragment implements onClickUserItem {
         users = new ArrayList<>();
         friendRecyclerView = view.findViewById(R.id.friendRecyclerView);
         friendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        friendAdapter = new UsersAdapter(users, this);
+        friendAdapter = new UsersAdapter(MessageFragment.this, users, onClickUserItem);
         friendRecyclerView.setAdapter(friendAdapter);
         getUsers();
+        onClickUserItem = new onClickUserItem() {
+            @Override
+            public void onClickUserItem(User user) {
+                friendAdapter.notifyDataSetChanged();
+            }
+        };
         return view;
     }
 
@@ -89,13 +97,13 @@ public class MessageFragment extends Fragment implements onClickUserItem {
         getActivity().finish();
     }*/
 
-    @Override
+    /*@Override
     public void onClickUserItem(User user) {
         Intent intent = new Intent(getActivity(), ChatActivity.class);
-        /*Bundle bundle = new Bundle();
+        *//*Bundle bundle = new Bundle();
         bundle.putString("hotel_id", mUser.getUserID());
-        intent.putExtras(bundle);*/
+        intent.putExtras(bundle);*//*
         startActivity(intent);
         getActivity().finish();
-    }
+    }*/
 }
