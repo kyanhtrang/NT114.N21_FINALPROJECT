@@ -30,6 +30,12 @@ public class PopularVehicleAdapter extends RecyclerView.Adapter<PopularVehicleAd
         this.popularVehicle = vehivehiclePopulares;
     }
 
+    public PopularVehicleAdapter(HomeFragment context, ArrayList<Vehicle> vehicles, onClickInterface onClickInterface) {
+        this.homeFragment = context;
+        this.popularVehicle = vehicles;
+        this.onClickInterface = onClickInterface;
+    }
+
     @NonNull
     @Override
     public PopularVehicleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,7 +53,7 @@ public class PopularVehicleAdapter extends RecyclerView.Adapter<PopularVehicleAd
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceID)
                 .into(holder.imgVehical);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.findViewById(R.id.tvRent).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onClickInterface.setClick(pos);
@@ -64,12 +70,13 @@ public class PopularVehicleAdapter extends RecyclerView.Adapter<PopularVehicleAd
         return popularVehicle.size();
     }
 
-    public class PopularVehicleViewHolder extends RecyclerView.ViewHolder {
+    public static class PopularVehicleViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvVehicleName;
         ImageView imgVehical;
         ConstraintLayout mainLayout;
         TextView tvVehiclePrice;
+        TextView btnRent;
 
         public PopularVehicleViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,6 +84,7 @@ public class PopularVehicleAdapter extends RecyclerView.Adapter<PopularVehicleAd
             imgVehical=itemView.findViewById(R.id.imgPopularVehicle);
             mainLayout=itemView.findViewById(R.id.layoutPopular);
             tvVehiclePrice=itemView.findViewById(R.id.tvVehiclePrice);
+            btnRent=itemView.findViewById(R.id.tvRent);
         }
     }
 }

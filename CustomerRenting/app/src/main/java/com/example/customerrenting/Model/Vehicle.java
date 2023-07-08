@@ -6,6 +6,16 @@ public class Vehicle {
     String vehicle_imageURL;
 
     public Vehicle() {
+        this.vehicle_id = "";
+        this.supplier_id = "";
+        this.supplier_name = "";
+        this.vehicle_name = "";
+        this.vehicle_price = "";
+        this.vehicle_seats = "";
+        this.vehicle_number = "";
+        this.vehicle_availability = "";
+        this.vehicle_imageURL = "";
+        this.vehicle_type = "";
     }
 
     public Vehicle(String vehicle_id, String supplier_id, String supplier_name, String vehicle_name, String vehicle_price, String vehicle_seats, String vehicle_number, String vehicle_availability, String vehicle_imageURL, String vehicle_type) {
